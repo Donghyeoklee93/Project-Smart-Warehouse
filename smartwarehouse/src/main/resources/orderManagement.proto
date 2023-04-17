@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+//Options for the GRPC
+option java_multiple_files = true;
+option java_package = "grpc.smartWarehouse.orderManagement";
+option java_outer_classname = "OrderManagementServiceImpl";
+
+package smartwarehouse;
+
+
+//Service Definition
+service OrderManagement {
+	rpc orderItem (orderRequest) returns (orderReply){}
+}
+
+
+// Define the messages
+message orderRequest{
+	string customerName = 1;
+	string itemID = 2;
+	string currentQuantities = 3;
+
+}
+
+message orderReply{
+	string orderID = 1;
+	string currentStatus = 2;
+	string success_failureMessage = 3;
+}
