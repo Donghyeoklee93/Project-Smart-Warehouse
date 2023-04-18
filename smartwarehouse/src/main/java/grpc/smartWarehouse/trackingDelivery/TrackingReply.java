@@ -16,9 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private TrackingReply() {
-    orderID_ = "";
-    currentStatus_ = "";
-    successFailureMessage_ = "";
+    deliveryDetail_ = "";
+    currentLocation_ = "";
+    estimatedDeliveryDate_ = "";
   }
 
   @java.lang.Override
@@ -48,19 +48,19 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            orderID_ = s;
+            deliveryDetail_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            currentStatus_ = s;
+            currentLocation_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            successFailureMessage_ = s;
+            estimatedDeliveryDate_ = s;
             break;
           }
           default: {
@@ -95,102 +95,102 @@ private static final long serialVersionUID = 0L;
             grpc.smartWarehouse.trackingDelivery.TrackingReply.class, grpc.smartWarehouse.trackingDelivery.TrackingReply.Builder.class);
   }
 
-  public static final int ORDERID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object orderID_;
+  public static final int DELIVERYDETAIL_FIELD_NUMBER = 1;
+  private volatile java.lang.Object deliveryDetail_;
   /**
-   * <code>string orderID = 1;</code>
+   * <code>string deliveryDetail = 1;</code>
    */
-  public java.lang.String getOrderID() {
-    java.lang.Object ref = orderID_;
+  public java.lang.String getDeliveryDetail() {
+    java.lang.Object ref = deliveryDetail_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      orderID_ = s;
+      deliveryDetail_ = s;
       return s;
     }
   }
   /**
-   * <code>string orderID = 1;</code>
+   * <code>string deliveryDetail = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getOrderIDBytes() {
-    java.lang.Object ref = orderID_;
+      getDeliveryDetailBytes() {
+    java.lang.Object ref = deliveryDetail_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      orderID_ = b;
+      deliveryDetail_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int CURRENTSTATUS_FIELD_NUMBER = 2;
-  private volatile java.lang.Object currentStatus_;
+  public static final int CURRENTLOCATION_FIELD_NUMBER = 2;
+  private volatile java.lang.Object currentLocation_;
   /**
-   * <code>string currentStatus = 2;</code>
+   * <code>string currentLocation = 2;</code>
    */
-  public java.lang.String getCurrentStatus() {
-    java.lang.Object ref = currentStatus_;
+  public java.lang.String getCurrentLocation() {
+    java.lang.Object ref = currentLocation_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      currentStatus_ = s;
+      currentLocation_ = s;
       return s;
     }
   }
   /**
-   * <code>string currentStatus = 2;</code>
+   * <code>string currentLocation = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getCurrentStatusBytes() {
-    java.lang.Object ref = currentStatus_;
+      getCurrentLocationBytes() {
+    java.lang.Object ref = currentLocation_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      currentStatus_ = b;
+      currentLocation_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int SUCCESS_FAILUREMESSAGE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object successFailureMessage_;
+  public static final int ESTIMATEDDELIVERYDATE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object estimatedDeliveryDate_;
   /**
-   * <code>string success_failureMessage = 3;</code>
+   * <code>string estimatedDeliveryDate = 3;</code>
    */
-  public java.lang.String getSuccessFailureMessage() {
-    java.lang.Object ref = successFailureMessage_;
+  public java.lang.String getEstimatedDeliveryDate() {
+    java.lang.Object ref = estimatedDeliveryDate_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      successFailureMessage_ = s;
+      estimatedDeliveryDate_ = s;
       return s;
     }
   }
   /**
-   * <code>string success_failureMessage = 3;</code>
+   * <code>string estimatedDeliveryDate = 3;</code>
    */
   public com.google.protobuf.ByteString
-      getSuccessFailureMessageBytes() {
-    java.lang.Object ref = successFailureMessage_;
+      getEstimatedDeliveryDateBytes() {
+    java.lang.Object ref = estimatedDeliveryDate_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      successFailureMessage_ = b;
+      estimatedDeliveryDate_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -211,14 +211,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getOrderIDBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderID_);
+    if (!getDeliveryDetailBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, deliveryDetail_);
     }
-    if (!getCurrentStatusBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, currentStatus_);
+    if (!getCurrentLocationBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, currentLocation_);
     }
-    if (!getSuccessFailureMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, successFailureMessage_);
+    if (!getEstimatedDeliveryDateBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, estimatedDeliveryDate_);
     }
     unknownFields.writeTo(output);
   }
@@ -229,14 +229,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getOrderIDBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderID_);
+    if (!getDeliveryDetailBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, deliveryDetail_);
     }
-    if (!getCurrentStatusBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, currentStatus_);
+    if (!getCurrentLocationBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, currentLocation_);
     }
-    if (!getSuccessFailureMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, successFailureMessage_);
+    if (!getEstimatedDeliveryDateBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, estimatedDeliveryDate_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -254,12 +254,12 @@ private static final long serialVersionUID = 0L;
     grpc.smartWarehouse.trackingDelivery.TrackingReply other = (grpc.smartWarehouse.trackingDelivery.TrackingReply) obj;
 
     boolean result = true;
-    result = result && getOrderID()
-        .equals(other.getOrderID());
-    result = result && getCurrentStatus()
-        .equals(other.getCurrentStatus());
-    result = result && getSuccessFailureMessage()
-        .equals(other.getSuccessFailureMessage());
+    result = result && getDeliveryDetail()
+        .equals(other.getDeliveryDetail());
+    result = result && getCurrentLocation()
+        .equals(other.getCurrentLocation());
+    result = result && getEstimatedDeliveryDate()
+        .equals(other.getEstimatedDeliveryDate());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -271,12 +271,12 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ORDERID_FIELD_NUMBER;
-    hash = (53 * hash) + getOrderID().hashCode();
-    hash = (37 * hash) + CURRENTSTATUS_FIELD_NUMBER;
-    hash = (53 * hash) + getCurrentStatus().hashCode();
-    hash = (37 * hash) + SUCCESS_FAILUREMESSAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getSuccessFailureMessage().hashCode();
+    hash = (37 * hash) + DELIVERYDETAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getDeliveryDetail().hashCode();
+    hash = (37 * hash) + CURRENTLOCATION_FIELD_NUMBER;
+    hash = (53 * hash) + getCurrentLocation().hashCode();
+    hash = (37 * hash) + ESTIMATEDDELIVERYDATE_FIELD_NUMBER;
+    hash = (53 * hash) + getEstimatedDeliveryDate().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -410,11 +410,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      orderID_ = "";
+      deliveryDetail_ = "";
 
-      currentStatus_ = "";
+      currentLocation_ = "";
 
-      successFailureMessage_ = "";
+      estimatedDeliveryDate_ = "";
 
       return this;
     }
@@ -442,9 +442,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.smartWarehouse.trackingDelivery.TrackingReply buildPartial() {
       grpc.smartWarehouse.trackingDelivery.TrackingReply result = new grpc.smartWarehouse.trackingDelivery.TrackingReply(this);
-      result.orderID_ = orderID_;
-      result.currentStatus_ = currentStatus_;
-      result.successFailureMessage_ = successFailureMessage_;
+      result.deliveryDetail_ = deliveryDetail_;
+      result.currentLocation_ = currentLocation_;
+      result.estimatedDeliveryDate_ = estimatedDeliveryDate_;
       onBuilt();
       return result;
     }
@@ -493,16 +493,16 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.smartWarehouse.trackingDelivery.TrackingReply other) {
       if (other == grpc.smartWarehouse.trackingDelivery.TrackingReply.getDefaultInstance()) return this;
-      if (!other.getOrderID().isEmpty()) {
-        orderID_ = other.orderID_;
+      if (!other.getDeliveryDetail().isEmpty()) {
+        deliveryDetail_ = other.deliveryDetail_;
         onChanged();
       }
-      if (!other.getCurrentStatus().isEmpty()) {
-        currentStatus_ = other.currentStatus_;
+      if (!other.getCurrentLocation().isEmpty()) {
+        currentLocation_ = other.currentLocation_;
         onChanged();
       }
-      if (!other.getSuccessFailureMessage().isEmpty()) {
-        successFailureMessage_ = other.successFailureMessage_;
+      if (!other.getEstimatedDeliveryDate().isEmpty()) {
+        estimatedDeliveryDate_ = other.estimatedDeliveryDate_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -534,209 +534,209 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object orderID_ = "";
+    private java.lang.Object deliveryDetail_ = "";
     /**
-     * <code>string orderID = 1;</code>
+     * <code>string deliveryDetail = 1;</code>
      */
-    public java.lang.String getOrderID() {
-      java.lang.Object ref = orderID_;
+    public java.lang.String getDeliveryDetail() {
+      java.lang.Object ref = deliveryDetail_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        orderID_ = s;
+        deliveryDetail_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string orderID = 1;</code>
+     * <code>string deliveryDetail = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getOrderIDBytes() {
-      java.lang.Object ref = orderID_;
+        getDeliveryDetailBytes() {
+      java.lang.Object ref = deliveryDetail_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        orderID_ = b;
+        deliveryDetail_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string orderID = 1;</code>
+     * <code>string deliveryDetail = 1;</code>
      */
-    public Builder setOrderID(
+    public Builder setDeliveryDetail(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      orderID_ = value;
+      deliveryDetail_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string orderID = 1;</code>
+     * <code>string deliveryDetail = 1;</code>
      */
-    public Builder clearOrderID() {
+    public Builder clearDeliveryDetail() {
       
-      orderID_ = getDefaultInstance().getOrderID();
+      deliveryDetail_ = getDefaultInstance().getDeliveryDetail();
       onChanged();
       return this;
     }
     /**
-     * <code>string orderID = 1;</code>
+     * <code>string deliveryDetail = 1;</code>
      */
-    public Builder setOrderIDBytes(
+    public Builder setDeliveryDetailBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      orderID_ = value;
+      deliveryDetail_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object currentStatus_ = "";
+    private java.lang.Object currentLocation_ = "";
     /**
-     * <code>string currentStatus = 2;</code>
+     * <code>string currentLocation = 2;</code>
      */
-    public java.lang.String getCurrentStatus() {
-      java.lang.Object ref = currentStatus_;
+    public java.lang.String getCurrentLocation() {
+      java.lang.Object ref = currentLocation_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        currentStatus_ = s;
+        currentLocation_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string currentStatus = 2;</code>
+     * <code>string currentLocation = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getCurrentStatusBytes() {
-      java.lang.Object ref = currentStatus_;
+        getCurrentLocationBytes() {
+      java.lang.Object ref = currentLocation_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        currentStatus_ = b;
+        currentLocation_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string currentStatus = 2;</code>
+     * <code>string currentLocation = 2;</code>
      */
-    public Builder setCurrentStatus(
+    public Builder setCurrentLocation(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      currentStatus_ = value;
+      currentLocation_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string currentStatus = 2;</code>
+     * <code>string currentLocation = 2;</code>
      */
-    public Builder clearCurrentStatus() {
+    public Builder clearCurrentLocation() {
       
-      currentStatus_ = getDefaultInstance().getCurrentStatus();
+      currentLocation_ = getDefaultInstance().getCurrentLocation();
       onChanged();
       return this;
     }
     /**
-     * <code>string currentStatus = 2;</code>
+     * <code>string currentLocation = 2;</code>
      */
-    public Builder setCurrentStatusBytes(
+    public Builder setCurrentLocationBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      currentStatus_ = value;
+      currentLocation_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object successFailureMessage_ = "";
+    private java.lang.Object estimatedDeliveryDate_ = "";
     /**
-     * <code>string success_failureMessage = 3;</code>
+     * <code>string estimatedDeliveryDate = 3;</code>
      */
-    public java.lang.String getSuccessFailureMessage() {
-      java.lang.Object ref = successFailureMessage_;
+    public java.lang.String getEstimatedDeliveryDate() {
+      java.lang.Object ref = estimatedDeliveryDate_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        successFailureMessage_ = s;
+        estimatedDeliveryDate_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string success_failureMessage = 3;</code>
+     * <code>string estimatedDeliveryDate = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getSuccessFailureMessageBytes() {
-      java.lang.Object ref = successFailureMessage_;
+        getEstimatedDeliveryDateBytes() {
+      java.lang.Object ref = estimatedDeliveryDate_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        successFailureMessage_ = b;
+        estimatedDeliveryDate_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string success_failureMessage = 3;</code>
+     * <code>string estimatedDeliveryDate = 3;</code>
      */
-    public Builder setSuccessFailureMessage(
+    public Builder setEstimatedDeliveryDate(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      successFailureMessage_ = value;
+      estimatedDeliveryDate_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string success_failureMessage = 3;</code>
+     * <code>string estimatedDeliveryDate = 3;</code>
      */
-    public Builder clearSuccessFailureMessage() {
+    public Builder clearEstimatedDeliveryDate() {
       
-      successFailureMessage_ = getDefaultInstance().getSuccessFailureMessage();
+      estimatedDeliveryDate_ = getDefaultInstance().getEstimatedDeliveryDate();
       onChanged();
       return this;
     }
     /**
-     * <code>string success_failureMessage = 3;</code>
+     * <code>string estimatedDeliveryDate = 3;</code>
      */
-    public Builder setSuccessFailureMessageBytes(
+    public Builder setEstimatedDeliveryDateBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      successFailureMessage_ = value;
+      estimatedDeliveryDate_ = value;
       onChanged();
       return this;
     }

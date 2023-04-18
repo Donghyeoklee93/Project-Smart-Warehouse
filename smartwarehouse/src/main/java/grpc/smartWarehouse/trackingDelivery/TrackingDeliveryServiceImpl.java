@@ -34,15 +34,15 @@ public final class TrackingDeliveryServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\026trackingDelivery.proto\022\016smartwarehouse" +
-      "\"R\n\017TrackingRequest\022\024\n\014customerName\030\001 \001(" +
-      "\t\022\016\n\006itemID\030\002 \001(\t\022\031\n\021currentQuantities\030\003" +
-      " \001(\t\"W\n\rTrackingReply\022\017\n\007orderID\030\001 \001(\t\022\025" +
-      "\n\rcurrentStatus\030\002 \001(\t\022\036\n\026success_failure" +
-      "Message\030\003 \001(\t2c\n\022TrackingManagement\022M\n\tT" +
-      "rackItem\022\037.smartwarehouse.TrackingReques" +
-      "t\032\035.smartwarehouse.TrackingReply\"\000BE\n$gr" +
-      "pc.smartWarehouse.trackingDeliveryB\033Trac" +
-      "kingDeliveryServiceImplP\001b\006proto3"
+      "\"\"\n\017TrackingRequest\022\017\n\007orderID\030\001 \001(\t\"_\n\r" +
+      "TrackingReply\022\026\n\016deliveryDetail\030\001 \001(\t\022\027\n" +
+      "\017currentLocation\030\002 \001(\t\022\035\n\025estimatedDeliv" +
+      "eryDate\030\003 \001(\t2m\n\022TrackingManagement\022W\n\023C" +
+      "heckShippingDetail\022\037.smartwarehouse.Trac" +
+      "kingRequest\032\035.smartwarehouse.TrackingRep" +
+      "ly\"\000BE\n$grpc.smartWarehouse.trackingDeli" +
+      "veryB\033TrackingDeliveryServiceImplP\001b\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -61,13 +61,13 @@ public final class TrackingDeliveryServiceImpl {
     internal_static_smartwarehouse_TrackingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smartwarehouse_TrackingRequest_descriptor,
-        new java.lang.String[] { "CustomerName", "ItemID", "CurrentQuantities", });
+        new java.lang.String[] { "OrderID", });
     internal_static_smartwarehouse_TrackingReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_smartwarehouse_TrackingReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smartwarehouse_TrackingReply_descriptor,
-        new java.lang.String[] { "OrderID", "CurrentStatus", "SuccessFailureMessage", });
+        new java.lang.String[] { "DeliveryDetail", "CurrentLocation", "EstimatedDeliveryDate", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

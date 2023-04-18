@@ -20,9 +20,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private TrackingRequest() {
-    customerName_ = "";
-    itemID_ = "";
-    currentQuantities_ = "";
+    orderID_ = "";
   }
 
   @java.lang.Override
@@ -52,19 +50,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            customerName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            itemID_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            currentQuantities_ = s;
+            orderID_ = s;
             break;
           }
           default: {
@@ -99,102 +85,34 @@ private static final long serialVersionUID = 0L;
             grpc.smartWarehouse.trackingDelivery.TrackingRequest.class, grpc.smartWarehouse.trackingDelivery.TrackingRequest.Builder.class);
   }
 
-  public static final int CUSTOMERNAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object customerName_;
+  public static final int ORDERID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object orderID_;
   /**
-   * <code>string customerName = 1;</code>
+   * <code>string orderID = 1;</code>
    */
-  public java.lang.String getCustomerName() {
-    java.lang.Object ref = customerName_;
+  public java.lang.String getOrderID() {
+    java.lang.Object ref = orderID_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      customerName_ = s;
+      orderID_ = s;
       return s;
     }
   }
   /**
-   * <code>string customerName = 1;</code>
+   * <code>string orderID = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getCustomerNameBytes() {
-    java.lang.Object ref = customerName_;
+      getOrderIDBytes() {
+    java.lang.Object ref = orderID_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      customerName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ITEMID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object itemID_;
-  /**
-   * <code>string itemID = 2;</code>
-   */
-  public java.lang.String getItemID() {
-    java.lang.Object ref = itemID_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      itemID_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string itemID = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getItemIDBytes() {
-    java.lang.Object ref = itemID_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      itemID_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CURRENTQUANTITIES_FIELD_NUMBER = 3;
-  private volatile java.lang.Object currentQuantities_;
-  /**
-   * <code>string currentQuantities = 3;</code>
-   */
-  public java.lang.String getCurrentQuantities() {
-    java.lang.Object ref = currentQuantities_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      currentQuantities_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string currentQuantities = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getCurrentQuantitiesBytes() {
-    java.lang.Object ref = currentQuantities_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      currentQuantities_ = b;
+      orderID_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -215,14 +133,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getCustomerNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, customerName_);
-    }
-    if (!getItemIDBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, itemID_);
-    }
-    if (!getCurrentQuantitiesBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, currentQuantities_);
+    if (!getOrderIDBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderID_);
     }
     unknownFields.writeTo(output);
   }
@@ -233,14 +145,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getCustomerNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, customerName_);
-    }
-    if (!getItemIDBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, itemID_);
-    }
-    if (!getCurrentQuantitiesBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, currentQuantities_);
+    if (!getOrderIDBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderID_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -258,12 +164,8 @@ private static final long serialVersionUID = 0L;
     grpc.smartWarehouse.trackingDelivery.TrackingRequest other = (grpc.smartWarehouse.trackingDelivery.TrackingRequest) obj;
 
     boolean result = true;
-    result = result && getCustomerName()
-        .equals(other.getCustomerName());
-    result = result && getItemID()
-        .equals(other.getItemID());
-    result = result && getCurrentQuantities()
-        .equals(other.getCurrentQuantities());
+    result = result && getOrderID()
+        .equals(other.getOrderID());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -275,12 +177,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + CUSTOMERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getCustomerName().hashCode();
-    hash = (37 * hash) + ITEMID_FIELD_NUMBER;
-    hash = (53 * hash) + getItemID().hashCode();
-    hash = (37 * hash) + CURRENTQUANTITIES_FIELD_NUMBER;
-    hash = (53 * hash) + getCurrentQuantities().hashCode();
+    hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+    hash = (53 * hash) + getOrderID().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -418,11 +316,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      customerName_ = "";
-
-      itemID_ = "";
-
-      currentQuantities_ = "";
+      orderID_ = "";
 
       return this;
     }
@@ -450,9 +344,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.smartWarehouse.trackingDelivery.TrackingRequest buildPartial() {
       grpc.smartWarehouse.trackingDelivery.TrackingRequest result = new grpc.smartWarehouse.trackingDelivery.TrackingRequest(this);
-      result.customerName_ = customerName_;
-      result.itemID_ = itemID_;
-      result.currentQuantities_ = currentQuantities_;
+      result.orderID_ = orderID_;
       onBuilt();
       return result;
     }
@@ -501,16 +393,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.smartWarehouse.trackingDelivery.TrackingRequest other) {
       if (other == grpc.smartWarehouse.trackingDelivery.TrackingRequest.getDefaultInstance()) return this;
-      if (!other.getCustomerName().isEmpty()) {
-        customerName_ = other.customerName_;
-        onChanged();
-      }
-      if (!other.getItemID().isEmpty()) {
-        itemID_ = other.itemID_;
-        onChanged();
-      }
-      if (!other.getCurrentQuantities().isEmpty()) {
-        currentQuantities_ = other.currentQuantities_;
+      if (!other.getOrderID().isEmpty()) {
+        orderID_ = other.orderID_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -542,209 +426,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object customerName_ = "";
+    private java.lang.Object orderID_ = "";
     /**
-     * <code>string customerName = 1;</code>
+     * <code>string orderID = 1;</code>
      */
-    public java.lang.String getCustomerName() {
-      java.lang.Object ref = customerName_;
+    public java.lang.String getOrderID() {
+      java.lang.Object ref = orderID_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        customerName_ = s;
+        orderID_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string customerName = 1;</code>
+     * <code>string orderID = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getCustomerNameBytes() {
-      java.lang.Object ref = customerName_;
+        getOrderIDBytes() {
+      java.lang.Object ref = orderID_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        customerName_ = b;
+        orderID_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string customerName = 1;</code>
+     * <code>string orderID = 1;</code>
      */
-    public Builder setCustomerName(
+    public Builder setOrderID(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      customerName_ = value;
+      orderID_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string customerName = 1;</code>
+     * <code>string orderID = 1;</code>
      */
-    public Builder clearCustomerName() {
+    public Builder clearOrderID() {
       
-      customerName_ = getDefaultInstance().getCustomerName();
+      orderID_ = getDefaultInstance().getOrderID();
       onChanged();
       return this;
     }
     /**
-     * <code>string customerName = 1;</code>
+     * <code>string orderID = 1;</code>
      */
-    public Builder setCustomerNameBytes(
+    public Builder setOrderIDBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      customerName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object itemID_ = "";
-    /**
-     * <code>string itemID = 2;</code>
-     */
-    public java.lang.String getItemID() {
-      java.lang.Object ref = itemID_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        itemID_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string itemID = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getItemIDBytes() {
-      java.lang.Object ref = itemID_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        itemID_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string itemID = 2;</code>
-     */
-    public Builder setItemID(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      itemID_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string itemID = 2;</code>
-     */
-    public Builder clearItemID() {
-      
-      itemID_ = getDefaultInstance().getItemID();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string itemID = 2;</code>
-     */
-    public Builder setItemIDBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      itemID_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object currentQuantities_ = "";
-    /**
-     * <code>string currentQuantities = 3;</code>
-     */
-    public java.lang.String getCurrentQuantities() {
-      java.lang.Object ref = currentQuantities_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        currentQuantities_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string currentQuantities = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCurrentQuantitiesBytes() {
-      java.lang.Object ref = currentQuantities_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        currentQuantities_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string currentQuantities = 3;</code>
-     */
-    public Builder setCurrentQuantities(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      currentQuantities_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string currentQuantities = 3;</code>
-     */
-    public Builder clearCurrentQuantities() {
-      
-      currentQuantities_ = getDefaultInstance().getCurrentQuantities();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string currentQuantities = 3;</code>
-     */
-    public Builder setCurrentQuantitiesBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      currentQuantities_ = value;
+      orderID_ = value;
       onChanged();
       return this;
     }

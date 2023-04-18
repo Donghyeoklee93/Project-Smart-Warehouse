@@ -8,32 +8,32 @@ public interface TrackingReplyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string orderID = 1;</code>
+   * <code>string deliveryDetail = 1;</code>
    */
-  java.lang.String getOrderID();
+  java.lang.String getDeliveryDetail();
   /**
-   * <code>string orderID = 1;</code>
+   * <code>string deliveryDetail = 1;</code>
    */
   com.google.protobuf.ByteString
-      getOrderIDBytes();
+      getDeliveryDetailBytes();
 
   /**
-   * <code>string currentStatus = 2;</code>
+   * <code>string currentLocation = 2;</code>
    */
-  java.lang.String getCurrentStatus();
+  java.lang.String getCurrentLocation();
   /**
-   * <code>string currentStatus = 2;</code>
+   * <code>string currentLocation = 2;</code>
    */
   com.google.protobuf.ByteString
-      getCurrentStatusBytes();
+      getCurrentLocationBytes();
 
   /**
-   * <code>string success_failureMessage = 3;</code>
+   * <code>string estimatedDeliveryDate = 3;</code>
    */
-  java.lang.String getSuccessFailureMessage();
+  java.lang.String getEstimatedDeliveryDate();
   /**
-   * <code>string success_failureMessage = 3;</code>
+   * <code>string estimatedDeliveryDate = 3;</code>
    */
   com.google.protobuf.ByteString
-      getSuccessFailureMessageBytes();
+      getEstimatedDeliveryDateBytes();
 }
