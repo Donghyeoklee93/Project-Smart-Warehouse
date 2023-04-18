@@ -13,36 +13,38 @@ public class InventoryManagementServer extends InventoryManagementImplBase{
 		InventoryManagementServer inventoryManagementServer = new InventoryManagementServer();
 		int port = 50051;
 		
-		Server server;
 		try {
-			server = ServerBuilder.forPort(port).addService(inventoryManagementServer).build().start();
+			Server server = ServerBuilder.forPort(port).addService(inventoryManagementServer).build().start();
 			System.out.println("Server started....");
 			server.awaitTermination();
 		} catch (IOException | InterruptedException e) {
-
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+		
 	}
 
 	@Override
 	public void checkItem(CheckItemRequest request, StreamObserver<CheckItemReply> responseObserver) {
 		// TODO Auto-generated method stub
-
-		System.out.println("--- Receving Checking Item Request from client ---");
+		System.out.println("--- Receiving Check Item Request from Client ---");
 		
-		// Logic of code
-		String myTest = "3";
-//		String myTest = "3" + " - " + request.getItemID();
-		//
+		
+		//Logic Code
+		String myTest = "The quantities of" + request.getItemID() + " is " + " 39. ";
+		
+		//Logic
+		
 		
 		CheckItemReply reply = CheckItemReply.newBuilder().setCurrentQuantities(myTest).build();
 		
 		responseObserver.onNext(reply);
 		responseObserver.onCompleted();
+		
+		
 	}
 	
 	
 	
-
+	
 }

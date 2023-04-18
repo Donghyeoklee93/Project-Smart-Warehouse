@@ -30,31 +30,31 @@ public final class OrderManagementGrpc {
   public static final String SERVICE_NAME = "smartwarehouse.OrderManagement";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.orderRequest,
-      grpc.smartWarehouse.orderManagement.orderReply> getOrderItemMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest,
+      grpc.smartWarehouse.orderManagement.OrderReply> getOrderItemMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "orderItem",
-      requestType = grpc.smartWarehouse.orderManagement.orderRequest.class,
-      responseType = grpc.smartWarehouse.orderManagement.orderReply.class,
+      fullMethodName = SERVICE_NAME + '/' + "OrderItem",
+      requestType = grpc.smartWarehouse.orderManagement.OrderRequest.class,
+      responseType = grpc.smartWarehouse.orderManagement.OrderReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.orderRequest,
-      grpc.smartWarehouse.orderManagement.orderReply> getOrderItemMethod() {
-    io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.orderRequest, grpc.smartWarehouse.orderManagement.orderReply> getOrderItemMethod;
+  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest,
+      grpc.smartWarehouse.orderManagement.OrderReply> getOrderItemMethod() {
+    io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest, grpc.smartWarehouse.orderManagement.OrderReply> getOrderItemMethod;
     if ((getOrderItemMethod = OrderManagementGrpc.getOrderItemMethod) == null) {
       synchronized (OrderManagementGrpc.class) {
         if ((getOrderItemMethod = OrderManagementGrpc.getOrderItemMethod) == null) {
           OrderManagementGrpc.getOrderItemMethod = getOrderItemMethod = 
-              io.grpc.MethodDescriptor.<grpc.smartWarehouse.orderManagement.orderRequest, grpc.smartWarehouse.orderManagement.orderReply>newBuilder()
+              io.grpc.MethodDescriptor.<grpc.smartWarehouse.orderManagement.OrderRequest, grpc.smartWarehouse.orderManagement.OrderReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "smartwarehouse.OrderManagement", "orderItem"))
+                  "smartwarehouse.OrderManagement", "OrderItem"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.smartWarehouse.orderManagement.orderRequest.getDefaultInstance()))
+                  grpc.smartWarehouse.orderManagement.OrderRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.smartWarehouse.orderManagement.orderReply.getDefaultInstance()))
-                  .setSchemaDescriptor(new OrderManagementMethodDescriptorSupplier("orderItem"))
+                  grpc.smartWarehouse.orderManagement.OrderReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new OrderManagementMethodDescriptorSupplier("OrderItem"))
                   .build();
           }
         }
@@ -94,8 +94,8 @@ public final class OrderManagementGrpc {
 
     /**
      */
-    public void orderItem(grpc.smartWarehouse.orderManagement.orderRequest request,
-        io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.orderReply> responseObserver) {
+    public void orderItem(grpc.smartWarehouse.orderManagement.OrderRequest request,
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply> responseObserver) {
       asyncUnimplementedUnaryCall(getOrderItemMethod(), responseObserver);
     }
 
@@ -105,8 +105,8 @@ public final class OrderManagementGrpc {
             getOrderItemMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                grpc.smartWarehouse.orderManagement.orderRequest,
-                grpc.smartWarehouse.orderManagement.orderReply>(
+                grpc.smartWarehouse.orderManagement.OrderRequest,
+                grpc.smartWarehouse.orderManagement.OrderReply>(
                   this, METHODID_ORDER_ITEM)))
           .build();
     }
@@ -135,8 +135,8 @@ public final class OrderManagementGrpc {
 
     /**
      */
-    public void orderItem(grpc.smartWarehouse.orderManagement.orderRequest request,
-        io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.orderReply> responseObserver) {
+    public void orderItem(grpc.smartWarehouse.orderManagement.OrderRequest request,
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getOrderItemMethod(), getCallOptions()), request, responseObserver);
     }
@@ -165,7 +165,7 @@ public final class OrderManagementGrpc {
 
     /**
      */
-    public grpc.smartWarehouse.orderManagement.orderReply orderItem(grpc.smartWarehouse.orderManagement.orderRequest request) {
+    public grpc.smartWarehouse.orderManagement.OrderReply orderItem(grpc.smartWarehouse.orderManagement.OrderRequest request) {
       return blockingUnaryCall(
           getChannel(), getOrderItemMethod(), getCallOptions(), request);
     }
@@ -194,8 +194,8 @@ public final class OrderManagementGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.orderManagement.orderReply> orderItem(
-        grpc.smartWarehouse.orderManagement.orderRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.orderManagement.OrderReply> orderItem(
+        grpc.smartWarehouse.orderManagement.OrderRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getOrderItemMethod(), getCallOptions()), request);
     }
@@ -221,8 +221,8 @@ public final class OrderManagementGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_ORDER_ITEM:
-          serviceImpl.orderItem((grpc.smartWarehouse.orderManagement.orderRequest) request,
-              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.orderReply>) responseObserver);
+          serviceImpl.orderItem((grpc.smartWarehouse.orderManagement.OrderRequest) request,
+              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply>) responseObserver);
           break;
         default:
           throw new AssertionError();

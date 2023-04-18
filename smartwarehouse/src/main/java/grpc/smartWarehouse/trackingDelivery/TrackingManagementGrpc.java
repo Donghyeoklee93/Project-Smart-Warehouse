@@ -30,31 +30,31 @@ public final class TrackingManagementGrpc {
   public static final String SERVICE_NAME = "smartwarehouse.TrackingManagement";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.trackingRequest,
-      grpc.smartWarehouse.trackingDelivery.trackingReply> getTrackItemMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.TrackingRequest,
+      grpc.smartWarehouse.trackingDelivery.TrackingReply> getTrackItemMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "trackItem",
-      requestType = grpc.smartWarehouse.trackingDelivery.trackingRequest.class,
-      responseType = grpc.smartWarehouse.trackingDelivery.trackingReply.class,
+      fullMethodName = SERVICE_NAME + '/' + "TrackItem",
+      requestType = grpc.smartWarehouse.trackingDelivery.TrackingRequest.class,
+      responseType = grpc.smartWarehouse.trackingDelivery.TrackingReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.trackingRequest,
-      grpc.smartWarehouse.trackingDelivery.trackingReply> getTrackItemMethod() {
-    io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.trackingRequest, grpc.smartWarehouse.trackingDelivery.trackingReply> getTrackItemMethod;
+  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.TrackingRequest,
+      grpc.smartWarehouse.trackingDelivery.TrackingReply> getTrackItemMethod() {
+    io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.TrackingRequest, grpc.smartWarehouse.trackingDelivery.TrackingReply> getTrackItemMethod;
     if ((getTrackItemMethod = TrackingManagementGrpc.getTrackItemMethod) == null) {
       synchronized (TrackingManagementGrpc.class) {
         if ((getTrackItemMethod = TrackingManagementGrpc.getTrackItemMethod) == null) {
           TrackingManagementGrpc.getTrackItemMethod = getTrackItemMethod = 
-              io.grpc.MethodDescriptor.<grpc.smartWarehouse.trackingDelivery.trackingRequest, grpc.smartWarehouse.trackingDelivery.trackingReply>newBuilder()
+              io.grpc.MethodDescriptor.<grpc.smartWarehouse.trackingDelivery.TrackingRequest, grpc.smartWarehouse.trackingDelivery.TrackingReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "smartwarehouse.TrackingManagement", "trackItem"))
+                  "smartwarehouse.TrackingManagement", "TrackItem"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.smartWarehouse.trackingDelivery.trackingRequest.getDefaultInstance()))
+                  grpc.smartWarehouse.trackingDelivery.TrackingRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.smartWarehouse.trackingDelivery.trackingReply.getDefaultInstance()))
-                  .setSchemaDescriptor(new TrackingManagementMethodDescriptorSupplier("trackItem"))
+                  grpc.smartWarehouse.trackingDelivery.TrackingReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new TrackingManagementMethodDescriptorSupplier("TrackItem"))
                   .build();
           }
         }
@@ -94,8 +94,8 @@ public final class TrackingManagementGrpc {
 
     /**
      */
-    public void trackItem(grpc.smartWarehouse.trackingDelivery.trackingRequest request,
-        io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.trackingReply> responseObserver) {
+    public void trackItem(grpc.smartWarehouse.trackingDelivery.TrackingRequest request,
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingReply> responseObserver) {
       asyncUnimplementedUnaryCall(getTrackItemMethod(), responseObserver);
     }
 
@@ -105,8 +105,8 @@ public final class TrackingManagementGrpc {
             getTrackItemMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                grpc.smartWarehouse.trackingDelivery.trackingRequest,
-                grpc.smartWarehouse.trackingDelivery.trackingReply>(
+                grpc.smartWarehouse.trackingDelivery.TrackingRequest,
+                grpc.smartWarehouse.trackingDelivery.TrackingReply>(
                   this, METHODID_TRACK_ITEM)))
           .build();
     }
@@ -135,8 +135,8 @@ public final class TrackingManagementGrpc {
 
     /**
      */
-    public void trackItem(grpc.smartWarehouse.trackingDelivery.trackingRequest request,
-        io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.trackingReply> responseObserver) {
+    public void trackItem(grpc.smartWarehouse.trackingDelivery.TrackingRequest request,
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getTrackItemMethod(), getCallOptions()), request, responseObserver);
     }
@@ -165,7 +165,7 @@ public final class TrackingManagementGrpc {
 
     /**
      */
-    public grpc.smartWarehouse.trackingDelivery.trackingReply trackItem(grpc.smartWarehouse.trackingDelivery.trackingRequest request) {
+    public grpc.smartWarehouse.trackingDelivery.TrackingReply trackItem(grpc.smartWarehouse.trackingDelivery.TrackingRequest request) {
       return blockingUnaryCall(
           getChannel(), getTrackItemMethod(), getCallOptions(), request);
     }
@@ -194,8 +194,8 @@ public final class TrackingManagementGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.trackingDelivery.trackingReply> trackItem(
-        grpc.smartWarehouse.trackingDelivery.trackingRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.trackingDelivery.TrackingReply> trackItem(
+        grpc.smartWarehouse.trackingDelivery.TrackingRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getTrackItemMethod(), getCallOptions()), request);
     }
@@ -221,8 +221,8 @@ public final class TrackingManagementGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_TRACK_ITEM:
-          serviceImpl.trackItem((grpc.smartWarehouse.trackingDelivery.trackingRequest) request,
-              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.trackingReply>) responseObserver);
+          serviceImpl.trackItem((grpc.smartWarehouse.trackingDelivery.TrackingRequest) request,
+              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingReply>) responseObserver);
           break;
         default:
           throw new AssertionError();

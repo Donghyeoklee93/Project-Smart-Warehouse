@@ -15,15 +15,15 @@ public final class TrackingDeliveryServiceImpl {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smartwarehouse_trackingRequest_descriptor;
+    internal_static_smartwarehouse_TrackingRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smartwarehouse_trackingRequest_fieldAccessorTable;
+      internal_static_smartwarehouse_TrackingRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smartwarehouse_trackingReply_descriptor;
+    internal_static_smartwarehouse_TrackingReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smartwarehouse_trackingReply_fieldAccessorTable;
+      internal_static_smartwarehouse_TrackingReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,13 +34,13 @@ public final class TrackingDeliveryServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\026trackingDelivery.proto\022\016smartwarehouse" +
-      "\"R\n\017trackingRequest\022\024\n\014customerName\030\001 \001(" +
+      "\"R\n\017TrackingRequest\022\024\n\014customerName\030\001 \001(" +
       "\t\022\016\n\006itemID\030\002 \001(\t\022\031\n\021currentQuantities\030\003" +
-      " \001(\t\"W\n\rtrackingReply\022\017\n\007orderID\030\001 \001(\t\022\025" +
+      " \001(\t\"W\n\rTrackingReply\022\017\n\007orderID\030\001 \001(\t\022\025" +
       "\n\rcurrentStatus\030\002 \001(\t\022\036\n\026success_failure" +
-      "Message\030\003 \001(\t2c\n\022TrackingManagement\022M\n\tt" +
-      "rackItem\022\037.smartwarehouse.trackingReques" +
-      "t\032\035.smartwarehouse.trackingReply\"\000BE\n$gr" +
+      "Message\030\003 \001(\t2c\n\022TrackingManagement\022M\n\tT" +
+      "rackItem\022\037.smartwarehouse.TrackingReques" +
+      "t\032\035.smartwarehouse.TrackingReply\"\000BE\n$gr" +
       "pc.smartWarehouse.trackingDeliveryB\033Trac" +
       "kingDeliveryServiceImplP\001b\006proto3"
     };
@@ -56,17 +56,17 @@ public final class TrackingDeliveryServiceImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_smartwarehouse_trackingRequest_descriptor =
+    internal_static_smartwarehouse_TrackingRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_smartwarehouse_trackingRequest_fieldAccessorTable = new
+    internal_static_smartwarehouse_TrackingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smartwarehouse_trackingRequest_descriptor,
+        internal_static_smartwarehouse_TrackingRequest_descriptor,
         new java.lang.String[] { "CustomerName", "ItemID", "CurrentQuantities", });
-    internal_static_smartwarehouse_trackingReply_descriptor =
+    internal_static_smartwarehouse_TrackingReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_smartwarehouse_trackingReply_fieldAccessorTable = new
+    internal_static_smartwarehouse_TrackingReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smartwarehouse_trackingReply_descriptor,
+        internal_static_smartwarehouse_TrackingReply_descriptor,
         new java.lang.String[] { "OrderID", "CurrentStatus", "SuccessFailureMessage", });
   }
 

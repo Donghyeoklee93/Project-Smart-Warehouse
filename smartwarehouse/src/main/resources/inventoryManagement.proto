@@ -10,15 +10,15 @@ package smartwarehouse;
 
 //Service Definition
 service InventoryManagement {
-	rpc checkItem (checkItemRequest) returns (checkItemReply){}
+	rpc checkItem (CheckItemRequest) returns (CheckItemReply){}
 }
 
 
 // Define the messages
-message checkItemRequest{
+message CheckItemRequest{
 	string itemID = 1;
 }
 
-message checkItemReply{
+message CheckItemReply{
 	string currentQuantities = 1;
 }

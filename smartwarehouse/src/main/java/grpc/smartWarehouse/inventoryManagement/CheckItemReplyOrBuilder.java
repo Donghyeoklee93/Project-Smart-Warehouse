@@ -4,7 +4,7 @@
 package grpc.smartWarehouse.inventoryManagement;
 
 public interface CheckItemReplyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:smartwarehouse.checkItemReply)
+    // @@protoc_insertion_point(interface_extends:smartwarehouse.CheckItemReply)
     com.google.protobuf.MessageOrBuilder {
 
   /**

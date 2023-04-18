@@ -10,19 +10,19 @@ package smartwarehouse;
 
 //Service Definition
 service OrderManagement {
-	rpc orderItem (orderRequest) returns (orderReply){}
+	rpc OrderItem (OrderRequest) returns (OrderReply){}
 }
 
 
 // Define the messages
-message orderRequest{
+message OrderRequest{
 	string customerName = 1;
 	string itemID = 2;
 	string currentQuantities = 3;
 
 }
 
-message orderReply{
+message OrderReply{
 	string orderID = 1;
 	string currentStatus = 2;
 	string success_failureMessage = 3;

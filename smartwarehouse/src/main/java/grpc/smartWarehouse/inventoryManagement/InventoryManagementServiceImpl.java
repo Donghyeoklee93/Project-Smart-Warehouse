@@ -15,15 +15,15 @@ public final class InventoryManagementServiceImpl {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smartwarehouse_checkItemRequest_descriptor;
+    internal_static_smartwarehouse_CheckItemRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smartwarehouse_checkItemRequest_fieldAccessorTable;
+      internal_static_smartwarehouse_CheckItemRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smartwarehouse_checkItemReply_descriptor;
+    internal_static_smartwarehouse_CheckItemReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smartwarehouse_checkItemReply_fieldAccessorTable;
+      internal_static_smartwarehouse_CheckItemReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,11 +34,11 @@ public final class InventoryManagementServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\031inventoryManagement.proto\022\016smartwareho" +
-      "use\"\"\n\020checkItemRequest\022\016\n\006itemID\030\001 \001(\t\"" +
-      "+\n\016checkItemReply\022\031\n\021currentQuantities\030\001" +
+      "use\"\"\n\020CheckItemRequest\022\016\n\006itemID\030\001 \001(\t\"" +
+      "+\n\016CheckItemReply\022\031\n\021currentQuantities\030\001" +
       " \001(\t2f\n\023InventoryManagement\022O\n\tcheckItem" +
-      "\022 .smartwarehouse.checkItemRequest\032\036.sma" +
-      "rtwarehouse.checkItemReply\"\000BK\n\'grpc.sma" +
+      "\022 .smartwarehouse.CheckItemRequest\032\036.sma" +
+      "rtwarehouse.CheckItemReply\"\000BK\n\'grpc.sma" +
       "rtWarehouse.inventoryManagementB\036Invento" +
       "ryManagementServiceImplP\001b\006proto3"
     };
@@ -54,17 +54,17 @@ public final class InventoryManagementServiceImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_smartwarehouse_checkItemRequest_descriptor =
+    internal_static_smartwarehouse_CheckItemRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_smartwarehouse_checkItemRequest_fieldAccessorTable = new
+    internal_static_smartwarehouse_CheckItemRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smartwarehouse_checkItemRequest_descriptor,
+        internal_static_smartwarehouse_CheckItemRequest_descriptor,
         new java.lang.String[] { "ItemID", });
-    internal_static_smartwarehouse_checkItemReply_descriptor =
+    internal_static_smartwarehouse_CheckItemReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_smartwarehouse_checkItemReply_fieldAccessorTable = new
+    internal_static_smartwarehouse_CheckItemReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smartwarehouse_checkItemReply_descriptor,
+        internal_static_smartwarehouse_CheckItemReply_descriptor,
         new java.lang.String[] { "CurrentQuantities", });
   }
 

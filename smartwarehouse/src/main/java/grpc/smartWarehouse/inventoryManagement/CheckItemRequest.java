@@ -8,11 +8,11 @@ package grpc.smartWarehouse.inventoryManagement;
  * Define the messages
  * </pre>
  *
- * Protobuf type {@code smartwarehouse.checkItemRequest}
+ * Protobuf type {@code smartwarehouse.CheckItemRequest}
  */
 public  final class CheckItemRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:smartwarehouse.checkItemRequest)
+    // @@protoc_insertion_point(message_implements:smartwarehouse.CheckItemRequest)
     CheckItemRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use CheckItemRequest.newBuilder() to construct.
@@ -74,13 +74,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_checkItemRequest_descriptor;
+    return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_CheckItemRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_checkItemRequest_fieldAccessorTable
+    return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_CheckItemRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             grpc.smartWarehouse.inventoryManagement.CheckItemRequest.class, grpc.smartWarehouse.inventoryManagement.CheckItemRequest.Builder.class);
   }
@@ -279,21 +279,21 @@ private static final long serialVersionUID = 0L;
    * Define the messages
    * </pre>
    *
-   * Protobuf type {@code smartwarehouse.checkItemRequest}
+   * Protobuf type {@code smartwarehouse.CheckItemRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:smartwarehouse.checkItemRequest)
+      // @@protoc_insertion_point(builder_implements:smartwarehouse.CheckItemRequest)
       grpc.smartWarehouse.inventoryManagement.CheckItemRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_checkItemRequest_descriptor;
+      return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_CheckItemRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_checkItemRequest_fieldAccessorTable
+      return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_CheckItemRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               grpc.smartWarehouse.inventoryManagement.CheckItemRequest.class, grpc.smartWarehouse.inventoryManagement.CheckItemRequest.Builder.class);
     }
@@ -324,7 +324,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_checkItemRequest_descriptor;
+      return grpc.smartWarehouse.inventoryManagement.InventoryManagementServiceImpl.internal_static_smartwarehouse_CheckItemRequest_descriptor;
     }
 
     @java.lang.Override
@@ -507,10 +507,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:smartwarehouse.checkItemRequest)
+    // @@protoc_insertion_point(builder_scope:smartwarehouse.CheckItemRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:smartwarehouse.checkItemRequest)
+  // @@protoc_insertion_point(class_scope:smartwarehouse.CheckItemRequest)
   private static final grpc.smartWarehouse.inventoryManagement.CheckItemRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new grpc.smartWarehouse.inventoryManagement.CheckItemRequest();

@@ -15,15 +15,15 @@ public final class OrderManagementServiceImpl {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smartwarehouse_orderRequest_descriptor;
+    internal_static_smartwarehouse_OrderRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smartwarehouse_orderRequest_fieldAccessorTable;
+      internal_static_smartwarehouse_OrderRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smartwarehouse_orderReply_descriptor;
+    internal_static_smartwarehouse_OrderReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smartwarehouse_orderReply_fieldAccessorTable;
+      internal_static_smartwarehouse_OrderReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,13 +34,13 @@ public final class OrderManagementServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\025orderManagement.proto\022\016smartwarehouse\"" +
-      "O\n\014orderRequest\022\024\n\014customerName\030\001 \001(\t\022\016\n" +
+      "O\n\014OrderRequest\022\024\n\014customerName\030\001 \001(\t\022\016\n" +
       "\006itemID\030\002 \001(\t\022\031\n\021currentQuantities\030\003 \001(\t" +
-      "\"T\n\norderReply\022\017\n\007orderID\030\001 \001(\t\022\025\n\rcurre" +
+      "\"T\n\nOrderReply\022\017\n\007orderID\030\001 \001(\t\022\025\n\rcurre" +
       "ntStatus\030\002 \001(\t\022\036\n\026success_failureMessage" +
-      "\030\003 \001(\t2Z\n\017OrderManagement\022G\n\torderItem\022\034" +
-      ".smartwarehouse.orderRequest\032\032.smartware" +
-      "house.orderReply\"\000BC\n#grpc.smartWarehous" +
+      "\030\003 \001(\t2Z\n\017OrderManagement\022G\n\tOrderItem\022\034" +
+      ".smartwarehouse.OrderRequest\032\032.smartware" +
+      "house.OrderReply\"\000BC\n#grpc.smartWarehous" +
       "e.orderManagementB\032OrderManagementServic" +
       "eImplP\001b\006proto3"
     };
@@ -56,17 +56,17 @@ public final class OrderManagementServiceImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_smartwarehouse_orderRequest_descriptor =
+    internal_static_smartwarehouse_OrderRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_smartwarehouse_orderRequest_fieldAccessorTable = new
+    internal_static_smartwarehouse_OrderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smartwarehouse_orderRequest_descriptor,
+        internal_static_smartwarehouse_OrderRequest_descriptor,
         new java.lang.String[] { "CustomerName", "ItemID", "CurrentQuantities", });
-    internal_static_smartwarehouse_orderReply_descriptor =
+    internal_static_smartwarehouse_OrderReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_smartwarehouse_orderReply_fieldAccessorTable = new
+    internal_static_smartwarehouse_OrderReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smartwarehouse_orderReply_descriptor,
+        internal_static_smartwarehouse_OrderReply_descriptor,
         new java.lang.String[] { "OrderID", "CurrentStatus", "SuccessFailureMessage", });
   }
 

@@ -30,30 +30,30 @@ public final class InventoryManagementGrpc {
   public static final String SERVICE_NAME = "smartwarehouse.InventoryManagement";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.checkItemRequest,
-      grpc.smartWarehouse.inventoryManagement.checkItemReply> getCheckItemMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.CheckItemRequest,
+      grpc.smartWarehouse.inventoryManagement.CheckItemReply> getCheckItemMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "checkItem",
-      requestType = grpc.smartWarehouse.inventoryManagement.checkItemRequest.class,
-      responseType = grpc.smartWarehouse.inventoryManagement.checkItemReply.class,
+      requestType = grpc.smartWarehouse.inventoryManagement.CheckItemRequest.class,
+      responseType = grpc.smartWarehouse.inventoryManagement.CheckItemReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.checkItemRequest,
-      grpc.smartWarehouse.inventoryManagement.checkItemReply> getCheckItemMethod() {
-    io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.checkItemRequest, grpc.smartWarehouse.inventoryManagement.checkItemReply> getCheckItemMethod;
+  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.CheckItemRequest,
+      grpc.smartWarehouse.inventoryManagement.CheckItemReply> getCheckItemMethod() {
+    io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.CheckItemRequest, grpc.smartWarehouse.inventoryManagement.CheckItemReply> getCheckItemMethod;
     if ((getCheckItemMethod = InventoryManagementGrpc.getCheckItemMethod) == null) {
       synchronized (InventoryManagementGrpc.class) {
         if ((getCheckItemMethod = InventoryManagementGrpc.getCheckItemMethod) == null) {
           InventoryManagementGrpc.getCheckItemMethod = getCheckItemMethod = 
-              io.grpc.MethodDescriptor.<grpc.smartWarehouse.inventoryManagement.checkItemRequest, grpc.smartWarehouse.inventoryManagement.checkItemReply>newBuilder()
+              io.grpc.MethodDescriptor.<grpc.smartWarehouse.inventoryManagement.CheckItemRequest, grpc.smartWarehouse.inventoryManagement.CheckItemReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "smartwarehouse.InventoryManagement", "checkItem"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.smartWarehouse.inventoryManagement.checkItemRequest.getDefaultInstance()))
+                  grpc.smartWarehouse.inventoryManagement.CheckItemRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.smartWarehouse.inventoryManagement.checkItemReply.getDefaultInstance()))
+                  grpc.smartWarehouse.inventoryManagement.CheckItemReply.getDefaultInstance()))
                   .setSchemaDescriptor(new InventoryManagementMethodDescriptorSupplier("checkItem"))
                   .build();
           }
@@ -94,8 +94,8 @@ public final class InventoryManagementGrpc {
 
     /**
      */
-    public void checkItem(grpc.smartWarehouse.inventoryManagement.checkItemRequest request,
-        io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.checkItemReply> responseObserver) {
+    public void checkItem(grpc.smartWarehouse.inventoryManagement.CheckItemRequest request,
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.CheckItemReply> responseObserver) {
       asyncUnimplementedUnaryCall(getCheckItemMethod(), responseObserver);
     }
 
@@ -105,8 +105,8 @@ public final class InventoryManagementGrpc {
             getCheckItemMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                grpc.smartWarehouse.inventoryManagement.checkItemRequest,
-                grpc.smartWarehouse.inventoryManagement.checkItemReply>(
+                grpc.smartWarehouse.inventoryManagement.CheckItemRequest,
+                grpc.smartWarehouse.inventoryManagement.CheckItemReply>(
                   this, METHODID_CHECK_ITEM)))
           .build();
     }
@@ -135,8 +135,8 @@ public final class InventoryManagementGrpc {
 
     /**
      */
-    public void checkItem(grpc.smartWarehouse.inventoryManagement.checkItemRequest request,
-        io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.checkItemReply> responseObserver) {
+    public void checkItem(grpc.smartWarehouse.inventoryManagement.CheckItemRequest request,
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.CheckItemReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getCheckItemMethod(), getCallOptions()), request, responseObserver);
     }
@@ -165,7 +165,7 @@ public final class InventoryManagementGrpc {
 
     /**
      */
-    public grpc.smartWarehouse.inventoryManagement.checkItemReply checkItem(grpc.smartWarehouse.inventoryManagement.checkItemRequest request) {
+    public grpc.smartWarehouse.inventoryManagement.CheckItemReply checkItem(grpc.smartWarehouse.inventoryManagement.CheckItemRequest request) {
       return blockingUnaryCall(
           getChannel(), getCheckItemMethod(), getCallOptions(), request);
     }
@@ -194,8 +194,8 @@ public final class InventoryManagementGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.inventoryManagement.checkItemReply> checkItem(
-        grpc.smartWarehouse.inventoryManagement.checkItemRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.inventoryManagement.CheckItemReply> checkItem(
+        grpc.smartWarehouse.inventoryManagement.CheckItemRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCheckItemMethod(), getCallOptions()), request);
     }
@@ -221,8 +221,8 @@ public final class InventoryManagementGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CHECK_ITEM:
-          serviceImpl.checkItem((grpc.smartWarehouse.inventoryManagement.checkItemRequest) request,
-              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.checkItemReply>) responseObserver);
+          serviceImpl.checkItem((grpc.smartWarehouse.inventoryManagement.CheckItemRequest) request,
+              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.CheckItemReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
