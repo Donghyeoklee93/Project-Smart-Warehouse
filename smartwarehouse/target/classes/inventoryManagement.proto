@@ -10,15 +10,18 @@ package smartwarehouse;
 
 //Service Definition
 service InventoryManagement {
-	rpc checkItem (CheckItemRequest) returns (CheckItemReply){}
+	rpc CheckItem (InventoryRequest) returns (InventoryReply){}
+	rpc ModifyQuantity (stream InventoryRequest) returns (InventoryReply){}
 }
 
 
 // Define the messages
-message CheckItemRequest{
+message InventoryRequest{
 	string itemID = 1;
+	string quantity = 2;
 }
 
-message CheckItemReply{
+message InventoryReply{
 	string currentQuantities = 1;
+	string success_failureMessage = 2;
 }
