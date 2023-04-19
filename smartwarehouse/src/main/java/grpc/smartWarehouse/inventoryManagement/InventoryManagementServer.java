@@ -15,7 +15,7 @@ public class InventoryManagementServer extends InventoryManagementImplBase{
 		
 		try {
 			Server server = ServerBuilder.forPort(port).addService(inventoryManagementServer).build().start();
-			System.out.println("Server started....");
+			System.out.println("Inventory Management Server started....");
 			server.awaitTermination();
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
