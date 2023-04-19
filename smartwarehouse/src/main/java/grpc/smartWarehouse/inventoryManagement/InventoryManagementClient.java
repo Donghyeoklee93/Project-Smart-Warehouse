@@ -20,10 +20,10 @@ public class InventoryManagementClient {
 		
 		// below Item Id will be entered by keybord.
 		try {
-		CheckItemRequest request = CheckItemRequest.newBuilder().setItemID(" (Item ID) ").build();
+			InventoryRequest request = InventoryRequest.newBuilder().setItemID(" (Item ID) ").build();
 		
 		//checkItem method is implemented in the server side.
-		CheckItemReply reply = blockingStub.checkItem(request);
+			InventoryReply reply = blockingStub.checkItem(request);
 		
 		System.out.println("Message sent by the server " + reply.getCurrentQuantities());
 		} catch (StatusRuntimeException e) {
@@ -36,6 +36,16 @@ public class InventoryManagementClient {
 				e.printStackTrace();
 			}
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }

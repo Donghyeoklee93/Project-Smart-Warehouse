@@ -2,8 +2,7 @@ package grpc.smartWarehouse.orderManagement;
 
 import java.util.concurrent.TimeUnit;
 
-import grpc.smartWarehouse.inventoryManagement.CheckItemReply;
-import grpc.smartWarehouse.inventoryManagement.CheckItemRequest;
+
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;

@@ -15,15 +15,15 @@ public final class InventoryManagementServiceImpl {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smartwarehouse_CheckItemRequest_descriptor;
+    internal_static_smartwarehouse_InventoryRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smartwarehouse_CheckItemRequest_fieldAccessorTable;
+      internal_static_smartwarehouse_InventoryRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smartwarehouse_CheckItemReply_descriptor;
+    internal_static_smartwarehouse_InventoryReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smartwarehouse_CheckItemReply_fieldAccessorTable;
+      internal_static_smartwarehouse_InventoryReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,13 +34,17 @@ public final class InventoryManagementServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\031inventoryManagement.proto\022\016smartwareho" +
-      "use\"\"\n\020CheckItemRequest\022\016\n\006itemID\030\001 \001(\t\"" +
-      "+\n\016CheckItemReply\022\031\n\021currentQuantities\030\001" +
-      " \001(\t2f\n\023InventoryManagement\022O\n\tcheckItem" +
-      "\022 .smartwarehouse.CheckItemRequest\032\036.sma" +
-      "rtwarehouse.CheckItemReply\"\000BK\n\'grpc.sma" +
-      "rtWarehouse.inventoryManagementB\036Invento" +
-      "ryManagementServiceImplP\001b\006proto3"
+      "use\"4\n\020InventoryRequest\022\016\n\006itemID\030\001 \001(\t\022" +
+      "\020\n\010quantity\030\002 \001(\t\"K\n\016InventoryReply\022\031\n\021c" +
+      "urrentQuantities\030\001 \001(\t\022\036\n\026success_failur" +
+      "eMessage\030\002 \001(\t2\276\001\n\023InventoryManagement\022O" +
+      "\n\tCheckItem\022 .smartwarehouse.InventoryRe" +
+      "quest\032\036.smartwarehouse.InventoryReply\"\000\022" +
+      "V\n\016ModifyQuantity\022 .smartwarehouse.Inven" +
+      "toryRequest\032\036.smartwarehouse.InventoryRe" +
+      "ply\"\000(\001BK\n\'grpc.smartWarehouse.inventory" +
+      "ManagementB\036InventoryManagementServiceIm" +
+      "plP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -54,18 +58,18 @@ public final class InventoryManagementServiceImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_smartwarehouse_CheckItemRequest_descriptor =
+    internal_static_smartwarehouse_InventoryRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_smartwarehouse_CheckItemRequest_fieldAccessorTable = new
+    internal_static_smartwarehouse_InventoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smartwarehouse_CheckItemRequest_descriptor,
-        new java.lang.String[] { "ItemID", });
-    internal_static_smartwarehouse_CheckItemReply_descriptor =
+        internal_static_smartwarehouse_InventoryRequest_descriptor,
+        new java.lang.String[] { "ItemID", "Quantity", });
+    internal_static_smartwarehouse_InventoryReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_smartwarehouse_CheckItemReply_fieldAccessorTable = new
+    internal_static_smartwarehouse_InventoryReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smartwarehouse_CheckItemReply_descriptor,
-        new java.lang.String[] { "CurrentQuantities", });
+        internal_static_smartwarehouse_InventoryReply_descriptor,
+        new java.lang.String[] { "CurrentQuantities", "SuccessFailureMessage", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
