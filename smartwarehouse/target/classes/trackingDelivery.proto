@@ -10,20 +10,18 @@ package smartwarehouse;
 
 //Service Definition
 service TrackingManagement {
-	rpc TrackItem (TrackingRequest) returns (TrackingReply){}
+	rpc CheckShippingDetail (TrackingRequest) returns (TrackingReply){}
 }
 
 
 // Define the messages
 message TrackingRequest{
-	string customerName = 1;
-	string itemID = 2;
-	string currentQuantities = 3;
-
+	string orderID = 1;
 }
 
 message TrackingReply{
-	string orderID = 1;
-	string currentStatus = 2;
-	string success_failureMessage = 3;
+	string deliveryDetail = 1;
+	string currentLocation = 2;
+	string estimatedDeliveryDate = 3;
+
 }

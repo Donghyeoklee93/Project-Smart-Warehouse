@@ -10,9 +10,13 @@
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/inventoryManagement/InventoryManagementGrpc.java
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/inventoryManagement/CheckItemRequest.java
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/orderManagement/OrderManagementServiceImpl.java
+/Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/inventoryManagement/InventoryManagementClient.java
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/orderManagement/OrderReplyOrBuilder.java
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/orderManagement/OrderRequest.java
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/orderManagement/OrderManagementGrpc.java
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/inventoryManagement/InventoryManagementServiceImpl.java
+/Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/orderManagement/OrderManagementClient.java
+/Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/inventoryManagement/InventoryManagementServer.java
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/trackingDelivery/TrackingManagementGrpc.java
+/Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/orderManagement/OrderManagementServer.java
 /Users/henry/eclipse-workspace/smartwarehouse/src/main/java/grpc/smartWarehouse/trackingDelivery/TrackingRequest.java

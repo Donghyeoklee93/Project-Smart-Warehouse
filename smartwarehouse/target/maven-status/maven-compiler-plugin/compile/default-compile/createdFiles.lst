@@ -6,6 +6,7 @@ grpc/smartWarehouse/orderManagement/OrderManagementGrpc$OrderManagementBaseDescr
 grpc/smartWarehouse/inventoryManagement/InventoryManagementGrpc$InventoryManagementImplBase.class
 grpc/smartWarehouse/orderManagement/OrderManagementGrpc$OrderManagementStub.class
 grpc/smartWarehouse/inventoryManagement/CheckItemReplyOrBuilder.class
+grpc/smartWarehouse/orderManagement/OrderManagementServer.class
 grpc/smartWarehouse/orderManagement/OrderRequest.class
 grpc/smartWarehouse/orderManagement/OrderManagementGrpc$1.class
 grpc/smartWarehouse/orderManagement/OrderReply.class
@@ -26,6 +27,7 @@ grpc/smartWarehouse/orderManagement/OrderManagementGrpc$OrderManagementImplBase.
 grpc/smartWarehouse/orderManagement/OrderReply$1.class
 grpc/smartWarehouse/inventoryManagement/InventoryManagementGrpc$InventoryManagementStub.class
 grpc/smartWarehouse/orderManagement/OrderReply$Builder.class
+grpc/smartWarehouse/inventoryManagement/InventoryManagementClient.class
 grpc/smartWarehouse/orderManagement/OrderRequest$1.class
 grpc/smartWarehouse/orderManagement/OrderRequestOrBuilder.class
 grpc/smartWarehouse/orderManagement/OrderManagementGrpc$OrderManagementFileDescriptorSupplier.class
@@ -41,6 +43,8 @@ grpc/smartWarehouse/inventoryManagement/InventoryManagementGrpc$MethodHandlers.c
 grpc/smartWarehouse/inventoryManagement/InventoryManagementGrpc$InventoryManagementFutureStub.class
 grpc/smartWarehouse/trackingDelivery/TrackingReply$Builder.class
 grpc/smartWarehouse/trackingDelivery/TrackingManagementGrpc$MethodHandlers.class
+grpc/smartWarehouse/inventoryManagement/InventoryManagementServer.class
+grpc/smartWarehouse/orderManagement/OrderManagementClient.class
 grpc/smartWarehouse/trackingDelivery/TrackingDeliveryServiceImpl.class
 grpc/smartWarehouse/inventoryManagement/InventoryManagementGrpc$InventoryManagementMethodDescriptorSupplier.class
 grpc/smartWarehouse/inventoryManagement/CheckItemRequestOrBuilder.class
