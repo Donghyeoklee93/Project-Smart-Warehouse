@@ -2,6 +2,7 @@ package grpc.smartWarehouse.orderManagement;
 
 import java.io.IOException;
 
+import grpc.smartWarehouse.inventoryManagement.InventoryReply;
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -21,6 +22,9 @@ public class OrderManagementServer extends OrderManagementImplBase{
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 
 	@Override
 	public void orderItem(OrderRequest request, StreamObserver<OrderReply> responseObserver) {
@@ -50,7 +54,66 @@ public class OrderManagementServer extends OrderManagementImplBase{
 		responseObserver.onCompleted();
 		
 		
-		
 	}
+
+
+
+
+	@Override
+	public StreamObserver<OrderRequest> updateOrderStatus(StreamObserver<OrderReply> responseObserver) {
+		// TODO Auto-generated method stub
+		System.out.println("--- Receving Update Order Status Request from Client ---");
+		
+		return new StreamObserver<OrderRequest>() {
+
+			@Override
+			public void onNext(OrderRequest request) {
+				// TODO Auto-generated method stub
+				responseObserver.onNext(OrderReply.newBuilder().setCurrentStatus("current status " + request.getNewStatus()).build());
+				
+			}
+
+			@Override
+			public void onError(Throwable t) {
+				// TODO Auto-generated method stub
+				responseObserver.onError(t);
+			}
+
+			@Override
+			public void onCompleted() {
+				// TODO Auto-generated method stub
+				responseObserver.onCompleted();
+			}
+		};
+	}
+
+
+
+
+	@Override
+	public void cancelOrder(OrderRequest request, StreamObserver<OrderReply> responseObserver) {
+		
+		System.out.println("— Receiving Cancel Order Request from Client —");
+		
+		// Logic Code
+		String myTest = request.getOrderID() + " is cancel (success or fail)";
+
+		// Logic
+
+		OrderReply reply = OrderReply.newBuilder().setSuccessFailureMessage(myTest).build();
+
+		responseObserver.onNext(reply);
+		responseObserver.onCompleted();
+	}
+
+	
+	
+	
+
+
+
+	
+	
+
 	
 }

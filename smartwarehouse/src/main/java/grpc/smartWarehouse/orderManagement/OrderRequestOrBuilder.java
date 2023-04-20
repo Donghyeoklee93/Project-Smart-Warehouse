@@ -36,4 +36,24 @@ public interface OrderRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCurrentQuantitiesBytes();
+
+  /**
+   * <code>string orderID = 4;</code>
+   */
+  java.lang.String getOrderID();
+  /**
+   * <code>string orderID = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getOrderIDBytes();
+
+  /**
+   * <code>string newStatus = 5;</code>
+   */
+  java.lang.String getNewStatus();
+  /**
+   * <code>string newStatus = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getNewStatusBytes();
 }

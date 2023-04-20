@@ -62,6 +62,70 @@ public final class OrderManagementGrpc {
      return getOrderItemMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest,
+      grpc.smartWarehouse.orderManagement.OrderReply> getUpdateOrderStatusMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateOrderStatus",
+      requestType = grpc.smartWarehouse.orderManagement.OrderRequest.class,
+      responseType = grpc.smartWarehouse.orderManagement.OrderReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest,
+      grpc.smartWarehouse.orderManagement.OrderReply> getUpdateOrderStatusMethod() {
+    io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest, grpc.smartWarehouse.orderManagement.OrderReply> getUpdateOrderStatusMethod;
+    if ((getUpdateOrderStatusMethod = OrderManagementGrpc.getUpdateOrderStatusMethod) == null) {
+      synchronized (OrderManagementGrpc.class) {
+        if ((getUpdateOrderStatusMethod = OrderManagementGrpc.getUpdateOrderStatusMethod) == null) {
+          OrderManagementGrpc.getUpdateOrderStatusMethod = getUpdateOrderStatusMethod = 
+              io.grpc.MethodDescriptor.<grpc.smartWarehouse.orderManagement.OrderRequest, grpc.smartWarehouse.orderManagement.OrderReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "smartwarehouse.OrderManagement", "UpdateOrderStatus"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  grpc.smartWarehouse.orderManagement.OrderRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  grpc.smartWarehouse.orderManagement.OrderReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new OrderManagementMethodDescriptorSupplier("UpdateOrderStatus"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateOrderStatusMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest,
+      grpc.smartWarehouse.orderManagement.OrderReply> getCancelOrderMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CancelOrder",
+      requestType = grpc.smartWarehouse.orderManagement.OrderRequest.class,
+      responseType = grpc.smartWarehouse.orderManagement.OrderReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest,
+      grpc.smartWarehouse.orderManagement.OrderReply> getCancelOrderMethod() {
+    io.grpc.MethodDescriptor<grpc.smartWarehouse.orderManagement.OrderRequest, grpc.smartWarehouse.orderManagement.OrderReply> getCancelOrderMethod;
+    if ((getCancelOrderMethod = OrderManagementGrpc.getCancelOrderMethod) == null) {
+      synchronized (OrderManagementGrpc.class) {
+        if ((getCancelOrderMethod = OrderManagementGrpc.getCancelOrderMethod) == null) {
+          OrderManagementGrpc.getCancelOrderMethod = getCancelOrderMethod = 
+              io.grpc.MethodDescriptor.<grpc.smartWarehouse.orderManagement.OrderRequest, grpc.smartWarehouse.orderManagement.OrderReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "smartwarehouse.OrderManagement", "CancelOrder"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  grpc.smartWarehouse.orderManagement.OrderRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  grpc.smartWarehouse.orderManagement.OrderReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new OrderManagementMethodDescriptorSupplier("CancelOrder"))
+                  .build();
+          }
+        }
+     }
+     return getCancelOrderMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -99,6 +163,20 @@ public final class OrderManagementGrpc {
       asyncUnimplementedUnaryCall(getOrderItemMethod(), responseObserver);
     }
 
+    /**
+     */
+    public io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderRequest> updateOrderStatus(
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply> responseObserver) {
+      return asyncUnimplementedStreamingCall(getUpdateOrderStatusMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void cancelOrder(grpc.smartWarehouse.orderManagement.OrderRequest request,
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getCancelOrderMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -108,6 +186,20 @@ public final class OrderManagementGrpc {
                 grpc.smartWarehouse.orderManagement.OrderRequest,
                 grpc.smartWarehouse.orderManagement.OrderReply>(
                   this, METHODID_ORDER_ITEM)))
+          .addMethod(
+            getUpdateOrderStatusMethod(),
+            asyncBidiStreamingCall(
+              new MethodHandlers<
+                grpc.smartWarehouse.orderManagement.OrderRequest,
+                grpc.smartWarehouse.orderManagement.OrderReply>(
+                  this, METHODID_UPDATE_ORDER_STATUS)))
+          .addMethod(
+            getCancelOrderMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                grpc.smartWarehouse.orderManagement.OrderRequest,
+                grpc.smartWarehouse.orderManagement.OrderReply>(
+                  this, METHODID_CANCEL_ORDER)))
           .build();
     }
   }
@@ -140,6 +232,22 @@ public final class OrderManagementGrpc {
       asyncUnaryCall(
           getChannel().newCall(getOrderItemMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderRequest> updateOrderStatus(
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply> responseObserver) {
+      return asyncBidiStreamingCall(
+          getChannel().newCall(getUpdateOrderStatusMethod(), getCallOptions()), responseObserver);
+    }
+
+    /**
+     */
+    public void cancelOrder(grpc.smartWarehouse.orderManagement.OrderRequest request,
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getCancelOrderMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -168,6 +276,13 @@ public final class OrderManagementGrpc {
     public grpc.smartWarehouse.orderManagement.OrderReply orderItem(grpc.smartWarehouse.orderManagement.OrderRequest request) {
       return blockingUnaryCall(
           getChannel(), getOrderItemMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public grpc.smartWarehouse.orderManagement.OrderReply cancelOrder(grpc.smartWarehouse.orderManagement.OrderRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getCancelOrderMethod(), getCallOptions(), request);
     }
   }
 
@@ -199,9 +314,19 @@ public final class OrderManagementGrpc {
       return futureUnaryCall(
           getChannel().newCall(getOrderItemMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.orderManagement.OrderReply> cancelOrder(
+        grpc.smartWarehouse.orderManagement.OrderRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCancelOrderMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ORDER_ITEM = 0;
+  private static final int METHODID_CANCEL_ORDER = 1;
+  private static final int METHODID_UPDATE_ORDER_STATUS = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -224,6 +349,10 @@ public final class OrderManagementGrpc {
           serviceImpl.orderItem((grpc.smartWarehouse.orderManagement.OrderRequest) request,
               (io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply>) responseObserver);
           break;
+        case METHODID_CANCEL_ORDER:
+          serviceImpl.cancelOrder((grpc.smartWarehouse.orderManagement.OrderRequest) request,
+              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -234,6 +363,9 @@ public final class OrderManagementGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_UPDATE_ORDER_STATUS:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.updateOrderStatus(
+              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -286,6 +418,8 @@ public final class OrderManagementGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new OrderManagementFileDescriptorSupplier())
               .addMethod(getOrderItemMethod())
+              .addMethod(getUpdateOrderStatusMethod())
+              .addMethod(getCancelOrderMethod())
               .build();
         }
       }
