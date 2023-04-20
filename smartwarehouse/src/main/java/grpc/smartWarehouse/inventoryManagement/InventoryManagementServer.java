@@ -44,6 +44,27 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 		responseObserver.onNext(reply);
 		responseObserver.onCompleted();
 	}
+	
+	
+	@Override
+	public void alertOutOfStock(InventoryRequest request, StreamObserver<InventoryReply> responseObserver) {
+		// TODO Auto-generated method stub
+
+		System.out.println("— Receiving Check Item Request from Client —");
+
+		
+		InventoryReply reply = InventoryReply.newBuilder().setAlertMessage("The product is not enough stocks").build();
+		
+		for(int i = 0; i < 10; i++) {
+			responseObserver.onNext(reply);
+		}
+		responseObserver.onCompleted();
+		
+		
+	}
+
+
+
 
 	@Override
 	public StreamObserver<InventoryRequest> modifyQuantity(StreamObserver<InventoryReply> responseObserver) {

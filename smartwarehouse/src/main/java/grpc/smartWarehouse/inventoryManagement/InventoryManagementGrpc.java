@@ -95,35 +95,35 @@ public final class InventoryManagementGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.InventoryRequest,
-      grpc.smartWarehouse.inventoryManagement.InventoryReply> getAlertOutofStockMethod;
+      grpc.smartWarehouse.inventoryManagement.InventoryReply> getAlertOutOfStockMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "AlertOutofStock",
+      fullMethodName = SERVICE_NAME + '/' + "AlertOutOfStock",
       requestType = grpc.smartWarehouse.inventoryManagement.InventoryRequest.class,
       responseType = grpc.smartWarehouse.inventoryManagement.InventoryReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
   public static io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.InventoryRequest,
-      grpc.smartWarehouse.inventoryManagement.InventoryReply> getAlertOutofStockMethod() {
-    io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.InventoryRequest, grpc.smartWarehouse.inventoryManagement.InventoryReply> getAlertOutofStockMethod;
-    if ((getAlertOutofStockMethod = InventoryManagementGrpc.getAlertOutofStockMethod) == null) {
+      grpc.smartWarehouse.inventoryManagement.InventoryReply> getAlertOutOfStockMethod() {
+    io.grpc.MethodDescriptor<grpc.smartWarehouse.inventoryManagement.InventoryRequest, grpc.smartWarehouse.inventoryManagement.InventoryReply> getAlertOutOfStockMethod;
+    if ((getAlertOutOfStockMethod = InventoryManagementGrpc.getAlertOutOfStockMethod) == null) {
       synchronized (InventoryManagementGrpc.class) {
-        if ((getAlertOutofStockMethod = InventoryManagementGrpc.getAlertOutofStockMethod) == null) {
-          InventoryManagementGrpc.getAlertOutofStockMethod = getAlertOutofStockMethod = 
+        if ((getAlertOutOfStockMethod = InventoryManagementGrpc.getAlertOutOfStockMethod) == null) {
+          InventoryManagementGrpc.getAlertOutOfStockMethod = getAlertOutOfStockMethod = 
               io.grpc.MethodDescriptor.<grpc.smartWarehouse.inventoryManagement.InventoryRequest, grpc.smartWarehouse.inventoryManagement.InventoryReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "smartwarehouse.InventoryManagement", "AlertOutofStock"))
+                  "smartwarehouse.InventoryManagement", "AlertOutOfStock"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.smartWarehouse.inventoryManagement.InventoryRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.smartWarehouse.inventoryManagement.InventoryReply.getDefaultInstance()))
-                  .setSchemaDescriptor(new InventoryManagementMethodDescriptorSupplier("AlertOutofStock"))
+                  .setSchemaDescriptor(new InventoryManagementMethodDescriptorSupplier("AlertOutOfStock"))
                   .build();
           }
         }
      }
-     return getAlertOutofStockMethod;
+     return getAlertOutOfStockMethod;
   }
 
   /**
@@ -172,9 +172,9 @@ public final class InventoryManagementGrpc {
 
     /**
      */
-    public void alertOutofStock(grpc.smartWarehouse.inventoryManagement.InventoryRequest request,
+    public void alertOutOfStock(grpc.smartWarehouse.inventoryManagement.InventoryRequest request,
         io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.InventoryReply> responseObserver) {
-      asyncUnimplementedUnaryCall(getAlertOutofStockMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getAlertOutOfStockMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -194,12 +194,12 @@ public final class InventoryManagementGrpc {
                 grpc.smartWarehouse.inventoryManagement.InventoryReply>(
                   this, METHODID_MODIFY_QUANTITY)))
           .addMethod(
-            getAlertOutofStockMethod(),
+            getAlertOutOfStockMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
                 grpc.smartWarehouse.inventoryManagement.InventoryRequest,
                 grpc.smartWarehouse.inventoryManagement.InventoryReply>(
-                  this, METHODID_ALERT_OUTOF_STOCK)))
+                  this, METHODID_ALERT_OUT_OF_STOCK)))
           .build();
     }
   }
@@ -243,10 +243,10 @@ public final class InventoryManagementGrpc {
 
     /**
      */
-    public void alertOutofStock(grpc.smartWarehouse.inventoryManagement.InventoryRequest request,
+    public void alertOutOfStock(grpc.smartWarehouse.inventoryManagement.InventoryRequest request,
         io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.InventoryReply> responseObserver) {
       asyncServerStreamingCall(
-          getChannel().newCall(getAlertOutofStockMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getAlertOutOfStockMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -280,10 +280,10 @@ public final class InventoryManagementGrpc {
 
     /**
      */
-    public java.util.Iterator<grpc.smartWarehouse.inventoryManagement.InventoryReply> alertOutofStock(
+    public java.util.Iterator<grpc.smartWarehouse.inventoryManagement.InventoryReply> alertOutOfStock(
         grpc.smartWarehouse.inventoryManagement.InventoryRequest request) {
       return blockingServerStreamingCall(
-          getChannel(), getAlertOutofStockMethod(), getCallOptions(), request);
+          getChannel(), getAlertOutOfStockMethod(), getCallOptions(), request);
     }
   }
 
@@ -318,7 +318,7 @@ public final class InventoryManagementGrpc {
   }
 
   private static final int METHODID_CHECK_ITEM = 0;
-  private static final int METHODID_ALERT_OUTOF_STOCK = 1;
+  private static final int METHODID_ALERT_OUT_OF_STOCK = 1;
   private static final int METHODID_MODIFY_QUANTITY = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
@@ -342,8 +342,8 @@ public final class InventoryManagementGrpc {
           serviceImpl.checkItem((grpc.smartWarehouse.inventoryManagement.InventoryRequest) request,
               (io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.InventoryReply>) responseObserver);
           break;
-        case METHODID_ALERT_OUTOF_STOCK:
-          serviceImpl.alertOutofStock((grpc.smartWarehouse.inventoryManagement.InventoryRequest) request,
+        case METHODID_ALERT_OUT_OF_STOCK:
+          serviceImpl.alertOutOfStock((grpc.smartWarehouse.inventoryManagement.InventoryRequest) request,
               (io.grpc.stub.StreamObserver<grpc.smartWarehouse.inventoryManagement.InventoryReply>) responseObserver);
           break;
         default:
@@ -412,7 +412,7 @@ public final class InventoryManagementGrpc {
               .setSchemaDescriptor(new InventoryManagementFileDescriptorSupplier())
               .addMethod(getCheckItemMethod())
               .addMethod(getModifyQuantityMethod())
-              .addMethod(getAlertOutofStockMethod())
+              .addMethod(getAlertOutOfStockMethod())
               .build();
         }
       }

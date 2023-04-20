@@ -43,7 +43,7 @@ public final class InventoryManagementServiceImpl {
       "equest\032\036.smartwarehouse.InventoryReply\"\000" +
       "\022V\n\016ModifyQuantity\022 .smartwarehouse.Inve" +
       "ntoryRequest\032\036.smartwarehouse.InventoryR" +
-      "eply\"\000(\001\022W\n\017AlertOutofStock\022 .smartwareh" +
+      "eply\"\000(\001\022W\n\017AlertOutOfStock\022 .smartwareh" +
       "ouse.InventoryRequest\032\036.smartwarehouse.I" +
       "nventoryReply\"\0000\001BK\n\'grpc.smartWarehouse" +
       ".inventoryManagementB\036InventoryManagemen" +
