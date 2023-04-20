@@ -12,7 +12,7 @@ package smartwarehouse;
 service InventoryManagement {
 	rpc CheckItem (InventoryRequest) returns (InventoryReply){}
 	rpc ModifyQuantity (stream InventoryRequest) returns (InventoryReply){}
-	rpc AlertOutofStock (InventoryRequest) returns (stream InventoryReply){}
+	rpc AlertOutOfStock (InventoryRequest) returns (stream InventoryReply){}
 
 }
 
