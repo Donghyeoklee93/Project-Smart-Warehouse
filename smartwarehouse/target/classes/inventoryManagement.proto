@@ -12,6 +12,8 @@ package smartwarehouse;
 service InventoryManagement {
 	rpc CheckItem (InventoryRequest) returns (InventoryReply){}
 	rpc ModifyQuantity (stream InventoryRequest) returns (InventoryReply){}
+	rpc AlertOutofStock (InventoryRequest) returns (stream InventoryReply){}
+
 }
 
 
@@ -19,9 +21,11 @@ service InventoryManagement {
 message InventoryRequest{
 	string itemID = 1;
 	string quantity = 2;
+	string threshold = 3;
 }
 
 message InventoryReply{
 	string currentQuantities = 1;
 	string success_failureMessage = 2;
+	string alertMessage = 3;
 }
