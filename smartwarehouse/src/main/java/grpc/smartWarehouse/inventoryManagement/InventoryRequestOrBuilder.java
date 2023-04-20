@@ -26,4 +26,14 @@ public interface InventoryRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getQuantityBytes();
+
+  /**
+   * <code>string threshold = 3;</code>
+   */
+  java.lang.String getThreshold();
+  /**
+   * <code>string threshold = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getThresholdBytes();
 }

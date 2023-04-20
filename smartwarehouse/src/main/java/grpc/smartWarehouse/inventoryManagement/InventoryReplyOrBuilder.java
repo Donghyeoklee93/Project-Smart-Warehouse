@@ -26,4 +26,14 @@ public interface InventoryReplyOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSuccessFailureMessageBytes();
+
+  /**
+   * <code>string alertMessage = 3;</code>
+   */
+  java.lang.String getAlertMessage();
+  /**
+   * <code>string alertMessage = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getAlertMessageBytes();
 }

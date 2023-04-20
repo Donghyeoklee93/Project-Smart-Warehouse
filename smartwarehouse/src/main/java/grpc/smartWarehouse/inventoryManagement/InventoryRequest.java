@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
   private InventoryRequest() {
     itemID_ = "";
     quantity_ = "";
+    threshold_ = "";
   }
 
   @java.lang.Override
@@ -58,6 +59,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             quantity_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            threshold_ = s;
             break;
           }
           default: {
@@ -160,6 +167,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int THRESHOLD_FIELD_NUMBER = 3;
+  private volatile java.lang.Object threshold_;
+  /**
+   * <code>string threshold = 3;</code>
+   */
+  public java.lang.String getThreshold() {
+    java.lang.Object ref = threshold_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      threshold_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string threshold = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getThresholdBytes() {
+    java.lang.Object ref = threshold_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      threshold_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -180,6 +221,9 @@ private static final long serialVersionUID = 0L;
     if (!getQuantityBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, quantity_);
     }
+    if (!getThresholdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, threshold_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -194,6 +238,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getQuantityBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, quantity_);
+    }
+    if (!getThresholdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, threshold_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -215,6 +262,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getItemID());
     result = result && getQuantity()
         .equals(other.getQuantity());
+    result = result && getThreshold()
+        .equals(other.getThreshold());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -230,6 +279,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getItemID().hashCode();
     hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
     hash = (53 * hash) + getQuantity().hashCode();
+    hash = (37 * hash) + THRESHOLD_FIELD_NUMBER;
+    hash = (53 * hash) + getThreshold().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -371,6 +422,8 @@ private static final long serialVersionUID = 0L;
 
       quantity_ = "";
 
+      threshold_ = "";
+
       return this;
     }
 
@@ -399,6 +452,7 @@ private static final long serialVersionUID = 0L;
       grpc.smartWarehouse.inventoryManagement.InventoryRequest result = new grpc.smartWarehouse.inventoryManagement.InventoryRequest(this);
       result.itemID_ = itemID_;
       result.quantity_ = quantity_;
+      result.threshold_ = threshold_;
       onBuilt();
       return result;
     }
@@ -453,6 +507,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getQuantity().isEmpty()) {
         quantity_ = other.quantity_;
+        onChanged();
+      }
+      if (!other.getThreshold().isEmpty()) {
+        threshold_ = other.threshold_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -618,6 +676,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       quantity_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object threshold_ = "";
+    /**
+     * <code>string threshold = 3;</code>
+     */
+    public java.lang.String getThreshold() {
+      java.lang.Object ref = threshold_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        threshold_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string threshold = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getThresholdBytes() {
+      java.lang.Object ref = threshold_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        threshold_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string threshold = 3;</code>
+     */
+    public Builder setThreshold(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      threshold_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string threshold = 3;</code>
+     */
+    public Builder clearThreshold() {
+      
+      threshold_ = getDefaultInstance().getThreshold();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string threshold = 3;</code>
+     */
+    public Builder setThresholdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      threshold_ = value;
       onChanged();
       return this;
     }

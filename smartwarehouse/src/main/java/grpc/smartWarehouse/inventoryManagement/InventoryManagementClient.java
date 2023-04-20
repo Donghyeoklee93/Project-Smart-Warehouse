@@ -10,41 +10,38 @@ import io.grpc.StatusRuntimeException;
 public class InventoryManagementClient {
 	
 	public static void main(String[] args) {
+		if(args.length == 0) {
+			System.out.println("Need one argument to work");
+			return;
+		}
+		
+		
 		String host = "localhost";
 		int port = 50051;
 		
 		ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
 		
-		InventoryManagementBlockingStub blockingStub = InventoryManagementGrpc.newBlockingStub(channel);
 		
-		
-		// below Item Id will be entered by keybord.
-		try {
-			InventoryRequest request = InventoryRequest.newBuilder().setItemID(" (Item ID) ").build();
-		
-		//checkItem method is implemented in the server side.
-			InventoryReply reply = blockingStub.checkItem(request);
-		
-		System.out.println("Message sent by the server " + reply.getCurrentQuantities());
-		} catch (StatusRuntimeException e) {
-			e.getStatus();
-		} finally {
-			try {
-				channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		switch (args[0]) {
+		case "checkItem": checkItem(channel); break;
+		default:
+			System.out.println("Keyword Invalid " + args[0]);
 		}
 		
 		
+
+	
+	}
+	
+	private static void checkItem(ManagedChannel channel) {
+		System.out.println("Enter checkItem");
+		InventoryManagementBlockingStub blockingStub = InventoryManagementGrpc.newBlockingStub(channel);
 		
+		InventoryRequest request = InventoryRequest.newBuilder().setItemID(" (Item ID) ").build();
 		
+		InventoryReply reply = blockingStub.checkItem(request);
 		
-		
-		
-		
-		
+		System.out.println("Message sent by the server " + reply.getCurrentQuantities());
 		
 	}
 

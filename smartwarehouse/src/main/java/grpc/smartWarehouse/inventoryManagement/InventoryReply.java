@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private InventoryReply() {
     currentQuantities_ = "";
     successFailureMessage_ = "";
+    alertMessage_ = "";
   }
 
   @java.lang.Override
@@ -54,6 +55,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             successFailureMessage_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            alertMessage_ = s;
             break;
           }
           default: {
@@ -156,6 +163,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ALERTMESSAGE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object alertMessage_;
+  /**
+   * <code>string alertMessage = 3;</code>
+   */
+  public java.lang.String getAlertMessage() {
+    java.lang.Object ref = alertMessage_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      alertMessage_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string alertMessage = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getAlertMessageBytes() {
+    java.lang.Object ref = alertMessage_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      alertMessage_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -176,6 +217,9 @@ private static final long serialVersionUID = 0L;
     if (!getSuccessFailureMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, successFailureMessage_);
     }
+    if (!getAlertMessageBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, alertMessage_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -190,6 +234,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSuccessFailureMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, successFailureMessage_);
+    }
+    if (!getAlertMessageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, alertMessage_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -211,6 +258,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCurrentQuantities());
     result = result && getSuccessFailureMessage()
         .equals(other.getSuccessFailureMessage());
+    result = result && getAlertMessage()
+        .equals(other.getAlertMessage());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -226,6 +275,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCurrentQuantities().hashCode();
     hash = (37 * hash) + SUCCESS_FAILUREMESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getSuccessFailureMessage().hashCode();
+    hash = (37 * hash) + ALERTMESSAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getAlertMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -363,6 +414,8 @@ private static final long serialVersionUID = 0L;
 
       successFailureMessage_ = "";
 
+      alertMessage_ = "";
+
       return this;
     }
 
@@ -391,6 +444,7 @@ private static final long serialVersionUID = 0L;
       grpc.smartWarehouse.inventoryManagement.InventoryReply result = new grpc.smartWarehouse.inventoryManagement.InventoryReply(this);
       result.currentQuantities_ = currentQuantities_;
       result.successFailureMessage_ = successFailureMessage_;
+      result.alertMessage_ = alertMessage_;
       onBuilt();
       return result;
     }
@@ -445,6 +499,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSuccessFailureMessage().isEmpty()) {
         successFailureMessage_ = other.successFailureMessage_;
+        onChanged();
+      }
+      if (!other.getAlertMessage().isEmpty()) {
+        alertMessage_ = other.alertMessage_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -610,6 +668,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       successFailureMessage_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object alertMessage_ = "";
+    /**
+     * <code>string alertMessage = 3;</code>
+     */
+    public java.lang.String getAlertMessage() {
+      java.lang.Object ref = alertMessage_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        alertMessage_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string alertMessage = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlertMessageBytes() {
+      java.lang.Object ref = alertMessage_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        alertMessage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string alertMessage = 3;</code>
+     */
+    public Builder setAlertMessage(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      alertMessage_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string alertMessage = 3;</code>
+     */
+    public Builder clearAlertMessage() {
+      
+      alertMessage_ = getDefaultInstance().getAlertMessage();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string alertMessage = 3;</code>
+     */
+    public Builder setAlertMessageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      alertMessage_ = value;
       onChanged();
       return this;
     }

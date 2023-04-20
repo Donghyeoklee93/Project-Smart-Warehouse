@@ -16,7 +16,7 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 		int port = 50051;
 
 		try {
-			Server server = ServerBuilder.forPort(port).addService(inventoryManagementServer).build().start();
+			Server server = ServerBuilder.forPort(port).addService( inventoryManagementServer).build().start();
 			System.out.println("Inventory Management Server started....");
 			server.awaitTermination();
 		} catch (IOException | InterruptedException e) {
@@ -25,6 +25,9 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 		}
 
 	}
+	
+	
+	
 
 	@Override
 	public void checkItem(InventoryRequest request, StreamObserver<InventoryReply> responseObserver) {

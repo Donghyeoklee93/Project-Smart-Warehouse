@@ -34,17 +34,20 @@ public final class InventoryManagementServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\031inventoryManagement.proto\022\016smartwareho" +
-      "use\"4\n\020InventoryRequest\022\016\n\006itemID\030\001 \001(\t\022" +
-      "\020\n\010quantity\030\002 \001(\t\"K\n\016InventoryReply\022\031\n\021c" +
-      "urrentQuantities\030\001 \001(\t\022\036\n\026success_failur" +
-      "eMessage\030\002 \001(\t2\276\001\n\023InventoryManagement\022O" +
-      "\n\tCheckItem\022 .smartwarehouse.InventoryRe" +
-      "quest\032\036.smartwarehouse.InventoryReply\"\000\022" +
-      "V\n\016ModifyQuantity\022 .smartwarehouse.Inven" +
-      "toryRequest\032\036.smartwarehouse.InventoryRe" +
-      "ply\"\000(\001BK\n\'grpc.smartWarehouse.inventory" +
-      "ManagementB\036InventoryManagementServiceIm" +
-      "plP\001b\006proto3"
+      "use\"G\n\020InventoryRequest\022\016\n\006itemID\030\001 \001(\t\022" +
+      "\020\n\010quantity\030\002 \001(\t\022\021\n\tthreshold\030\003 \001(\t\"a\n\016" +
+      "InventoryReply\022\031\n\021currentQuantities\030\001 \001(" +
+      "\t\022\036\n\026success_failureMessage\030\002 \001(\t\022\024\n\014ale" +
+      "rtMessage\030\003 \001(\t2\227\002\n\023InventoryManagement\022" +
+      "O\n\tCheckItem\022 .smartwarehouse.InventoryR" +
+      "equest\032\036.smartwarehouse.InventoryReply\"\000" +
+      "\022V\n\016ModifyQuantity\022 .smartwarehouse.Inve" +
+      "ntoryRequest\032\036.smartwarehouse.InventoryR" +
+      "eply\"\000(\001\022W\n\017AlertOutofStock\022 .smartwareh" +
+      "ouse.InventoryRequest\032\036.smartwarehouse.I" +
+      "nventoryReply\"\0000\001BK\n\'grpc.smartWarehouse" +
+      ".inventoryManagementB\036InventoryManagemen" +
+      "tServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -63,13 +66,13 @@ public final class InventoryManagementServiceImpl {
     internal_static_smartwarehouse_InventoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smartwarehouse_InventoryRequest_descriptor,
-        new java.lang.String[] { "ItemID", "Quantity", });
+        new java.lang.String[] { "ItemID", "Quantity", "Threshold", });
     internal_static_smartwarehouse_InventoryReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_smartwarehouse_InventoryReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smartwarehouse_InventoryReply_descriptor,
-        new java.lang.String[] { "CurrentQuantities", "SuccessFailureMessage", });
+        new java.lang.String[] { "CurrentQuantities", "SuccessFailureMessage", "AlertMessage", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
