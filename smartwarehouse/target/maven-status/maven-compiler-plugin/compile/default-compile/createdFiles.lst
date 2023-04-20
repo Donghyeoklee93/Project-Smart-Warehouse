@@ -1,3 +1,4 @@
+grpc/smartWarehouse/orderManagement/OrderManagementServer$1.class
 grpc/smartWarehouse/inventoryManagement/InventoryManagementClient$1.class
 grpc/smartWarehouse/trackingDelivery/TrackingRequest$Builder.class
 grpc/smartWarehouse/inventoryManagement/InventoryManagementGrpc$InventoryManagementBaseDescriptorSupplier.class
@@ -14,6 +15,7 @@ grpc/smartWarehouse/inventoryManagement/InventoryRequest$1.class
 grpc/smartWarehouse/orderManagement/OrderReply.class
 grpc/smartWarehouse/trackingDelivery/TrackingRequestOrBuilder.class
 grpc/smartWarehouse/trackingDelivery/TrackingReply.class
+grpc/smartWarehouse/orderManagement/OrderManagementClient$1.class
 grpc/smartWarehouse/inventoryManagement/InventoryManagementServer$1.class
 grpc/smartWarehouse/trackingDelivery/TrackingDeliveryServiceImpl$1.class
 grpc/smartWarehouse/inventoryManagement/InventoryRequestOrBuilder.class

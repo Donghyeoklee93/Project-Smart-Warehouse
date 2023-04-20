@@ -11,6 +11,8 @@ package smartwarehouse;
 //Service Definition
 service OrderManagement {
 	rpc OrderItem (OrderRequest) returns (OrderReply){}
+	rpc UpdateOrderStatus (stream OrderRequest) returns (stream OrderReply){}
+	rpc	CancelOrder(OrderRequest) returns (OrderReply){}
 }
 
 
@@ -19,6 +21,8 @@ message OrderRequest{
 	string customerName = 1;
 	string itemID = 2;
 	string currentQuantities = 3;
+	string orderID = 4;
+	string newStatus = 5;
 
 }
 
