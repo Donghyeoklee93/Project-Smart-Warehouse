@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private TrackingRequest() {
     orderID_ = "";
+    newDeliveryDetails_ = "";
   }
 
   @java.lang.Override
@@ -51,6 +52,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             orderID_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            newDeliveryDetails_ = s;
             break;
           }
           default: {
@@ -119,6 +126,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int NEWDELIVERYDETAILS_FIELD_NUMBER = 2;
+  private volatile java.lang.Object newDeliveryDetails_;
+  /**
+   * <code>string newDeliveryDetails = 2;</code>
+   */
+  public java.lang.String getNewDeliveryDetails() {
+    java.lang.Object ref = newDeliveryDetails_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      newDeliveryDetails_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string newDeliveryDetails = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getNewDeliveryDetailsBytes() {
+    java.lang.Object ref = newDeliveryDetails_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      newDeliveryDetails_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -136,6 +177,9 @@ private static final long serialVersionUID = 0L;
     if (!getOrderIDBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderID_);
     }
+    if (!getNewDeliveryDetailsBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, newDeliveryDetails_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -147,6 +191,9 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getOrderIDBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderID_);
+    }
+    if (!getNewDeliveryDetailsBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, newDeliveryDetails_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -166,6 +213,8 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getOrderID()
         .equals(other.getOrderID());
+    result = result && getNewDeliveryDetails()
+        .equals(other.getNewDeliveryDetails());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -179,6 +228,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ORDERID_FIELD_NUMBER;
     hash = (53 * hash) + getOrderID().hashCode();
+    hash = (37 * hash) + NEWDELIVERYDETAILS_FIELD_NUMBER;
+    hash = (53 * hash) + getNewDeliveryDetails().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -318,6 +369,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       orderID_ = "";
 
+      newDeliveryDetails_ = "";
+
       return this;
     }
 
@@ -345,6 +398,7 @@ private static final long serialVersionUID = 0L;
     public grpc.smartWarehouse.trackingDelivery.TrackingRequest buildPartial() {
       grpc.smartWarehouse.trackingDelivery.TrackingRequest result = new grpc.smartWarehouse.trackingDelivery.TrackingRequest(this);
       result.orderID_ = orderID_;
+      result.newDeliveryDetails_ = newDeliveryDetails_;
       onBuilt();
       return result;
     }
@@ -395,6 +449,10 @@ private static final long serialVersionUID = 0L;
       if (other == grpc.smartWarehouse.trackingDelivery.TrackingRequest.getDefaultInstance()) return this;
       if (!other.getOrderID().isEmpty()) {
         orderID_ = other.orderID_;
+        onChanged();
+      }
+      if (!other.getNewDeliveryDetails().isEmpty()) {
+        newDeliveryDetails_ = other.newDeliveryDetails_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -491,6 +549,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       orderID_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object newDeliveryDetails_ = "";
+    /**
+     * <code>string newDeliveryDetails = 2;</code>
+     */
+    public java.lang.String getNewDeliveryDetails() {
+      java.lang.Object ref = newDeliveryDetails_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        newDeliveryDetails_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string newDeliveryDetails = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNewDeliveryDetailsBytes() {
+      java.lang.Object ref = newDeliveryDetails_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        newDeliveryDetails_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string newDeliveryDetails = 2;</code>
+     */
+    public Builder setNewDeliveryDetails(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      newDeliveryDetails_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string newDeliveryDetails = 2;</code>
+     */
+    public Builder clearNewDeliveryDetails() {
+      
+      newDeliveryDetails_ = getDefaultInstance().getNewDeliveryDetails();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string newDeliveryDetails = 2;</code>
+     */
+    public Builder setNewDeliveryDetailsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      newDeliveryDetails_ = value;
       onChanged();
       return this;
     }

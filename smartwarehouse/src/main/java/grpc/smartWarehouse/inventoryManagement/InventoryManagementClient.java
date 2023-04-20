@@ -1,18 +1,15 @@
 package grpc.smartWarehouse.inventoryManagement;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.checkerframework.framework.qual.StubFiles;
 
 import grpc.smartWarehouse.inventoryManagement.InventoryManagementGrpc.InventoryManagementBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
 public class InventoryManagementClient {
@@ -44,6 +41,7 @@ public class InventoryManagementClient {
 
 	}
 
+//	RPC Method 1 : Check Item (Unary RPC)
 	private static void checkItem(ManagedChannel channel) {
 		System.out.println("Enter checkItem");
 		InventoryManagementBlockingStub blockingStub = InventoryManagementGrpc.newBlockingStub(channel);
@@ -56,7 +54,7 @@ public class InventoryManagementClient {
 	}
 
 	
-	
+//	RPC Method 2 : Modify Quantity (Client Streaming RPC)
 	private static void modifyQuantity(ManagedChannel channel) throws InterruptedException {
 		System.out.println("Enter modifyQuantity");
 		
@@ -98,7 +96,7 @@ public class InventoryManagementClient {
 		
 	}
 	
-	
+//	RPC Method 3 : Alert Out of Stock (Server Streaming RPC)
 	private static void alertOutOfStock(ManagedChannel channel) {
 		System.out.println("Enter alertOutOfStock");
 		InventoryManagementBlockingStub blockingStub = InventoryManagementGrpc.newBlockingStub(channel);

@@ -36,4 +36,14 @@ public interface TrackingReplyOrBuilder extends
    */
   com.google.protobuf.ByteString
       getEstimatedDeliveryDateBytes();
+
+  /**
+   * <code>string success_failureMessage = 4;</code>
+   */
+  java.lang.String getSuccessFailureMessage();
+  /**
+   * <code>string success_failureMessage = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getSuccessFailureMessageBytes();
 }

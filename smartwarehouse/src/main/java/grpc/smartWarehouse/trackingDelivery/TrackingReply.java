@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     deliveryDetail_ = "";
     currentLocation_ = "";
     estimatedDeliveryDate_ = "";
+    successFailureMessage_ = "";
   }
 
   @java.lang.Override
@@ -61,6 +62,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             estimatedDeliveryDate_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            successFailureMessage_ = s;
             break;
           }
           default: {
@@ -197,6 +204,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int SUCCESS_FAILUREMESSAGE_FIELD_NUMBER = 4;
+  private volatile java.lang.Object successFailureMessage_;
+  /**
+   * <code>string success_failureMessage = 4;</code>
+   */
+  public java.lang.String getSuccessFailureMessage() {
+    java.lang.Object ref = successFailureMessage_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      successFailureMessage_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string success_failureMessage = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getSuccessFailureMessageBytes() {
+    java.lang.Object ref = successFailureMessage_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      successFailureMessage_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -220,6 +261,9 @@ private static final long serialVersionUID = 0L;
     if (!getEstimatedDeliveryDateBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, estimatedDeliveryDate_);
     }
+    if (!getSuccessFailureMessageBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, successFailureMessage_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -237,6 +281,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getEstimatedDeliveryDateBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, estimatedDeliveryDate_);
+    }
+    if (!getSuccessFailureMessageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, successFailureMessage_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -260,6 +307,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCurrentLocation());
     result = result && getEstimatedDeliveryDate()
         .equals(other.getEstimatedDeliveryDate());
+    result = result && getSuccessFailureMessage()
+        .equals(other.getSuccessFailureMessage());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -277,6 +326,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCurrentLocation().hashCode();
     hash = (37 * hash) + ESTIMATEDDELIVERYDATE_FIELD_NUMBER;
     hash = (53 * hash) + getEstimatedDeliveryDate().hashCode();
+    hash = (37 * hash) + SUCCESS_FAILUREMESSAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getSuccessFailureMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -416,6 +467,8 @@ private static final long serialVersionUID = 0L;
 
       estimatedDeliveryDate_ = "";
 
+      successFailureMessage_ = "";
+
       return this;
     }
 
@@ -445,6 +498,7 @@ private static final long serialVersionUID = 0L;
       result.deliveryDetail_ = deliveryDetail_;
       result.currentLocation_ = currentLocation_;
       result.estimatedDeliveryDate_ = estimatedDeliveryDate_;
+      result.successFailureMessage_ = successFailureMessage_;
       onBuilt();
       return result;
     }
@@ -503,6 +557,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEstimatedDeliveryDate().isEmpty()) {
         estimatedDeliveryDate_ = other.estimatedDeliveryDate_;
+        onChanged();
+      }
+      if (!other.getSuccessFailureMessage().isEmpty()) {
+        successFailureMessage_ = other.successFailureMessage_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -737,6 +795,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       estimatedDeliveryDate_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object successFailureMessage_ = "";
+    /**
+     * <code>string success_failureMessage = 4;</code>
+     */
+    public java.lang.String getSuccessFailureMessage() {
+      java.lang.Object ref = successFailureMessage_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        successFailureMessage_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string success_failureMessage = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSuccessFailureMessageBytes() {
+      java.lang.Object ref = successFailureMessage_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        successFailureMessage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string success_failureMessage = 4;</code>
+     */
+    public Builder setSuccessFailureMessage(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      successFailureMessage_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string success_failureMessage = 4;</code>
+     */
+    public Builder clearSuccessFailureMessage() {
+      
+      successFailureMessage_ = getDefaultInstance().getSuccessFailureMessage();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string success_failureMessage = 4;</code>
+     */
+    public Builder setSuccessFailureMessageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      successFailureMessage_ = value;
       onChanged();
       return this;
     }

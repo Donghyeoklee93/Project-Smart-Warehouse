@@ -2,7 +2,6 @@ package grpc.smartWarehouse.inventoryManagement;
 
 import java.io.IOException;
 
-import com.google.rpc.RequestInfo;
 
 import grpc.smartWarehouse.inventoryManagement.InventoryManagementGrpc.InventoryManagementImplBase;
 import io.grpc.Server;

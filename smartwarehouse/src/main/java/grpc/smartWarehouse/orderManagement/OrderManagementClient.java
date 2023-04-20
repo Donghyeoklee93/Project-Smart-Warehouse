@@ -1,23 +1,13 @@
 package grpc.smartWarehouse.orderManagement;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import grpc.smartWarehouse.inventoryManagement.InventoryManagementGrpc;
-import grpc.smartWarehouse.inventoryManagement.InventoryReply;
-import grpc.smartWarehouse.inventoryManagement.InventoryRequest;
-import grpc.smartWarehouse.inventoryManagement.InventoryManagementGrpc.InventoryManagementBlockingStub;
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.StatusRuntimeException;
-import io.grpc.internal.Stream;
 import io.grpc.stub.StreamObserver;
-import io.opencensus.stats.View.Name;
 
 public class OrderManagementClient {
 	public static void main(String[] args) throws InterruptedException {

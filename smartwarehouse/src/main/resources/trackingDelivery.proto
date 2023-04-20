@@ -10,18 +10,21 @@ package smartwarehouse;
 
 //Service Definition
 service TrackingManagement {
-	rpc CheckShippingDetail (TrackingRequest) returns (TrackingReply){}
+	rpc CheckShippingDetail (TrackingRequest) returns (stream TrackingReply){}
+	rpc UpdateShippingDetails (stream TrackingRequest) returns (TrackingReply){}
 }
 
 
 // Define the messages
 message TrackingRequest{
 	string orderID = 1;
+	string newDeliveryDetails = 2;
 }
 
 message TrackingReply{
 	string deliveryDetail = 1;
 	string currentLocation = 2;
 	string estimatedDeliveryDate = 3;
+	string success_failureMessage = 4;
 
 }

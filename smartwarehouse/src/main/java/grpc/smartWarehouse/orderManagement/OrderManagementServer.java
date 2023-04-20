@@ -2,7 +2,6 @@ package grpc.smartWarehouse.orderManagement;
 
 import java.io.IOException;
 
-import grpc.smartWarehouse.inventoryManagement.InventoryReply;
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

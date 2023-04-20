@@ -16,4 +16,14 @@ public interface TrackingRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getOrderIDBytes();
+
+  /**
+   * <code>string newDeliveryDetails = 2;</code>
+   */
+  java.lang.String getNewDeliveryDetails();
+  /**
+   * <code>string newDeliveryDetails = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getNewDeliveryDetailsBytes();
 }

@@ -37,7 +37,7 @@ public final class TrackingManagementGrpc {
       fullMethodName = SERVICE_NAME + '/' + "CheckShippingDetail",
       requestType = grpc.smartWarehouse.trackingDelivery.TrackingRequest.class,
       responseType = grpc.smartWarehouse.trackingDelivery.TrackingReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
   public static io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.TrackingRequest,
       grpc.smartWarehouse.trackingDelivery.TrackingReply> getCheckShippingDetailMethod() {
     io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.TrackingRequest, grpc.smartWarehouse.trackingDelivery.TrackingReply> getCheckShippingDetailMethod;
@@ -46,7 +46,7 @@ public final class TrackingManagementGrpc {
         if ((getCheckShippingDetailMethod = TrackingManagementGrpc.getCheckShippingDetailMethod) == null) {
           TrackingManagementGrpc.getCheckShippingDetailMethod = getCheckShippingDetailMethod = 
               io.grpc.MethodDescriptor.<grpc.smartWarehouse.trackingDelivery.TrackingRequest, grpc.smartWarehouse.trackingDelivery.TrackingReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "smartwarehouse.TrackingManagement", "CheckShippingDetail"))
               .setSampledToLocalTracing(true)
@@ -60,6 +60,38 @@ public final class TrackingManagementGrpc {
         }
      }
      return getCheckShippingDetailMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.TrackingRequest,
+      grpc.smartWarehouse.trackingDelivery.TrackingReply> getUpdateShippingDetailsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateShippingDetails",
+      requestType = grpc.smartWarehouse.trackingDelivery.TrackingRequest.class,
+      responseType = grpc.smartWarehouse.trackingDelivery.TrackingReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.TrackingRequest,
+      grpc.smartWarehouse.trackingDelivery.TrackingReply> getUpdateShippingDetailsMethod() {
+    io.grpc.MethodDescriptor<grpc.smartWarehouse.trackingDelivery.TrackingRequest, grpc.smartWarehouse.trackingDelivery.TrackingReply> getUpdateShippingDetailsMethod;
+    if ((getUpdateShippingDetailsMethod = TrackingManagementGrpc.getUpdateShippingDetailsMethod) == null) {
+      synchronized (TrackingManagementGrpc.class) {
+        if ((getUpdateShippingDetailsMethod = TrackingManagementGrpc.getUpdateShippingDetailsMethod) == null) {
+          TrackingManagementGrpc.getUpdateShippingDetailsMethod = getUpdateShippingDetailsMethod = 
+              io.grpc.MethodDescriptor.<grpc.smartWarehouse.trackingDelivery.TrackingRequest, grpc.smartWarehouse.trackingDelivery.TrackingReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "smartwarehouse.TrackingManagement", "UpdateShippingDetails"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  grpc.smartWarehouse.trackingDelivery.TrackingRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  grpc.smartWarehouse.trackingDelivery.TrackingReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new TrackingManagementMethodDescriptorSupplier("UpdateShippingDetails"))
+                  .build();
+          }
+        }
+     }
+     return getUpdateShippingDetailsMethod;
   }
 
   /**
@@ -99,15 +131,29 @@ public final class TrackingManagementGrpc {
       asyncUnimplementedUnaryCall(getCheckShippingDetailMethod(), responseObserver);
     }
 
+    /**
+     */
+    public io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingRequest> updateShippingDetails(
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingReply> responseObserver) {
+      return asyncUnimplementedStreamingCall(getUpdateShippingDetailsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getCheckShippingDetailMethod(),
-            asyncUnaryCall(
+            asyncServerStreamingCall(
               new MethodHandlers<
                 grpc.smartWarehouse.trackingDelivery.TrackingRequest,
                 grpc.smartWarehouse.trackingDelivery.TrackingReply>(
                   this, METHODID_CHECK_SHIPPING_DETAIL)))
+          .addMethod(
+            getUpdateShippingDetailsMethod(),
+            asyncClientStreamingCall(
+              new MethodHandlers<
+                grpc.smartWarehouse.trackingDelivery.TrackingRequest,
+                grpc.smartWarehouse.trackingDelivery.TrackingReply>(
+                  this, METHODID_UPDATE_SHIPPING_DETAILS)))
           .build();
     }
   }
@@ -137,8 +183,16 @@ public final class TrackingManagementGrpc {
      */
     public void checkShippingDetail(grpc.smartWarehouse.trackingDelivery.TrackingRequest request,
         io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingReply> responseObserver) {
-      asyncUnaryCall(
+      asyncServerStreamingCall(
           getChannel().newCall(getCheckShippingDetailMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingRequest> updateShippingDetails(
+        io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingReply> responseObserver) {
+      return asyncClientStreamingCall(
+          getChannel().newCall(getUpdateShippingDetailsMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -165,8 +219,9 @@ public final class TrackingManagementGrpc {
 
     /**
      */
-    public grpc.smartWarehouse.trackingDelivery.TrackingReply checkShippingDetail(grpc.smartWarehouse.trackingDelivery.TrackingRequest request) {
-      return blockingUnaryCall(
+    public java.util.Iterator<grpc.smartWarehouse.trackingDelivery.TrackingReply> checkShippingDetail(
+        grpc.smartWarehouse.trackingDelivery.TrackingRequest request) {
+      return blockingServerStreamingCall(
           getChannel(), getCheckShippingDetailMethod(), getCallOptions(), request);
     }
   }
@@ -191,17 +246,10 @@ public final class TrackingManagementGrpc {
         io.grpc.CallOptions callOptions) {
       return new TrackingManagementFutureStub(channel, callOptions);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.trackingDelivery.TrackingReply> checkShippingDetail(
-        grpc.smartWarehouse.trackingDelivery.TrackingRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getCheckShippingDetailMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_CHECK_SHIPPING_DETAIL = 0;
+  private static final int METHODID_UPDATE_SHIPPING_DETAILS = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -234,6 +282,9 @@ public final class TrackingManagementGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_UPDATE_SHIPPING_DETAILS:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.updateShippingDetails(
+              (io.grpc.stub.StreamObserver<grpc.smartWarehouse.trackingDelivery.TrackingReply>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -286,6 +337,7 @@ public final class TrackingManagementGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new TrackingManagementFileDescriptorSupplier())
               .addMethod(getCheckShippingDetailMethod())
+              .addMethod(getUpdateShippingDetailsMethod())
               .build();
         }
       }
