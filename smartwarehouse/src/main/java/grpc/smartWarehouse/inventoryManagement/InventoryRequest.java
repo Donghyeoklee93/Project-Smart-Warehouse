@@ -21,8 +21,8 @@ private static final long serialVersionUID = 0L;
   }
   private InventoryRequest() {
     itemID_ = "";
-    quantity_ = "";
-    threshold_ = "";
+    updateQuantity_ = 0;
+    threshold_ = 0;
   }
 
   @java.lang.Override
@@ -55,16 +55,14 @@ private static final long serialVersionUID = 0L;
             itemID_ = s;
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 16: {
 
-            quantity_ = s;
+            updateQuantity_ = input.readInt32();
             break;
           }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 24: {
 
-            threshold_ = s;
+            threshold_ = input.readInt32();
             break;
           }
           default: {
@@ -133,72 +131,22 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int QUANTITY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object quantity_;
+  public static final int UPDATEQUANTITY_FIELD_NUMBER = 2;
+  private int updateQuantity_;
   /**
-   * <code>string quantity = 2;</code>
+   * <code>int32 updateQuantity = 2;</code>
    */
-  public java.lang.String getQuantity() {
-    java.lang.Object ref = quantity_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      quantity_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string quantity = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getQuantityBytes() {
-    java.lang.Object ref = quantity_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      quantity_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getUpdateQuantity() {
+    return updateQuantity_;
   }
 
   public static final int THRESHOLD_FIELD_NUMBER = 3;
-  private volatile java.lang.Object threshold_;
+  private int threshold_;
   /**
-   * <code>string threshold = 3;</code>
+   * <code>int32 threshold = 3;</code>
    */
-  public java.lang.String getThreshold() {
-    java.lang.Object ref = threshold_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      threshold_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string threshold = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getThresholdBytes() {
-    java.lang.Object ref = threshold_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      threshold_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getThreshold() {
+    return threshold_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -218,11 +166,11 @@ private static final long serialVersionUID = 0L;
     if (!getItemIDBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, itemID_);
     }
-    if (!getQuantityBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, quantity_);
+    if (updateQuantity_ != 0) {
+      output.writeInt32(2, updateQuantity_);
     }
-    if (!getThresholdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, threshold_);
+    if (threshold_ != 0) {
+      output.writeInt32(3, threshold_);
     }
     unknownFields.writeTo(output);
   }
@@ -236,11 +184,13 @@ private static final long serialVersionUID = 0L;
     if (!getItemIDBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, itemID_);
     }
-    if (!getQuantityBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, quantity_);
+    if (updateQuantity_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, updateQuantity_);
     }
-    if (!getThresholdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, threshold_);
+    if (threshold_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, threshold_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -260,10 +210,10 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getItemID()
         .equals(other.getItemID());
-    result = result && getQuantity()
-        .equals(other.getQuantity());
-    result = result && getThreshold()
-        .equals(other.getThreshold());
+    result = result && (getUpdateQuantity()
+        == other.getUpdateQuantity());
+    result = result && (getThreshold()
+        == other.getThreshold());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -277,10 +227,10 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ITEMID_FIELD_NUMBER;
     hash = (53 * hash) + getItemID().hashCode();
-    hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
-    hash = (53 * hash) + getQuantity().hashCode();
+    hash = (37 * hash) + UPDATEQUANTITY_FIELD_NUMBER;
+    hash = (53 * hash) + getUpdateQuantity();
     hash = (37 * hash) + THRESHOLD_FIELD_NUMBER;
-    hash = (53 * hash) + getThreshold().hashCode();
+    hash = (53 * hash) + getThreshold();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -420,9 +370,9 @@ private static final long serialVersionUID = 0L;
       super.clear();
       itemID_ = "";
 
-      quantity_ = "";
+      updateQuantity_ = 0;
 
-      threshold_ = "";
+      threshold_ = 0;
 
       return this;
     }
@@ -451,7 +401,7 @@ private static final long serialVersionUID = 0L;
     public grpc.smartWarehouse.inventoryManagement.InventoryRequest buildPartial() {
       grpc.smartWarehouse.inventoryManagement.InventoryRequest result = new grpc.smartWarehouse.inventoryManagement.InventoryRequest(this);
       result.itemID_ = itemID_;
-      result.quantity_ = quantity_;
+      result.updateQuantity_ = updateQuantity_;
       result.threshold_ = threshold_;
       onBuilt();
       return result;
@@ -505,13 +455,11 @@ private static final long serialVersionUID = 0L;
         itemID_ = other.itemID_;
         onChanged();
       }
-      if (!other.getQuantity().isEmpty()) {
-        quantity_ = other.quantity_;
-        onChanged();
+      if (other.getUpdateQuantity() != 0) {
+        setUpdateQuantity(other.getUpdateQuantity());
       }
-      if (!other.getThreshold().isEmpty()) {
-        threshold_ = other.threshold_;
-        onChanged();
+      if (other.getThreshold() != 0) {
+        setThreshold(other.getThreshold());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -611,140 +559,54 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object quantity_ = "";
+    private int updateQuantity_ ;
     /**
-     * <code>string quantity = 2;</code>
+     * <code>int32 updateQuantity = 2;</code>
      */
-    public java.lang.String getQuantity() {
-      java.lang.Object ref = quantity_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        quantity_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getUpdateQuantity() {
+      return updateQuantity_;
     }
     /**
-     * <code>string quantity = 2;</code>
+     * <code>int32 updateQuantity = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getQuantityBytes() {
-      java.lang.Object ref = quantity_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        quantity_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string quantity = 2;</code>
-     */
-    public Builder setQuantity(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      quantity_ = value;
+    public Builder setUpdateQuantity(int value) {
+      
+      updateQuantity_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string quantity = 2;</code>
+     * <code>int32 updateQuantity = 2;</code>
      */
-    public Builder clearQuantity() {
+    public Builder clearUpdateQuantity() {
       
-      quantity_ = getDefaultInstance().getQuantity();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string quantity = 2;</code>
-     */
-    public Builder setQuantityBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      quantity_ = value;
+      updateQuantity_ = 0;
       onChanged();
       return this;
     }
 
-    private java.lang.Object threshold_ = "";
+    private int threshold_ ;
     /**
-     * <code>string threshold = 3;</code>
+     * <code>int32 threshold = 3;</code>
      */
-    public java.lang.String getThreshold() {
-      java.lang.Object ref = threshold_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        threshold_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getThreshold() {
+      return threshold_;
     }
     /**
-     * <code>string threshold = 3;</code>
+     * <code>int32 threshold = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getThresholdBytes() {
-      java.lang.Object ref = threshold_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        threshold_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string threshold = 3;</code>
-     */
-    public Builder setThreshold(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setThreshold(int value) {
+      
       threshold_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string threshold = 3;</code>
+     * <code>int32 threshold = 3;</code>
      */
     public Builder clearThreshold() {
       
-      threshold_ = getDefaultInstance().getThreshold();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string threshold = 3;</code>
-     */
-    public Builder setThresholdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      threshold_ = value;
+      threshold_ = 0;
       onChanged();
       return this;
     }

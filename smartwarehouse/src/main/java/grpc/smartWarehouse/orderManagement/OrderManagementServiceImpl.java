@@ -35,7 +35,7 @@ public final class OrderManagementServiceImpl {
     java.lang.String[] descriptorData = {
       "\n\025orderManagement.proto\022\016smartwarehouse\"" +
       "s\n\014OrderRequest\022\024\n\014customerName\030\001 \001(\t\022\016\n" +
-      "\006itemID\030\002 \001(\t\022\031\n\021currentQuantities\030\003 \001(\t" +
+      "\006itemID\030\002 \001(\t\022\031\n\021currentQuantities\030\003 \001(\005" +
       "\022\017\n\007orderID\030\004 \001(\t\022\021\n\tnewStatus\030\005 \001(\t\"T\n\n" +
       "OrderReply\022\017\n\007orderID\030\001 \001(\t\022\025\n\rcurrentSt" +
       "atus\030\002 \001(\t\022\036\n\026success_failureMessage\030\003 \001" +

@@ -20,12 +20,12 @@ service InventoryManagement {
 // Define the messages
 message InventoryRequest{
 	string itemID = 1;
-	string quantity = 2;
-	string threshold = 3;
+	int32 updateQuantity = 2;
+	int32 threshold = 3;
 }
 
 message InventoryReply{
-	string currentQuantities = 1;
+	int32 currentQuantities = 1;
 	string success_failureMessage = 2;
 	string alertMessage = 3;
 }

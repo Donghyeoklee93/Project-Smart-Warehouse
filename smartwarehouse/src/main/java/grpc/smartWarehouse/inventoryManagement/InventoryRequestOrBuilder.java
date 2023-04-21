@@ -18,22 +18,12 @@ public interface InventoryRequestOrBuilder extends
       getItemIDBytes();
 
   /**
-   * <code>string quantity = 2;</code>
+   * <code>int32 updateQuantity = 2;</code>
    */
-  java.lang.String getQuantity();
-  /**
-   * <code>string quantity = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getQuantityBytes();
+  int getUpdateQuantity();
 
   /**
-   * <code>string threshold = 3;</code>
+   * <code>int32 threshold = 3;</code>
    */
-  java.lang.String getThreshold();
-  /**
-   * <code>string threshold = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getThresholdBytes();
+  int getThreshold();
 }

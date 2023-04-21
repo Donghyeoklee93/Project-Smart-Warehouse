@@ -34,20 +34,20 @@ public final class InventoryManagementServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\031inventoryManagement.proto\022\016smartwareho" +
-      "use\"G\n\020InventoryRequest\022\016\n\006itemID\030\001 \001(\t\022" +
-      "\020\n\010quantity\030\002 \001(\t\022\021\n\tthreshold\030\003 \001(\t\"a\n\016" +
-      "InventoryReply\022\031\n\021currentQuantities\030\001 \001(" +
-      "\t\022\036\n\026success_failureMessage\030\002 \001(\t\022\024\n\014ale" +
-      "rtMessage\030\003 \001(\t2\227\002\n\023InventoryManagement\022" +
-      "O\n\tCheckItem\022 .smartwarehouse.InventoryR" +
-      "equest\032\036.smartwarehouse.InventoryReply\"\000" +
-      "\022V\n\016ModifyQuantity\022 .smartwarehouse.Inve" +
+      "use\"M\n\020InventoryRequest\022\016\n\006itemID\030\001 \001(\t\022" +
+      "\026\n\016updateQuantity\030\002 \001(\005\022\021\n\tthreshold\030\003 \001" +
+      "(\005\"a\n\016InventoryReply\022\031\n\021currentQuantitie" +
+      "s\030\001 \001(\005\022\036\n\026success_failureMessage\030\002 \001(\t\022" +
+      "\024\n\014alertMessage\030\003 \001(\t2\227\002\n\023InventoryManag" +
+      "ement\022O\n\tCheckItem\022 .smartwarehouse.Inve" +
       "ntoryRequest\032\036.smartwarehouse.InventoryR" +
-      "eply\"\000(\001\022W\n\017AlertOutOfStock\022 .smartwareh" +
-      "ouse.InventoryRequest\032\036.smartwarehouse.I" +
-      "nventoryReply\"\0000\001BK\n\'grpc.smartWarehouse" +
-      ".inventoryManagementB\036InventoryManagemen" +
-      "tServiceImplP\001b\006proto3"
+      "eply\"\000\022V\n\016ModifyQuantity\022 .smartwarehous" +
+      "e.InventoryRequest\032\036.smartwarehouse.Inve" +
+      "ntoryReply\"\000(\001\022W\n\017AlertOutOfStock\022 .smar" +
+      "twarehouse.InventoryRequest\032\036.smartwareh" +
+      "ouse.InventoryReply\"\0000\001BK\n\'grpc.smartWar" +
+      "ehouse.inventoryManagementB\036InventoryMan" +
+      "agementServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -66,7 +66,7 @@ public final class InventoryManagementServiceImpl {
     internal_static_smartwarehouse_InventoryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smartwarehouse_InventoryRequest_descriptor,
-        new java.lang.String[] { "ItemID", "Quantity", "Threshold", });
+        new java.lang.String[] { "ItemID", "UpdateQuantity", "Threshold", });
     internal_static_smartwarehouse_InventoryReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_smartwarehouse_InventoryReply_fieldAccessorTable = new

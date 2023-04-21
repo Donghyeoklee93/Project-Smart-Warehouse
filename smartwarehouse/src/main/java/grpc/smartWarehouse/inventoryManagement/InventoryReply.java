@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private InventoryReply() {
-    currentQuantities_ = "";
+    currentQuantities_ = 0;
     successFailureMessage_ = "";
     alertMessage_ = "";
   }
@@ -45,10 +45,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            currentQuantities_ = s;
+            currentQuantities_ = input.readInt32();
             break;
           }
           case 18: {
@@ -96,37 +95,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENTQUANTITIES_FIELD_NUMBER = 1;
-  private volatile java.lang.Object currentQuantities_;
+  private int currentQuantities_;
   /**
-   * <code>string currentQuantities = 1;</code>
+   * <code>int32 currentQuantities = 1;</code>
    */
-  public java.lang.String getCurrentQuantities() {
-    java.lang.Object ref = currentQuantities_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      currentQuantities_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string currentQuantities = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getCurrentQuantitiesBytes() {
-    java.lang.Object ref = currentQuantities_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      currentQuantities_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getCurrentQuantities() {
+    return currentQuantities_;
   }
 
   public static final int SUCCESS_FAILUREMESSAGE_FIELD_NUMBER = 2;
@@ -211,8 +185,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getCurrentQuantitiesBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, currentQuantities_);
+    if (currentQuantities_ != 0) {
+      output.writeInt32(1, currentQuantities_);
     }
     if (!getSuccessFailureMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, successFailureMessage_);
@@ -229,8 +203,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getCurrentQuantitiesBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, currentQuantities_);
+    if (currentQuantities_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, currentQuantities_);
     }
     if (!getSuccessFailureMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, successFailureMessage_);
@@ -254,8 +229,8 @@ private static final long serialVersionUID = 0L;
     grpc.smartWarehouse.inventoryManagement.InventoryReply other = (grpc.smartWarehouse.inventoryManagement.InventoryReply) obj;
 
     boolean result = true;
-    result = result && getCurrentQuantities()
-        .equals(other.getCurrentQuantities());
+    result = result && (getCurrentQuantities()
+        == other.getCurrentQuantities());
     result = result && getSuccessFailureMessage()
         .equals(other.getSuccessFailureMessage());
     result = result && getAlertMessage()
@@ -272,7 +247,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + CURRENTQUANTITIES_FIELD_NUMBER;
-    hash = (53 * hash) + getCurrentQuantities().hashCode();
+    hash = (53 * hash) + getCurrentQuantities();
     hash = (37 * hash) + SUCCESS_FAILUREMESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getSuccessFailureMessage().hashCode();
     hash = (37 * hash) + ALERTMESSAGE_FIELD_NUMBER;
@@ -410,7 +385,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      currentQuantities_ = "";
+      currentQuantities_ = 0;
 
       successFailureMessage_ = "";
 
@@ -493,9 +468,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.smartWarehouse.inventoryManagement.InventoryReply other) {
       if (other == grpc.smartWarehouse.inventoryManagement.InventoryReply.getDefaultInstance()) return this;
-      if (!other.getCurrentQuantities().isEmpty()) {
-        currentQuantities_ = other.currentQuantities_;
-        onChanged();
+      if (other.getCurrentQuantities() != 0) {
+        setCurrentQuantities(other.getCurrentQuantities());
       }
       if (!other.getSuccessFailureMessage().isEmpty()) {
         successFailureMessage_ = other.successFailureMessage_;
@@ -534,71 +508,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object currentQuantities_ = "";
+    private int currentQuantities_ ;
     /**
-     * <code>string currentQuantities = 1;</code>
+     * <code>int32 currentQuantities = 1;</code>
      */
-    public java.lang.String getCurrentQuantities() {
-      java.lang.Object ref = currentQuantities_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        currentQuantities_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getCurrentQuantities() {
+      return currentQuantities_;
     }
     /**
-     * <code>string currentQuantities = 1;</code>
+     * <code>int32 currentQuantities = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getCurrentQuantitiesBytes() {
-      java.lang.Object ref = currentQuantities_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        currentQuantities_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string currentQuantities = 1;</code>
-     */
-    public Builder setCurrentQuantities(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setCurrentQuantities(int value) {
+      
       currentQuantities_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string currentQuantities = 1;</code>
+     * <code>int32 currentQuantities = 1;</code>
      */
     public Builder clearCurrentQuantities() {
       
-      currentQuantities_ = getDefaultInstance().getCurrentQuantities();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string currentQuantities = 1;</code>
-     */
-    public Builder setCurrentQuantitiesBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      currentQuantities_ = value;
+      currentQuantities_ = 0;
       onChanged();
       return this;
     }

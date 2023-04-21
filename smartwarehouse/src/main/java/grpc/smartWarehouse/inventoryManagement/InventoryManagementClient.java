@@ -101,7 +101,7 @@ public class InventoryManagementClient {
 		System.out.println("Enter alertOutOfStock");
 		InventoryManagementBlockingStub blockingStub = InventoryManagementGrpc.newBlockingStub(channel);
 
-		blockingStub.alertOutOfStock(InventoryRequest.newBuilder().setThreshold("Threshold").build())
+		blockingStub.alertOutOfStock(InventoryRequest.newBuilder().setThreshold(11111).build())
 				.forEachRemaining(reply -> {
 					System.out.println(reply.getAlertMessage());
 				});

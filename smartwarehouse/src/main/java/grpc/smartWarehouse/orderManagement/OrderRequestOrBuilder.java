@@ -28,14 +28,9 @@ public interface OrderRequestOrBuilder extends
       getItemIDBytes();
 
   /**
-   * <code>string currentQuantities = 3;</code>
+   * <code>int32 currentQuantities = 3;</code>
    */
-  java.lang.String getCurrentQuantities();
-  /**
-   * <code>string currentQuantities = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getCurrentQuantitiesBytes();
+  int getCurrentQuantities();
 
   /**
    * <code>string orderID = 4;</code>

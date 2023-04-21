@@ -22,7 +22,7 @@ private static final long serialVersionUID = 0L;
   private OrderRequest() {
     customerName_ = "";
     itemID_ = "";
-    currentQuantities_ = "";
+    currentQuantities_ = 0;
     orderID_ = "";
     newStatus_ = "";
   }
@@ -63,10 +63,9 @@ private static final long serialVersionUID = 0L;
             itemID_ = s;
             break;
           }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 24: {
 
-            currentQuantities_ = s;
+            currentQuantities_ = input.readInt32();
             break;
           }
           case 34: {
@@ -182,37 +181,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENTQUANTITIES_FIELD_NUMBER = 3;
-  private volatile java.lang.Object currentQuantities_;
+  private int currentQuantities_;
   /**
-   * <code>string currentQuantities = 3;</code>
+   * <code>int32 currentQuantities = 3;</code>
    */
-  public java.lang.String getCurrentQuantities() {
-    java.lang.Object ref = currentQuantities_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      currentQuantities_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string currentQuantities = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getCurrentQuantitiesBytes() {
-    java.lang.Object ref = currentQuantities_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      currentQuantities_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getCurrentQuantities() {
+    return currentQuantities_;
   }
 
   public static final int ORDERID_FIELD_NUMBER = 4;
@@ -303,8 +277,8 @@ private static final long serialVersionUID = 0L;
     if (!getItemIDBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, itemID_);
     }
-    if (!getCurrentQuantitiesBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, currentQuantities_);
+    if (currentQuantities_ != 0) {
+      output.writeInt32(3, currentQuantities_);
     }
     if (!getOrderIDBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, orderID_);
@@ -327,8 +301,9 @@ private static final long serialVersionUID = 0L;
     if (!getItemIDBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, itemID_);
     }
-    if (!getCurrentQuantitiesBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, currentQuantities_);
+    if (currentQuantities_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, currentQuantities_);
     }
     if (!getOrderIDBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, orderID_);
@@ -356,8 +331,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCustomerName());
     result = result && getItemID()
         .equals(other.getItemID());
-    result = result && getCurrentQuantities()
-        .equals(other.getCurrentQuantities());
+    result = result && (getCurrentQuantities()
+        == other.getCurrentQuantities());
     result = result && getOrderID()
         .equals(other.getOrderID());
     result = result && getNewStatus()
@@ -378,7 +353,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ITEMID_FIELD_NUMBER;
     hash = (53 * hash) + getItemID().hashCode();
     hash = (37 * hash) + CURRENTQUANTITIES_FIELD_NUMBER;
-    hash = (53 * hash) + getCurrentQuantities().hashCode();
+    hash = (53 * hash) + getCurrentQuantities();
     hash = (37 * hash) + ORDERID_FIELD_NUMBER;
     hash = (53 * hash) + getOrderID().hashCode();
     hash = (37 * hash) + NEWSTATUS_FIELD_NUMBER;
@@ -524,7 +499,7 @@ private static final long serialVersionUID = 0L;
 
       itemID_ = "";
 
-      currentQuantities_ = "";
+      currentQuantities_ = 0;
 
       orderID_ = "";
 
@@ -617,9 +592,8 @@ private static final long serialVersionUID = 0L;
         itemID_ = other.itemID_;
         onChanged();
       }
-      if (!other.getCurrentQuantities().isEmpty()) {
-        currentQuantities_ = other.currentQuantities_;
-        onChanged();
+      if (other.getCurrentQuantities() != 0) {
+        setCurrentQuantities(other.getCurrentQuantities());
       }
       if (!other.getOrderID().isEmpty()) {
         orderID_ = other.orderID_;
@@ -796,71 +770,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object currentQuantities_ = "";
+    private int currentQuantities_ ;
     /**
-     * <code>string currentQuantities = 3;</code>
+     * <code>int32 currentQuantities = 3;</code>
      */
-    public java.lang.String getCurrentQuantities() {
-      java.lang.Object ref = currentQuantities_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        currentQuantities_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getCurrentQuantities() {
+      return currentQuantities_;
     }
     /**
-     * <code>string currentQuantities = 3;</code>
+     * <code>int32 currentQuantities = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getCurrentQuantitiesBytes() {
-      java.lang.Object ref = currentQuantities_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        currentQuantities_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string currentQuantities = 3;</code>
-     */
-    public Builder setCurrentQuantities(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setCurrentQuantities(int value) {
+      
       currentQuantities_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string currentQuantities = 3;</code>
+     * <code>int32 currentQuantities = 3;</code>
      */
     public Builder clearCurrentQuantities() {
       
-      currentQuantities_ = getDefaultInstance().getCurrentQuantities();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string currentQuantities = 3;</code>
-     */
-    public Builder setCurrentQuantitiesBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      currentQuantities_ = value;
+      currentQuantities_ = 0;
       onChanged();
       return this;
     }

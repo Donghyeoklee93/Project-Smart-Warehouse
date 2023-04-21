@@ -44,7 +44,7 @@ public class OrderManagementClient {
 		OrderRequest request = OrderRequest.newBuilder()
 				.setCustomerName(" (Customer Name) ")
 				.setItemID("(Item ID)")
-				.setCurrentQuantities("(CurrentQuantities)")
+				.setCurrentQuantities(11111)
 				.build();
 
 		OrderReply reply = blockingStub.orderItem(request);

@@ -8,14 +8,9 @@ public interface InventoryReplyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string currentQuantities = 1;</code>
+   * <code>int32 currentQuantities = 1;</code>
    */
-  java.lang.String getCurrentQuantities();
-  /**
-   * <code>string currentQuantities = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getCurrentQuantitiesBytes();
+  int getCurrentQuantities();
 
   /**
    * <code>string success_failureMessage = 2;</code>

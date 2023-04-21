@@ -32,13 +32,10 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 	public void checkItem(InventoryRequest request, StreamObserver<InventoryReply> responseObserver) {
 		// TODO Auto-generated method stub
 		System.out.println("— Receiving Check Item Request from Client —");
+		
 
-		// Logic Code
-		String myTest = "The quantities of" + request.getItemID() + " is " + " 39. ";
-
-		// Logic
-
-		InventoryReply reply = InventoryReply.newBuilder().setCurrentQuantities(myTest).build();
+		System.out.printf("The quantities of " + request.getItemID() + " is " );
+		InventoryReply reply = InventoryReply.newBuilder().setCurrentQuantities(11111).build();
 
 		responseObserver.onNext(reply);
 		responseObserver.onCompleted();
