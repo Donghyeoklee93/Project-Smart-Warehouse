@@ -20,7 +20,7 @@ service OrderManagement {
 message OrderRequest{
 	string customerName = 1;
 	string itemID = 2;
-	string currentQuantities = 3;
+	int32 currentQuantities = 3;
 	string orderID = 4;
 	string newStatus = 5;
 
