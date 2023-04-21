@@ -1,8 +1,11 @@
 package grpc.smartWarehouse.orderManagement;
 
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+
+import com.google.common.math.Quantiles.Scale;
 
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementBlockingStub;
 import io.grpc.ManagedChannel;
@@ -10,6 +13,8 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
 public class OrderManagementClient {
+	static Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) throws InterruptedException {
 		if (args.length == 0) {
 			System.out.println("Need one argument to work");
@@ -41,10 +46,15 @@ public class OrderManagementClient {
 		System.out.println("Enter createOrder");
 		OrderManagementBlockingStub blockingStub = OrderManagementGrpc.newBlockingStub(channel);
 
+		System.out.println("Enter 1)customerName, 2)itemID, 3)orderQuantities. *Order quantities can not over 10 due to internal policy.");
+		String customerName = sc.next();
+		String itemID = sc.next();
+		int orderQuantities = sc.nextInt();
+		
 		OrderRequest request = OrderRequest.newBuilder()
-				.setCustomerName(" (Customer Name) ")
-				.setItemID("(Item ID)")
-				.setCurrentQuantities(11111)
+				.setCustomerName(customerName)
+				.setItemID(itemID)
+				.setOrderQuantities(orderQuantities)
 				.build();
 
 		OrderReply reply = blockingStub.orderItem(request);
@@ -102,11 +112,17 @@ public class OrderManagementClient {
 		System.out.println("Enter cancelOrder");
 		OrderManagementBlockingStub blockingStub = OrderManagementGrpc.newBlockingStub(channel);
 
-		OrderRequest request = OrderRequest.newBuilder().setOrderID(" (Order ID) ").build();
+		System.out.println("Enter the OrderID you want to cancel.");
+		String orderID = sc.next();
+		
+		OrderRequest request = OrderRequest.newBuilder()
+				.setOrderID(orderID)
+				.build();
 
 		OrderReply reply = blockingStub.cancelOrder(request);
 
-		System.out.println("Message sent by the server " + reply.getSuccessFailureMessage());
+		System.out.println("Message sent by the server ");
+		System.out.println(reply.getSuccessFailureMessage());
 	}
 	
 

@@ -22,7 +22,7 @@ private static final long serialVersionUID = 0L;
   private OrderRequest() {
     customerName_ = "";
     itemID_ = "";
-    currentQuantities_ = 0;
+    orderQuantities_ = 0;
     orderID_ = "";
     newStatus_ = "";
   }
@@ -65,7 +65,7 @@ private static final long serialVersionUID = 0L;
           }
           case 24: {
 
-            currentQuantities_ = input.readInt32();
+            orderQuantities_ = input.readInt32();
             break;
           }
           case 34: {
@@ -180,13 +180,13 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CURRENTQUANTITIES_FIELD_NUMBER = 3;
-  private int currentQuantities_;
+  public static final int ORDERQUANTITIES_FIELD_NUMBER = 3;
+  private int orderQuantities_;
   /**
-   * <code>int32 currentQuantities = 3;</code>
+   * <code>int32 orderQuantities = 3;</code>
    */
-  public int getCurrentQuantities() {
-    return currentQuantities_;
+  public int getOrderQuantities() {
+    return orderQuantities_;
   }
 
   public static final int ORDERID_FIELD_NUMBER = 4;
@@ -277,8 +277,8 @@ private static final long serialVersionUID = 0L;
     if (!getItemIDBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, itemID_);
     }
-    if (currentQuantities_ != 0) {
-      output.writeInt32(3, currentQuantities_);
+    if (orderQuantities_ != 0) {
+      output.writeInt32(3, orderQuantities_);
     }
     if (!getOrderIDBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, orderID_);
@@ -301,9 +301,9 @@ private static final long serialVersionUID = 0L;
     if (!getItemIDBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, itemID_);
     }
-    if (currentQuantities_ != 0) {
+    if (orderQuantities_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, currentQuantities_);
+        .computeInt32Size(3, orderQuantities_);
     }
     if (!getOrderIDBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, orderID_);
@@ -331,8 +331,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCustomerName());
     result = result && getItemID()
         .equals(other.getItemID());
-    result = result && (getCurrentQuantities()
-        == other.getCurrentQuantities());
+    result = result && (getOrderQuantities()
+        == other.getOrderQuantities());
     result = result && getOrderID()
         .equals(other.getOrderID());
     result = result && getNewStatus()
@@ -352,8 +352,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCustomerName().hashCode();
     hash = (37 * hash) + ITEMID_FIELD_NUMBER;
     hash = (53 * hash) + getItemID().hashCode();
-    hash = (37 * hash) + CURRENTQUANTITIES_FIELD_NUMBER;
-    hash = (53 * hash) + getCurrentQuantities();
+    hash = (37 * hash) + ORDERQUANTITIES_FIELD_NUMBER;
+    hash = (53 * hash) + getOrderQuantities();
     hash = (37 * hash) + ORDERID_FIELD_NUMBER;
     hash = (53 * hash) + getOrderID().hashCode();
     hash = (37 * hash) + NEWSTATUS_FIELD_NUMBER;
@@ -499,7 +499,7 @@ private static final long serialVersionUID = 0L;
 
       itemID_ = "";
 
-      currentQuantities_ = 0;
+      orderQuantities_ = 0;
 
       orderID_ = "";
 
@@ -533,7 +533,7 @@ private static final long serialVersionUID = 0L;
       grpc.smartWarehouse.orderManagement.OrderRequest result = new grpc.smartWarehouse.orderManagement.OrderRequest(this);
       result.customerName_ = customerName_;
       result.itemID_ = itemID_;
-      result.currentQuantities_ = currentQuantities_;
+      result.orderQuantities_ = orderQuantities_;
       result.orderID_ = orderID_;
       result.newStatus_ = newStatus_;
       onBuilt();
@@ -592,8 +592,8 @@ private static final long serialVersionUID = 0L;
         itemID_ = other.itemID_;
         onChanged();
       }
-      if (other.getCurrentQuantities() != 0) {
-        setCurrentQuantities(other.getCurrentQuantities());
+      if (other.getOrderQuantities() != 0) {
+        setOrderQuantities(other.getOrderQuantities());
       }
       if (!other.getOrderID().isEmpty()) {
         orderID_ = other.orderID_;
@@ -770,28 +770,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int currentQuantities_ ;
+    private int orderQuantities_ ;
     /**
-     * <code>int32 currentQuantities = 3;</code>
+     * <code>int32 orderQuantities = 3;</code>
      */
-    public int getCurrentQuantities() {
-      return currentQuantities_;
+    public int getOrderQuantities() {
+      return orderQuantities_;
     }
     /**
-     * <code>int32 currentQuantities = 3;</code>
+     * <code>int32 orderQuantities = 3;</code>
      */
-    public Builder setCurrentQuantities(int value) {
+    public Builder setOrderQuantities(int value) {
       
-      currentQuantities_ = value;
+      orderQuantities_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 currentQuantities = 3;</code>
+     * <code>int32 orderQuantities = 3;</code>
      */
-    public Builder clearCurrentQuantities() {
+    public Builder clearOrderQuantities() {
       
-      currentQuantities_ = 0;
+      orderQuantities_ = 0;
       onChanged();
       return this;
     }

@@ -3,8 +3,11 @@ package grpc.smartWarehouse.trackingDelivery;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+
+import org.checkerframework.common.reflection.qual.GetClass;
 
 import grpc.smartWarehouse.trackingDelivery.TrackingManagementGrpc.TrackingManagementBlockingStub;
 import io.grpc.ManagedChannel;
@@ -12,6 +15,8 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
 public class TrackingDeliveryClient {
+	static Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) throws InterruptedException {
 		if (args.length == 0) {
 			System.out.println("Need one argument to work");
@@ -44,10 +49,15 @@ public class TrackingDeliveryClient {
 		System.out.println("Enter checkShippingDetails");
 		TrackingManagementBlockingStub blockingStub = TrackingManagementGrpc.newBlockingStub(channel);
 		
+		System.out.println("Enter the customerName you want.");
+		String customerName = sc.next();
+		
 		blockingStub.checkShippingDetail(TrackingRequest.newBuilder()
-				.setOrderID("order ID")
+				.setCustomerName(customerName)
 				.build())
 				.forEachRemaining(reply -> {
+
+					System.out.println(reply.getOrderID());
 					System.out.println(reply.getDeliveryDetail());
 					System.out.println(reply.getCurrentLocation());
 					System.out.println(reply.getEstimatedDeliveryDate());
@@ -63,10 +73,22 @@ public class TrackingDeliveryClient {
 		
 		TrackingManagementGrpc.TrackingManagementStub stub = TrackingManagementGrpc.newStub(channel);
 		
-		List<String> names = new ArrayList<>();
+//		List<String> names = new ArrayList<>();
 		CountDownLatch latch = new CountDownLatch(1);
 		
-		Collections.addAll(names, "sofa", "chair", "desk");
+		System.out.println("How many orderID's delivery detail do you want to modify?");
+		int count = sc.nextInt();
+		List<UpdateDetail> updateDetail = new ArrayList<>();
+		
+		
+		for(int i =0; i < count; i++) {
+			System.out.println("Enter the orderID and updated delivery detail");
+			String orderID = sc.next();
+			String updateDeliveryDetail = sc.next();
+			
+			updateDetail.add(new UpdateDetail(orderID, updateDeliveryDetail)) ;
+		}
+		
 		
 		StreamObserver<TrackingRequest> stream = stub.updateShippingDetails(new StreamObserver<TrackingReply>() {
 		
@@ -91,8 +113,11 @@ public class TrackingDeliveryClient {
 		
 		});
 		
-		for (String name : names) {
-			stream.onNext(TrackingRequest.newBuilder().setOrderID(name).build());
+		for (UpdateDetail orderID : updateDetail) {
+			stream.onNext(TrackingRequest.newBuilder()
+					.setOrderID(orderID.getOrderID())
+					.setNewDeliveryDetails(orderID.getUpdateDeliveryDetail())
+					.build());
 		}
 		
 		stream.onCompleted();
@@ -100,10 +125,33 @@ public class TrackingDeliveryClient {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
+}
+
+class UpdateDetail {
+	private String orderID;
+	private String updateDeliveryDetail;
+
+	// constructor
+	public UpdateDetail(String orderID, String updateDeliveryDetail) {
+		this.orderID = orderID;
+		this.updateDeliveryDetail = updateDeliveryDetail;
+	}
+
+	// setters and getters
+	public String getOrderID() {
+		return orderID;
+	}
+
+	public void setOrderID(String orderID) {
+		this.orderID = orderID;
+	}
+
+	public String getUpdateDeliveryDetail() {
+		return updateDeliveryDetail;
+	}
+
+	public void setUpdateDeliveryDetail(String updateDeliveryDetail) {
+		this.updateDeliveryDetail = updateDeliveryDetail;
+	}
+
 }

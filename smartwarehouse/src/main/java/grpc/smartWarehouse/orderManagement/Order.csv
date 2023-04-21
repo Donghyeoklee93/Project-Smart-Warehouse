@@ -1,0 +1,11 @@
+customerName,orderID,itemID,quantity,currentStatus
+jack,jack13,a,2,preparing
+lee,lee99,b,3,shipping
+kim,kim56,c,5,preparing
+harry,harry29,d,7,shipping
+henry,henry33,e,6,preparing
+stephan,stephan82,f,3,shipping
+john,john75,g,2,finished
+sam,sam62,h,1,preparing
+bella,bella59,i,3,finished
+tony,tony78,j,5,shipping

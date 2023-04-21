@@ -34,20 +34,20 @@ public final class OrderManagementServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\025orderManagement.proto\022\016smartwarehouse\"" +
-      "s\n\014OrderRequest\022\024\n\014customerName\030\001 \001(\t\022\016\n" +
-      "\006itemID\030\002 \001(\t\022\031\n\021currentQuantities\030\003 \001(\005" +
-      "\022\017\n\007orderID\030\004 \001(\t\022\021\n\tnewStatus\030\005 \001(\t\"T\n\n" +
-      "OrderReply\022\017\n\007orderID\030\001 \001(\t\022\025\n\rcurrentSt" +
-      "atus\030\002 \001(\t\022\036\n\026success_failureMessage\030\003 \001" +
-      "(\t2\372\001\n\017OrderManagement\022G\n\tOrderItem\022\034.sm" +
-      "artwarehouse.OrderRequest\032\032.smartwarehou" +
-      "se.OrderReply\"\000\022S\n\021UpdateOrderStatus\022\034.s" +
-      "martwarehouse.OrderRequest\032\032.smartwareho" +
-      "use.OrderReply\"\000(\0010\001\022I\n\013CancelOrder\022\034.sm" +
-      "artwarehouse.OrderRequest\032\032.smartwarehou" +
-      "se.OrderReply\"\000BC\n#grpc.smartWarehouse.o" +
-      "rderManagementB\032OrderManagementServiceIm" +
-      "plP\001b\006proto3"
+      "q\n\014OrderRequest\022\024\n\014customerName\030\001 \001(\t\022\016\n" +
+      "\006itemID\030\002 \001(\t\022\027\n\017orderQuantities\030\003 \001(\005\022\017" +
+      "\n\007orderID\030\004 \001(\t\022\021\n\tnewStatus\030\005 \001(\t\"T\n\nOr" +
+      "derReply\022\017\n\007orderID\030\001 \001(\t\022\025\n\rcurrentStat" +
+      "us\030\002 \001(\t\022\036\n\026success_failureMessage\030\003 \001(\t" +
+      "2\372\001\n\017OrderManagement\022G\n\tOrderItem\022\034.smar" +
+      "twarehouse.OrderRequest\032\032.smartwarehouse" +
+      ".OrderReply\"\000\022S\n\021UpdateOrderStatus\022\034.sma" +
+      "rtwarehouse.OrderRequest\032\032.smartwarehous" +
+      "e.OrderReply\"\000(\0010\001\022I\n\013CancelOrder\022\034.smar" +
+      "twarehouse.OrderRequest\032\032.smartwarehouse" +
+      ".OrderReply\"\000BC\n#grpc.smartWarehouse.ord" +
+      "erManagementB\032OrderManagementServiceImpl" +
+      "P\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -66,7 +66,7 @@ public final class OrderManagementServiceImpl {
     internal_static_smartwarehouse_OrderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smartwarehouse_OrderRequest_descriptor,
-        new java.lang.String[] { "CustomerName", "ItemID", "CurrentQuantities", "OrderID", "NewStatus", });
+        new java.lang.String[] { "CustomerName", "ItemID", "OrderQuantities", "OrderID", "NewStatus", });
     internal_static_smartwarehouse_OrderReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_smartwarehouse_OrderReply_fieldAccessorTable = new

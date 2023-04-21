@@ -28,9 +28,9 @@ public interface OrderRequestOrBuilder extends
       getItemIDBytes();
 
   /**
-   * <code>int32 currentQuantities = 3;</code>
+   * <code>int32 orderQuantities = 3;</code>
    */
-  int getCurrentQuantities();
+  int getOrderQuantities();
 
   /**
    * <code>string orderID = 4;</code>

@@ -8,21 +8,31 @@ public interface TrackingRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string orderID = 1;</code>
+   * <code>string customerName = 1;</code>
+   */
+  java.lang.String getCustomerName();
+  /**
+   * <code>string customerName = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getCustomerNameBytes();
+
+  /**
+   * <code>string orderID = 2;</code>
    */
   java.lang.String getOrderID();
   /**
-   * <code>string orderID = 1;</code>
+   * <code>string orderID = 2;</code>
    */
   com.google.protobuf.ByteString
       getOrderIDBytes();
 
   /**
-   * <code>string newDeliveryDetails = 2;</code>
+   * <code>string newDeliveryDetails = 3;</code>
    */
   java.lang.String getNewDeliveryDetails();
   /**
-   * <code>string newDeliveryDetails = 2;</code>
+   * <code>string newDeliveryDetails = 3;</code>
    */
   com.google.protobuf.ByteString
       getNewDeliveryDetailsBytes();

@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     currentLocation_ = "";
     estimatedDeliveryDate_ = "";
     successFailureMessage_ = "";
+    orderID_ = "";
   }
 
   @java.lang.Override
@@ -68,6 +69,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             successFailureMessage_ = s;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            orderID_ = s;
             break;
           }
           default: {
@@ -238,6 +245,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ORDERID_FIELD_NUMBER = 5;
+  private volatile java.lang.Object orderID_;
+  /**
+   * <code>string orderID = 5;</code>
+   */
+  public java.lang.String getOrderID() {
+    java.lang.Object ref = orderID_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      orderID_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string orderID = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getOrderIDBytes() {
+    java.lang.Object ref = orderID_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      orderID_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -264,6 +305,9 @@ private static final long serialVersionUID = 0L;
     if (!getSuccessFailureMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, successFailureMessage_);
     }
+    if (!getOrderIDBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, orderID_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -284,6 +328,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSuccessFailureMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, successFailureMessage_);
+    }
+    if (!getOrderIDBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, orderID_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -309,6 +356,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEstimatedDeliveryDate());
     result = result && getSuccessFailureMessage()
         .equals(other.getSuccessFailureMessage());
+    result = result && getOrderID()
+        .equals(other.getOrderID());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -328,6 +377,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEstimatedDeliveryDate().hashCode();
     hash = (37 * hash) + SUCCESS_FAILUREMESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getSuccessFailureMessage().hashCode();
+    hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+    hash = (53 * hash) + getOrderID().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -469,6 +520,8 @@ private static final long serialVersionUID = 0L;
 
       successFailureMessage_ = "";
 
+      orderID_ = "";
+
       return this;
     }
 
@@ -499,6 +552,7 @@ private static final long serialVersionUID = 0L;
       result.currentLocation_ = currentLocation_;
       result.estimatedDeliveryDate_ = estimatedDeliveryDate_;
       result.successFailureMessage_ = successFailureMessage_;
+      result.orderID_ = orderID_;
       onBuilt();
       return result;
     }
@@ -561,6 +615,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSuccessFailureMessage().isEmpty()) {
         successFailureMessage_ = other.successFailureMessage_;
+        onChanged();
+      }
+      if (!other.getOrderID().isEmpty()) {
+        orderID_ = other.orderID_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -864,6 +922,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       successFailureMessage_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object orderID_ = "";
+    /**
+     * <code>string orderID = 5;</code>
+     */
+    public java.lang.String getOrderID() {
+      java.lang.Object ref = orderID_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        orderID_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string orderID = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOrderIDBytes() {
+      java.lang.Object ref = orderID_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string orderID = 5;</code>
+     */
+    public Builder setOrderID(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      orderID_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string orderID = 5;</code>
+     */
+    public Builder clearOrderID() {
+      
+      orderID_ = getDefaultInstance().getOrderID();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string orderID = 5;</code>
+     */
+    public Builder setOrderIDBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      orderID_ = value;
       onChanged();
       return this;
     }

@@ -46,4 +46,14 @@ public interface TrackingReplyOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSuccessFailureMessageBytes();
+
+  /**
+   * <code>string orderID = 5;</code>
+   */
+  java.lang.String getOrderID();
+  /**
+   * <code>string orderID = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getOrderIDBytes();
 }

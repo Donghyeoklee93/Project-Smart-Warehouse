@@ -34,11 +34,12 @@ public final class TrackingDeliveryServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\026trackingDelivery.proto\022\016smartwarehouse" +
-      "\">\n\017TrackingRequest\022\017\n\007orderID\030\001 \001(\t\022\032\n\022" +
-      "newDeliveryDetails\030\002 \001(\t\"\177\n\rTrackingRepl" +
-      "y\022\026\n\016deliveryDetail\030\001 \001(\t\022\027\n\017currentLoca" +
-      "tion\030\002 \001(\t\022\035\n\025estimatedDeliveryDate\030\003 \001(" +
-      "\t\022\036\n\026success_failureMessage\030\004 \001(\t2\314\001\n\022Tr" +
+      "\"T\n\017TrackingRequest\022\024\n\014customerName\030\001 \001(" +
+      "\t\022\017\n\007orderID\030\002 \001(\t\022\032\n\022newDeliveryDetails" +
+      "\030\003 \001(\t\"\220\001\n\rTrackingReply\022\026\n\016deliveryDeta" +
+      "il\030\001 \001(\t\022\027\n\017currentLocation\030\002 \001(\t\022\035\n\025est" +
+      "imatedDeliveryDate\030\003 \001(\t\022\036\n\026success_fail" +
+      "ureMessage\030\004 \001(\t\022\017\n\007orderID\030\005 \001(\t2\314\001\n\022Tr" +
       "ackingManagement\022Y\n\023CheckShippingDetail\022" +
       "\037.smartwarehouse.TrackingRequest\032\035.smart" +
       "warehouse.TrackingReply\"\0000\001\022[\n\025UpdateShi" +
@@ -64,13 +65,13 @@ public final class TrackingDeliveryServiceImpl {
     internal_static_smartwarehouse_TrackingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smartwarehouse_TrackingRequest_descriptor,
-        new java.lang.String[] { "OrderID", "NewDeliveryDetails", });
+        new java.lang.String[] { "CustomerName", "OrderID", "NewDeliveryDetails", });
     internal_static_smartwarehouse_TrackingReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_smartwarehouse_TrackingReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smartwarehouse_TrackingReply_descriptor,
-        new java.lang.String[] { "DeliveryDetail", "CurrentLocation", "EstimatedDeliveryDate", "SuccessFailureMessage", });
+        new java.lang.String[] { "DeliveryDetail", "CurrentLocation", "EstimatedDeliveryDate", "SuccessFailureMessage", "OrderID", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
