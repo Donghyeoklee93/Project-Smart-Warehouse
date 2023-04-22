@@ -7,11 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
 
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
 
 public class OrderManagementServer extends OrderManagementImplBase {
 
@@ -54,6 +59,17 @@ public class OrderManagementServer extends OrderManagementImplBase {
 		try {
 			Server server = ServerBuilder.forPort(port).addService(orderManagementServer).build().start();
 			System.out.println("Order Management Server started...");
+			
+			System.out.println("Please wait for registering service through JmDNS...");
+			
+	        // Register service through JmDNS
+	        JmDNS jmdns = JmDNS.create();
+	        ServiceInfo serviceInfo = ServiceInfo.create("_OrderManagement._tcp.local.", "grpcServer2", port, "server2");
+	        jmdns.registerService(serviceInfo);
+			
+			System.out.println("Service Register completed through JmDNS");
+			
+			
 			server.awaitTermination();
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block

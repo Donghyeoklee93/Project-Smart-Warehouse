@@ -1,15 +1,20 @@
 package grpc.smartWarehouse.inventoryManagement;
 
 import java.io.IOException;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
 
 import grpc.smartWarehouse.inventoryManagement.InventoryManagementGrpc.InventoryManagementImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import java.net.NetworkInterface;
+import java.net.SocketException; 
+import java.util.Enumeration;
 
 public class InventoryManagementServer extends InventoryManagementImplBase {
 
@@ -20,7 +25,8 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 		// parsing and reading the CSV file data into the film (object) array
 		// provide the path here...
 		File directory = new File("./");
-		String name = directory.getAbsolutePath() + "//src/main/java/grpc/smartWarehouse/inventoryManagement/Inventory.csv";
+		String name = directory.getAbsolutePath()
+				+ "//src/main/java/grpc/smartWarehouse/inventoryManagement/Inventory.csv";
 		Scanner sc = null;
 		try {
 			sc = new Scanner(new File(name));
@@ -44,17 +50,25 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 		}
 		sc.close(); // closes the scanner
 
-		
 		System.out.println(Arrays.toString(stocks));
-		
-		
-		
+
 		InventoryManagementServer inventoryManagementServer = new InventoryManagementServer();
 		int port = 50051;
 
 		try {
 			Server server = ServerBuilder.forPort(port).addService(inventoryManagementServer).build().start();
 			System.out.println("Inventory Management Server started....");
+			
+			System.out.println("Please wait for registering service through JmDNS...");
+
+	        // Register service through JmDNS
+	        JmDNS jmdns = JmDNS.create();
+	        ServiceInfo serviceInfo = ServiceInfo.create("_InventoryManagement._tcp.local.", "grpcServer1", port, "server1");
+	        jmdns.registerService(serviceInfo);
+			
+			
+			System.out.println("Service Register completed through JmDNS");
+		
 			server.awaitTermination();
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -130,7 +144,7 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 				// TODO Auto-generated method stub
 				responseObserver.onNext(InventoryReply.newBuilder().setSuccessFailureMessage(sb.toString()).build());
 				responseObserver.onCompleted();
-				
+
 				System.out.println(Arrays.toString(stocks));
 			}
 		};
@@ -145,28 +159,23 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 		System.out.println("— Receiving alert Out Of Stock Request from Client —");
 
 		InventoryReply reply;
-		int checkNumber= 0;
+		int checkNumber = 0;
 		for (int i = 0; i < stocks.length; i++) {
 			if (request.getThreshold() > stocks[i].getCurrentQuantities()) {
 				checkNumber++;
 
-				reply = InventoryReply.newBuilder()
-						.setAlertMessage(stocks[i].getItemID() + " is not enough stocks." + 
-																"\nCurrent quantities : " + stocks[i].getCurrentQuantities()
-																+ "\n")
-						.build();
+				reply = InventoryReply.newBuilder().setAlertMessage(stocks[i].getItemID() + " is not enough stocks."
+						+ "\nCurrent quantities : " + stocks[i].getCurrentQuantities() + "\n").build();
 
 				responseObserver.onNext(reply);
 			}
 		}
-		if(checkNumber == 0) {
-			reply = InventoryReply.newBuilder()
-					.setAlertMessage("All items have more stocks than threshold")
-					.build();
+		if (checkNumber == 0) {
+			reply = InventoryReply.newBuilder().setAlertMessage("All items have more stocks than threshold").build();
 
 			responseObserver.onNext(reply);
 		}
-		
+
 		responseObserver.onCompleted();
 	}
 }
@@ -206,5 +215,4 @@ class Stock {
 		return "\n[itemID=" + itemID + ", currentQuantities=" + currentQuantities + "]";
 	}
 
-	
 }

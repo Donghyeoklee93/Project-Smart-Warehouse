@@ -1,30 +1,56 @@
 package grpc.smartWarehouse.trackingDelivery;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.checkerframework.common.reflection.qual.GetClass;
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
 
 import grpc.smartWarehouse.trackingDelivery.TrackingManagementGrpc.TrackingManagementBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
 
 public class TrackingDeliveryClient {
-	static Scanner sc = new Scanner(System.in);
 	
-	public static void main(String[] args) throws InterruptedException {
+//	static String host = "localhost";
+//	static int port = 50053;
+	static String host;
+	static int port;
+	
+	static Scanner sc = new Scanner(System.in);
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+		
+        // Receive server information through JmDNS
+        JmDNS jmdns = JmDNS.create();
+        ServiceInfo[] services = jmdns.list("_TrackingDelivery._tcp.local.");
+        if (services.length == 0) {
+            System.out.println("No gRPC server found");
+            return;
+        }
+
+        // Receive host and port through gRPC
+        ServiceInfo serviceInfo = services[0];
+        host = serviceInfo.getHostAddresses()[0];
+        port = serviceInfo.getPort();
+		
+        
+//        checking host and port found by Jmdns
+//		System.out.println(host);
+//		System.out.println(port);
+		
 		if (args.length == 0) {
 			System.out.println("Need one argument to work");
 			return;
 		}
-
-		String host = "localhost";
-		int port = 50053;
 
 		ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
 
@@ -39,22 +65,17 @@ public class TrackingDeliveryClient {
 			System.out.println("Keyword Invalid " + args[0]);
 		}
 	}
-	
-	
-	
-	
+
 //	RPC Method 1 : Check Shipping Details (Server Streaming RPC)
-	
+
 	private static void checkShippingDetails(ManagedChannel channel) {
 		System.out.println("Enter checkShippingDetails");
 		TrackingManagementBlockingStub blockingStub = TrackingManagementGrpc.newBlockingStub(channel);
-		
+
 		System.out.println("Enter the customerName you want.");
 		String customerName = sc.next();
-		
-		blockingStub.checkShippingDetail(TrackingRequest.newBuilder()
-				.setCustomerName(customerName)
-				.build())
+
+		blockingStub.checkShippingDetail(TrackingRequest.newBuilder().setCustomerName(customerName).build())
 				.forEachRemaining(reply -> {
 
 					System.out.println(reply.getOrderID());
@@ -63,68 +84,60 @@ public class TrackingDeliveryClient {
 					System.out.println(reply.getEstimatedDeliveryDate());
 				});
 	}
-	
-	
-	
-	
+
 //	RPC Method 2 : Update Shipping Details (Client Streaming RPC)
 	private static void updateShippingDetails(ManagedChannel channel) throws InterruptedException {
 		System.out.println("Enter updateShippingDetails");
-		
+
 		TrackingManagementGrpc.TrackingManagementStub stub = TrackingManagementGrpc.newStub(channel);
-		
+
 //		List<String> names = new ArrayList<>();
 		CountDownLatch latch = new CountDownLatch(1);
-		
+
 		System.out.println("How many orderID's delivery detail do you want to modify?");
 		int count = sc.nextInt();
 		List<UpdateDetail> updateDetail = new ArrayList<>();
-		
-		
-		for(int i =0; i < count; i++) {
+
+		for (int i = 0; i < count; i++) {
 			System.out.println("Enter the orderID and updated delivery detail");
 			String orderID = sc.next();
 			String updateDeliveryDetail = sc.next();
-			
-			updateDetail.add(new UpdateDetail(orderID, updateDeliveryDetail)) ;
+
+			updateDetail.add(new UpdateDetail(orderID, updateDeliveryDetail));
 		}
-		
-		
+
 		StreamObserver<TrackingRequest> stream = stub.updateShippingDetails(new StreamObserver<TrackingReply>() {
-		
+
 			@Override
 			public void onNext(TrackingReply reply) {
 				// TODO Auto-generated method stub
 				System.out.println(reply.getSuccessFailureMessage());
-				
+
 			}
-			
+
 			@Override
 			public void onError(Throwable t) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void onCompleted() {
 				// TODO Auto-generated method stub
 				latch.countDown();
 			}
-		
+
 		});
-		
+
 		for (UpdateDetail orderID : updateDetail) {
-			stream.onNext(TrackingRequest.newBuilder()
-					.setOrderID(orderID.getOrderID())
-					.setNewDeliveryDetails(orderID.getUpdateDeliveryDetail())
-					.build());
+			stream.onNext(TrackingRequest.newBuilder().setOrderID(orderID.getOrderID())
+					.setNewDeliveryDetails(orderID.getUpdateDeliveryDetail()).build());
 		}
-		
+
 		stream.onCompleted();
 		latch.await(3, TimeUnit.SECONDS);
 	}
-	
-	
+
 }
 
 class UpdateDetail {

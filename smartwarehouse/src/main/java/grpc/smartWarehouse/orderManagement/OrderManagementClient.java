@@ -1,28 +1,55 @@
 package grpc.smartWarehouse.orderManagement;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import com.google.common.math.Quantiles.Scale;
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
 
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
 
 public class OrderManagementClient {
+	
+//	static String host = "localhost";
+//	static int port = 50052;
+	static String host;
+	static int port;
+	
 	static Scanner sc = new Scanner(System.in);
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
+       
+		// Receive server information through JmDNS
+        JmDNS jmdns = JmDNS.create();
+        ServiceInfo[] services = jmdns.list("_OrderManagement._tcp.local.");
+        if (services.length == 0) {
+            System.out.println("No gRPC server found");
+            return;
+        }
+
+        // Receive host and port through gRPC
+        ServiceInfo serviceInfo = services[0];
+        host = serviceInfo.getHostAddresses()[0];
+        port = serviceInfo.getPort();
+		
+        
+//        checking host and port found by Jmdns
+//		System.out.println(host);
+//		System.out.println(port);
+		
 		if (args.length == 0) {
 			System.out.println("Need one argument to work");
 			return;
 		}
-
-		String host = "localhost";
-		int port = 50052;
 
 		ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
 

@@ -6,16 +6,22 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
+
 import grpc.smartWarehouse.trackingDelivery.TrackingManagementGrpc.TrackingManagementImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
 
 public class TrackingDeliveryServer extends TrackingManagementImplBase {
 
 	static Tracking[] trackings = new Tracking[10];
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		// parsing and reading the CSV file data into the film (object) array
 		// provide the path here...
@@ -46,7 +52,7 @@ public class TrackingDeliveryServer extends TrackingManagementImplBase {
 		sc.close(); // closes the scanner
 		
 		
-		System.out.println(Arrays.toString(trackings));
+//		System.out.println(Arrays.toString(trackings));
 		
 
 		TrackingDeliveryServer trackingDeliveryServer = new TrackingDeliveryServer();
@@ -56,11 +62,25 @@ public class TrackingDeliveryServer extends TrackingManagementImplBase {
 			Server server = ServerBuilder.forPort(port).addService(trackingDeliveryServer).build().start();
 			System.out.println("Tracking Delievery Server started...");
 			
+			System.out.println("Please wait for registering service through JmDNS...");
+			
+	        // Register service through JmDNS
+	        JmDNS jmdns = JmDNS.create();
+	        ServiceInfo serviceInfo = ServiceInfo.create("_TrackingDelivery._tcp.local.", "grpcServer3", port, "server3");
+	        jmdns.registerService(serviceInfo);
+			
+			System.out.println("Service Register completed through JmDNS");
+			
+			
 			server.awaitTermination();
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+
+		
 		
 
 	}

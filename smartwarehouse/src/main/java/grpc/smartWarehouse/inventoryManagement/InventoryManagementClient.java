@@ -1,11 +1,17 @@
 package grpc.smartWarehouse.inventoryManagement;
 
+import java.io.IOException;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
 
 import grpc.smartWarehouse.inventoryManagement.InventoryManagementGrpc.InventoryManagementBlockingStub;
 import io.grpc.ManagedChannel;
@@ -13,16 +19,40 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
 public class InventoryManagementClient {
+	
+//	static String host = "localhost";
+//	static int port = 50051;
+	static String host;
+	static int port;
+	
 	static Scanner sc = new Scanner(System.in);
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
+        // Receive server information through JmDNS
+        JmDNS jmdns = JmDNS.create();
+        ServiceInfo[] services = jmdns.list("_InventoryManagement._tcp.local.");
+        if (services.length == 0) {
+            System.out.println("No gRPC server found");
+            return;
+        }
+
+        // Receive host and port through gRPC
+        ServiceInfo serviceInfo = services[0];
+        host = serviceInfo.getHostAddresses()[0];
+        port = serviceInfo.getPort();
+		
+        
+//        checking host and port found by Jmdns
+//		System.out.println(host);
+//		System.out.println(port);
+		
 		if (args.length == 0) {
 			System.out.println("Need one argument to work");
 			return;
 		}
 
-		String host = "localhost";
-		int port = 50051;
+//		String host = "localhost";
+//		int port = 50051;
 
 		ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
 
