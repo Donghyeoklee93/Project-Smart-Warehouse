@@ -28,7 +28,10 @@ public class InventoryManagementClient {
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-        // Receive server information through JmDNS
+        
+		System.out.println("Retrieve host and port from JmDNS....");
+		
+		// Receive server information through JmDNS
         JmDNS jmdns = JmDNS.create();
         ServiceInfo[] services = jmdns.list("_InventoryManagement._tcp.local.");
         if (services.length == 0) {
@@ -40,9 +43,11 @@ public class InventoryManagementClient {
         ServiceInfo serviceInfo = services[0];
         host = serviceInfo.getHostAddresses()[0];
         port = serviceInfo.getPort();
+        
+		System.out.println("Found host and port from JmDNS!!!");
 		
         
-//        checking host and port found by Jmdns
+//      checking host and port found by Jmdns
 //		System.out.println(host);
 //		System.out.println(port);
 		
@@ -88,6 +93,8 @@ public class InventoryManagementClient {
 
 		System.out.print("The quanties of " + request.getItemID() + " : ");
 		System.out.println(reply.getCurrentQuantities());
+		
+		
 	}
 	
 	

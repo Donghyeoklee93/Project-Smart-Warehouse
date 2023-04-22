@@ -50,7 +50,7 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 		}
 		sc.close(); // closes the scanner
 
-		System.out.println(Arrays.toString(stocks));
+//		System.out.println(Arrays.toString(stocks));
 
 		InventoryManagementServer inventoryManagementServer = new InventoryManagementServer();
 		int port = 50051;

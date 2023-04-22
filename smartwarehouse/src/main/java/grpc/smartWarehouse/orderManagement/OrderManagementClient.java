@@ -1,6 +1,7 @@
 package grpc.smartWarehouse.orderManagement;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
@@ -10,12 +11,14 @@ import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementBlockingStub;
+import grpc.smartWarehouse.trackingDelivery.TrackingRequest;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
+import java.util.List;
 
 public class OrderManagementClient {
 	
@@ -28,6 +31,8 @@ public class OrderManagementClient {
 	
 	public static void main(String[] args) throws InterruptedException, IOException {
        
+		System.out.println("Retrieve host and port from JmDNS....");
+		
 		// Receive server information through JmDNS
         JmDNS jmdns = JmDNS.create();
         ServiceInfo[] services = jmdns.list("_OrderManagement._tcp.local.");
@@ -40,6 +45,8 @@ public class OrderManagementClient {
         ServiceInfo serviceInfo = services[0];
         host = serviceInfo.getHostAddresses()[0];
         port = serviceInfo.getPort();
+        
+		System.out.println("Found host and port from JmDNS!!!");
 		
         
 //        checking host and port found by Jmdns
@@ -100,6 +107,20 @@ public class OrderManagementClient {
 		OrderManagementGrpc.OrderManagementStub stub = OrderManagementGrpc.newStub(channel);
 
 		CountDownLatch latch = new CountDownLatch(1);
+		
+		
+		System.out.println("How many orderID's order status do you want to modify?");
+		int count = sc.nextInt();
+		List<UpdateStatus> updateStatus = new ArrayList<>();
+		
+		for (int i = 0; i < count; i++) {
+			System.out.println("Enter the orderID and updated order status");
+			String orderID = sc.next();
+			String newStatus = sc.next();
+
+			updateStatus.add(new UpdateStatus(orderID, newStatus));
+		}
+		
 
 		StreamObserver<OrderRequest> stream = stub.updateOrderStatus(new StreamObserver<OrderReply>() {
 
@@ -123,8 +144,16 @@ public class OrderManagementClient {
 
 		});
 
-		Arrays.asList("A", "B", "C")
-				.forEach(name -> stream.onNext(OrderRequest.newBuilder().setNewStatus(name).build()));
+		
+		for (UpdateStatus orderID : updateStatus) {
+			stream.onNext(OrderRequest.newBuilder()
+					.setOrderID(orderID.getOrderID())
+					.setNewStatus(orderID.getNewStatus())
+					.build());
+		}
+		
+//		Arrays.asList("A", "B", "C")
+//				.forEach(name -> stream.onNext(OrderRequest.newBuilder().setNewStatus(name).build()));
 
 		stream.onCompleted();
 		latch.await(3, TimeUnit.SECONDS);
@@ -154,3 +183,37 @@ public class OrderManagementClient {
 	
 
 }
+
+
+class UpdateStatus{
+	private String orderID;
+	private String newStatus;
+
+	
+	public UpdateStatus(String orderID, String newStatus) {
+		super();
+		this.orderID = orderID;
+		this.newStatus = newStatus;
+	}
+	
+	
+	public String getOrderID() {
+		return orderID;
+	}
+	public void setOrderID(String orderID) {
+		this.orderID = orderID;
+	}
+	public String getNewStatus() {
+		return newStatus;
+	}
+	public void setNewStatus(String newStatus) {
+		this.newStatus = newStatus;
+	}
+	
+	
+	
+	
+	
+	
+}
+

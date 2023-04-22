@@ -29,6 +29,8 @@ public class TrackingDeliveryClient {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		
+		System.out.println("Retrieve host and port from JmDNS....");
+		
         // Receive server information through JmDNS
         JmDNS jmdns = JmDNS.create();
         ServiceInfo[] services = jmdns.list("_TrackingDelivery._tcp.local.");
@@ -41,6 +43,8 @@ public class TrackingDeliveryClient {
         ServiceInfo serviceInfo = services[0];
         host = serviceInfo.getHostAddresses()[0];
         port = serviceInfo.getPort();
+        
+		System.out.println("Found host and port from JmDNS!!!");
 		
         
 //        checking host and port found by Jmdns

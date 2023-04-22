@@ -51,7 +51,7 @@ public class OrderManagementServer extends OrderManagementImplBase {
 		}
 		sc.close(); // closes the scanner
 
-		System.out.println(orders);
+//		System.out.println(orders);
 
 		OrderManagementServer orderManagementServer = new OrderManagementServer();
 		int port = 50052;
@@ -140,14 +140,27 @@ public class OrderManagementServer extends OrderManagementImplBase {
 		// TODO Auto-generated method stub
 		System.out.println("--- Receving Update Order Status Request from Client ---");
 
+		StringBuilder sb = new StringBuilder();
+		
 		return new StreamObserver<OrderRequest>() {
 
 			@Override
 			public void onNext(OrderRequest request) {
-				// TODO Auto-generated method stub
-				responseObserver.onNext(
-						OrderReply.newBuilder().setCurrentStatus("current status " + request.getNewStatus()).build());
-
+				for(int i = 0; i < orders.size(); i++) {
+					if (orders.get(i).getOrderID().equals(request.getOrderID())) {
+						orders.get(i).setCurrentStatus(request.getNewStatus());
+						
+						sb.append("OrderID :" + request.getOrderID());
+						sb.append("'s order status is changed successfully.\n");
+						sb.append("Current Status" + request.getNewStatus());
+						sb.append("!\n");
+						return;
+					}
+				}
+				sb.append(request.getOrderID());
+				sb.append(" is not exising orderID");
+				sb.append("!\n");
+				
 			}
 
 			@Override
@@ -159,7 +172,14 @@ public class OrderManagementServer extends OrderManagementImplBase {
 			@Override
 			public void onCompleted() {
 				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub
+				responseObserver.onNext(
+						OrderReply.newBuilder()
+						.setCurrentStatus(sb.toString())
+						.build());
 				responseObserver.onCompleted();
+				
+				System.out.println(orders);
 			}
 		};
 	}
