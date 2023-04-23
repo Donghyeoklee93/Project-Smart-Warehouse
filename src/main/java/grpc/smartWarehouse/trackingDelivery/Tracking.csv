@@ -1,0 +1,11 @@
+customerName,orderID,deliveryDetail,currentLocation,estimatedDeliveryDate
+jack,jack12,normal,dublin,01/05/2023
+lee,lee34,normal,cork,04/05/2023
+jack,jack55,delay due to holiday,london,07/05/2023
+lee,lee65,missing tracking,abudabi,10/05/2023
+jack,jack51,normal,newyork,13/05/2023
+stephan,stephan33,delay due to tariff issue,seoul,16/05/2023
+john,john98,normal,roma,19/05/2023
+stephan,stephan53,normal,seoul,22/05/2023
+bella,bella78,normal,busan,25/05/2023
+tony,tony88,normal,dublin,28/05/2023

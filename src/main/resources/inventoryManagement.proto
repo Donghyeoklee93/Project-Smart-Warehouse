@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+//Options for the GRPC
+option java_multiple_files = true;
+option java_package = "grpc.smartWarehouse.inventoryManagement";
+option java_outer_classname = "InventoryManagementServiceImpl";
+
+package smartwarehouse;
+
+
+//Service Definition
+service InventoryManagement {
+	rpc CheckItem (InventoryRequest) returns (InventoryReply){}
+	rpc ModifyQuantity (stream InventoryRequest) returns (InventoryReply){}
+	rpc AlertOutOfStock (InventoryRequest) returns (stream InventoryReply){}
+
+}
+
+
+// Define the messages
+message InventoryRequest{
+	string itemID = 1;
+	int32 updateQuantity = 2;
+	int32 threshold = 3;
+}
+
+message InventoryReply{
+	int32 currentQuantities = 1;
+	string success_failureMessage = 2;
+	string alertMessage = 3;
+}
