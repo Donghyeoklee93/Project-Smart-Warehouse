@@ -109,6 +109,7 @@ public class OrderManagementClient {
 
 	}
 
+	
 	// RPC Method 2 : Update Order Status (Bi-Directional Streaming RPC)
 	private static void updateOrderStatus(ManagedChannel channel) throws InterruptedException {
 		System.out.println("Enter updateOrderStatus");

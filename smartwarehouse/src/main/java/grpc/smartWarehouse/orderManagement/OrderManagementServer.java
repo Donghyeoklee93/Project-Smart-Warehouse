@@ -87,20 +87,9 @@ public class OrderManagementServer extends OrderManagementImplBase {
 		// TODO Auto-generated method stub
 
 		System.out.println("--- Receving Order Item Request from Client ---");
-
-		// Logic Code
-//		String myTest = "The customer name : " + request.getCustomerName() 
-//						+ "\nThe item ID : " + request.getItemID()
-//						+ "\nThe quantities : " + request.getCurrentQuantities();
-
-		// Will make array of elements with request.getCustomerName() /
-		// request.getItemID() / request.getCurrentQuantities()
-
-		// if order quantities are more than 10, system perceive it is incorrect order
-		// request
 		
 		
-		// Error Implementation
+		// Error handling Implementation
 		if(request.getOrderQuantities() < 0) {
 			responseObserver.onError(Status.INVALID_ARGUMENT
 					.withDescription("The order quantity being sent cannot be negative")

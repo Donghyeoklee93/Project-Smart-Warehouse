@@ -99,27 +99,30 @@ public class InventoryManagementClient {
 //		InventoryReply reply = blockingStub.checkItem(request);
 		
 		// Deadline not exceed case
-		InventoryReply reply = stub.withDeadline(Deadline.after(3, TimeUnit.SECONDS)).checkItem(request);
-
-		System.out.println("Message sent by the server ");
-
-		System.out.print("The quanties of " + request.getItemID() + " : ");
-		System.out.println(reply.getCurrentQuantities());
+		
+//		InventoryReply reply = stub.withDeadline(Deadline.after(3, TimeUnit.SECONDS)).checkItem(request);
+//
+//		System.out.println("Message sent by the server ");
+//
+//		System.out.print("The quanties of " + request.getItemID() + " : ");
+//		System.out.println(reply.getCurrentQuantities());
+		
 		
 		
 		// Deadline exceeded case
-//		try {
-//			InventoryReply reply = stub.withDeadline(Deadline.after(100, TimeUnit.MILLISECONDS)).checkItem(request);
-//			System.out.println("Within DeadLine" + reply.getCurrentQuantities());
-//		} catch (StatusRuntimeException e) {
-//			// TODO: handle exception
-//			if(e.getStatus().getCode() == Status.Code.DEADLINE_EXCEEDED) {
-//				System.out.println("Deadline has been exceeded");
-//			} else {
-//				System.out.println("Got an exception in checkItem");
-//				e.printStackTrace();
-//			}
-//		}
+		
+		try {
+			InventoryReply reply = stub.withDeadline(Deadline.after(100, TimeUnit.MILLISECONDS)).checkItem(request);
+			System.out.println("Within DeadLine" + reply.getCurrentQuantities());
+		} catch (StatusRuntimeException e) {
+			// TODO: handle exception
+			if(e.getStatus().getCode() == Status.Code.DEADLINE_EXCEEDED) {
+				System.out.println("Deadline has been exceeded");
+			} else {
+				System.out.println("Got an exception in checkItem");
+				e.printStackTrace();
+			}
+		}
 		
 		
 	}

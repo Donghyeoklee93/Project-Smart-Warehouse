@@ -15,7 +15,7 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.net.NetworkInterface;
-import java.net.SocketException; 
+import java.net.SocketException;
 import java.util.Enumeration;
 
 public class InventoryManagementServer extends InventoryManagementImplBase {
@@ -60,20 +60,19 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 		try {
 			Server server = ServerBuilder.forPort(port).addService(inventoryManagementServer).build().start();
 			System.out.println("Inventory Management Server started....");
-			
+
 			System.out.println("Please wait for registering service through JmDNS...");
 
-	        // Register service through JmDNS
-	        JmDNS jmdns = JmDNS.create();
-	        ServiceInfo serviceInfo = ServiceInfo.create("_InventoryManagement._tcp.local.", "grpcServer1", port, "server1");
-	        jmdns.registerService(serviceInfo);
-			
-			
+			// Register service through JmDNS
+			JmDNS jmdns = JmDNS.create();
+			ServiceInfo serviceInfo = ServiceInfo.create("_InventoryManagement._tcp.local.", "grpcServer1", port,
+					"server1");
+			jmdns.registerService(serviceInfo);
+
 			System.out.println("Service Register completed through JmDNS");
-		
+
 			server.awaitTermination();
 		} catch (IOException | InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -84,22 +83,21 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 	@Override
 	public void checkItem(InventoryRequest request, StreamObserver<InventoryReply> responseObserver) {
 		// TODO Auto-generated method stub
-		
-		//Deadline
+
+		// Deadline
 		Context context = Context.current();
-		
+
 		try {
 			for (int i = 0; i < 3; ++i) {
-				if(context.isCancelled()) {
+				if (context.isCancelled()) {
 					return;
 				}
-				
+
 				Thread.sleep(100);
 			}
-			
+
 			System.out.println("--- Receiving Check Item Request from Client ---");
-//			System.out.printf("The quantities of " + request.getItemID() + " is " );
-			
+
 			int index = 0;
 			int currentQuantitie = 0;
 			for (int i = index; i < stocks.length; i++) {
@@ -114,16 +112,11 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 
 			responseObserver.onNext(reply);
 			responseObserver.onCompleted();
-			
-			
-		}catch (InterruptedException e) {
+
+		} catch (InterruptedException e) {
 			// TODO: handle exception
-			responseObserver .onError(e);
+			responseObserver.onError(e);
 		}
-		
-		
-
-
 
 	}
 
