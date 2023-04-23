@@ -9,10 +9,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import grpc.smartWarehouse.inventoryManagement.InventoryManagementClient;
+import grpc.smartWarehouse.inventoryManagement.InventoryManagementClientGUI;
 import grpc.smartWarehouse.orderManagement.OrderManagementClient;
+import grpc.smartWarehouse.orderManagement.OrderManagementClientGUI;
 import grpc.smartWarehouse.trackingDelivery.TrackingDeliveryClient;
+import grpc.smartWarehouse.trackingDelivery.TrackingDeliveryClientGUI;
 
 
 public class MainGUI {
@@ -155,10 +160,11 @@ public class MainGUI {
 		
 //		RPC Method 1 : Check Item (Unary RPC)
 		button1.addActionListener(e -> {
+			
 			String[] rpc = new String[1];
 			rpc[0] = "checkItem";
 			try {
-				InventoryManagementClient.main(rpc);
+				InventoryManagementClientGUI.main(rpc);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -170,12 +176,16 @@ public class MainGUI {
 			
 		});
 		
+		
+
+		
+		
 //		RPC Method 2 : Modify Quantity (Client Streaming RPC)
 		button2.addActionListener(e -> {
 			String[] rpc = new String[1];
 			rpc[0] = "modifyQuantity";
 			try {
-				InventoryManagementClient.main(rpc);
+				InventoryManagementClientGUI.main(rpc);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -193,7 +203,7 @@ public class MainGUI {
 			String[] rpc = new String[1];
 			rpc[0] = "alertOutOfStock";
 			try {
-				InventoryManagementClient.main(rpc);
+				InventoryManagementClientGUI.main(rpc);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -283,7 +293,7 @@ public class MainGUI {
 			String[] rpc = new String[1];
 			rpc[0] = "createOrder";
 			try {
-				OrderManagementClient.main(rpc);
+				OrderManagementClientGUI.main(rpc);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -300,7 +310,7 @@ public class MainGUI {
 			String[] rpc = new String[1];
 			rpc[0] = "updateOrderStatus";
 			try {
-				OrderManagementClient.main(rpc);
+				OrderManagementClientGUI.main(rpc);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -318,7 +328,7 @@ public class MainGUI {
 			String[] rpc = new String[1];
 			rpc[0] = "cancelOrder";
 			try {
-				OrderManagementClient.main(rpc);
+				OrderManagementClientGUI.main(rpc);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -372,7 +382,7 @@ public class MainGUI {
 		panel1.add(label);
 		
 		JButton button1 = new JButton("<html><div style='text-align:center; font-size:15px;'>" + "Check<br>Shipping<br>Detail" + "</div></html>");
-		JButton button2 = new JButton("<html><div style='text-align:center; font-size:15px;'>" + "Update<br>Shipping<br>Details" + "</div></html>");
+		JButton button2 = new JButton("<html><div style='text-align:center; font-size:15px;'>" + "Update<br>Shipping<br>Detail" + "</div></html>");
 
 		button1.setBounds(1, 50, 249, 250);
 		frame.add(button1);
@@ -401,7 +411,7 @@ public class MainGUI {
 			String[] rpc = new String[1];
 			rpc[0] = "checkShippingDetail";
 			try {
-				TrackingDeliveryClient.main(rpc);
+				TrackingDeliveryClientGUI.main(rpc);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -418,7 +428,7 @@ public class MainGUI {
 			String[] rpc = new String[1];
 			rpc[0] = "updateShippingDetails";
 			try {
-				TrackingDeliveryClient.main(rpc);
+				TrackingDeliveryClientGUI.main(rpc);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

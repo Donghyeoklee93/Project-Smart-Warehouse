@@ -150,9 +150,9 @@ public class OrderManagementServer extends OrderManagementImplBase {
 					if (orders.get(i).getOrderID().equals(request.getOrderID())) {
 						orders.get(i).setCurrentStatus(request.getNewStatus());
 						
-						sb.append("OrderID :" + request.getOrderID());
+						sb.append("OrderID : " + request.getOrderID());
 						sb.append("'s order status is changed successfully.\n");
-						sb.append("Current Status" + request.getNewStatus());
+						sb.append("Current Status : " + request.getNewStatus());
 						sb.append("!\n");
 						return;
 					}
