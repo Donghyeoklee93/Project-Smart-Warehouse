@@ -157,6 +157,9 @@ public final class OrderManagementGrpc {
   public static abstract class OrderManagementImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     * Return a Status.INVALID_ARGUMENT if the OrderRequest.orderQuantities is negative.
+     * </pre>
      */
     public void orderItem(grpc.smartWarehouse.orderManagement.OrderRequest request,
         io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply> responseObserver) {
@@ -226,6 +229,9 @@ public final class OrderManagementGrpc {
     }
 
     /**
+     * <pre>
+     * Return a Status.INVALID_ARGUMENT if the OrderRequest.orderQuantities is negative.
+     * </pre>
      */
     public void orderItem(grpc.smartWarehouse.orderManagement.OrderRequest request,
         io.grpc.stub.StreamObserver<grpc.smartWarehouse.orderManagement.OrderReply> responseObserver) {
@@ -272,6 +278,9 @@ public final class OrderManagementGrpc {
     }
 
     /**
+     * <pre>
+     * Return a Status.INVALID_ARGUMENT if the OrderRequest.orderQuantities is negative.
+     * </pre>
      */
     public grpc.smartWarehouse.orderManagement.OrderReply orderItem(grpc.smartWarehouse.orderManagement.OrderRequest request) {
       return blockingUnaryCall(
@@ -308,6 +317,9 @@ public final class OrderManagementGrpc {
     }
 
     /**
+     * <pre>
+     * Return a Status.INVALID_ARGUMENT if the OrderRequest.orderQuantities is negative.
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<grpc.smartWarehouse.orderManagement.OrderReply> orderItem(
         grpc.smartWarehouse.orderManagement.OrderRequest request) {

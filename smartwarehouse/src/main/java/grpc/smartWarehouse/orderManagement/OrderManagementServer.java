@@ -1,5 +1,6 @@
 package grpc.smartWarehouse.orderManagement;
 
+import io.grpc.Status;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,9 +11,11 @@ import java.util.Scanner;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
+
 import grpc.smartWarehouse.orderManagement.OrderManagementGrpc.OrderManagementImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -95,6 +98,19 @@ public class OrderManagementServer extends OrderManagementImplBase {
 
 		// if order quantities are more than 10, system perceive it is incorrect order
 		// request
+		
+		
+		// Error Implementation
+		if(request.getOrderQuantities() < 0) {
+			responseObserver.onError(Status.INVALID_ARGUMENT
+					.withDescription("The order quantity being sent cannot be negative")
+					.augmentDescription("Order Quantity : " + request.getOrderQuantities())
+					.asRuntimeException());
+			return;
+		}
+		
+		
+		
 		if (request.getOrderQuantities() < 10) {
 
 			String orderID = request.getCustomerName() + String.valueOf((int) (Math.random() * 10) + 1)
@@ -189,7 +205,7 @@ public class OrderManagementServer extends OrderManagementImplBase {
 	@Override
 	public void cancelOrder(OrderRequest request, StreamObserver<OrderReply> responseObserver) {
 
-		System.out.println("— Receiving Cancel Order Request from Client —");
+		System.out.println("�� Receiving Cancel Order Request from Client ��");
 
 		String orderID = request.getOrderID();
 

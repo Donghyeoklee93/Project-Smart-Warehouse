@@ -115,7 +115,8 @@ public class OrderManagementClientGUI {
             
         }
 		
-		
+		//Error implementing check
+		try {
 		
 		OrderRequest request = OrderRequest.newBuilder()
 				.setCustomerName(customerName)
@@ -135,6 +136,13 @@ public class OrderManagementClientGUI {
 											+ reply.getCurrentStatus() +"\n" 
 											+ reply.getSuccessFailureMessage());
 
+		} catch (RuntimeException e) {
+			// TODO: handle exception
+//			System.out.println("Got an Exception for order quantity");
+			JOptionPane.showMessageDialog(null, "Got an Exception for order quantity" + "\nOrder Quantity : " + orderQuantities);
+			e.printStackTrace();
+		}
+		
 	}
 
 	// RPC Method 2 : Update Order Status (Bi-Directional Streaming RPC)

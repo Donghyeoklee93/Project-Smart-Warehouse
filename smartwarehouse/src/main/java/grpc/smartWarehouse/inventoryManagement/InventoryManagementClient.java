@@ -1,6 +1,11 @@
 package grpc.smartWarehouse.inventoryManagement;
 
+
+import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
+
 import java.io.IOException;
+//import java.io.ObjectInputFilter.Status;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
@@ -10,12 +15,15 @@ import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
 import grpc.smartWarehouse.inventoryManagement.InventoryManagementGrpc.InventoryManagementBlockingStub;
+import io.grpc.Deadline;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
 public class InventoryManagementClient {
@@ -80,19 +88,38 @@ public class InventoryManagementClient {
 //	RPC Method 1 : Check Item (Unary RPC)
 	private static void checkItem(ManagedChannel channel) {
 		System.out.println("Enter checkItem");
-		InventoryManagementBlockingStub blockingStub = InventoryManagementGrpc.newBlockingStub(channel);
-
+//		InventoryManagementBlockingStub blockingStub = InventoryManagementGrpc.newBlockingStub(channel);
+		InventoryManagementGrpc.InventoryManagementBlockingStub stub = InventoryManagementGrpc.newBlockingStub(channel);
+		
 		System.out.println("Enter the itemID you want to check the quantities.");
 		String setItemID = sc.nextLine();
 
 		InventoryRequest request = InventoryRequest.newBuilder().setItemID(setItemID).build();
 
-		InventoryReply reply = blockingStub.checkItem(request);
+//		InventoryReply reply = blockingStub.checkItem(request);
+		
+		// Deadline not exceed case
+		InventoryReply reply = stub.withDeadline(Deadline.after(3, TimeUnit.SECONDS)).checkItem(request);
 
 		System.out.println("Message sent by the server ");
 
 		System.out.print("The quanties of " + request.getItemID() + " : ");
 		System.out.println(reply.getCurrentQuantities());
+		
+		
+		// Deadline exceeded case
+//		try {
+//			InventoryReply reply = stub.withDeadline(Deadline.after(100, TimeUnit.MILLISECONDS)).checkItem(request);
+//			System.out.println("Within DeadLine" + reply.getCurrentQuantities());
+//		} catch (StatusRuntimeException e) {
+//			// TODO: handle exception
+//			if(e.getStatus().getCode() == Status.Code.DEADLINE_EXCEEDED) {
+//				System.out.println("Deadline has been exceeded");
+//			} else {
+//				System.out.println("Got an exception in checkItem");
+//				e.printStackTrace();
+//			}
+//		}
 		
 		
 	}

@@ -8,6 +8,8 @@ import java.util.*;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
+import io.grpc.Context;
+
 import grpc.smartWarehouse.inventoryManagement.InventoryManagementGrpc.InventoryManagementImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -81,27 +83,48 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 
 	@Override
 	public void checkItem(InventoryRequest request, StreamObserver<InventoryReply> responseObserver) {
-
 		// TODO Auto-generated method stub
-		System.out.println("— Receiving Check Item Request from Client —");
-
-//		System.out.printf("The quantities of " + request.getItemID() + " is " );
-
-		// test
-		int index = 0;
-		int currentQuantitie = 0;
-		for (int i = index; i < stocks.length; i++) {
-			if (stocks[i].getItemID().equals(request.getItemID())) {
-				index = i;
-				currentQuantitie = stocks[i].getCurrentQuantities();
-				break;
+		
+		//Deadline
+		Context context = Context.current();
+		
+		try {
+			for (int i = 0; i < 3; ++i) {
+				if(context.isCancelled()) {
+					return;
+				}
+				
+				Thread.sleep(100);
 			}
+			
+			System.out.println("--- Receiving Check Item Request from Client ---");
+//			System.out.printf("The quantities of " + request.getItemID() + " is " );
+			
+			int index = 0;
+			int currentQuantitie = 0;
+			for (int i = index; i < stocks.length; i++) {
+				if (stocks[i].getItemID().equals(request.getItemID())) {
+					index = i;
+					currentQuantitie = stocks[i].getCurrentQuantities();
+					break;
+				}
+			}
+
+			InventoryReply reply = InventoryReply.newBuilder().setCurrentQuantities(currentQuantitie).build();
+
+			responseObserver.onNext(reply);
+			responseObserver.onCompleted();
+			
+			
+		}catch (InterruptedException e) {
+			// TODO: handle exception
+			responseObserver .onError(e);
 		}
+		
+		
 
-		InventoryReply reply = InventoryReply.newBuilder().setCurrentQuantities(currentQuantitie).build();
 
-		responseObserver.onNext(reply);
-		responseObserver.onCompleted();
+
 	}
 
 //	RPC Method 2 : Modify Quantity (Client Streaming RPC)
@@ -109,7 +132,7 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 	@Override
 	public StreamObserver<InventoryRequest> modifyQuantity(StreamObserver<InventoryReply> responseObserver) {
 		// TODO Auto-generated method stub
-		System.out.println("— Receiving modify Quantity Request from Client —");
+		System.out.println("--- Receiving modify Quantity Request from Client ---");
 
 		StringBuilder sb = new StringBuilder();
 
@@ -156,7 +179,7 @@ public class InventoryManagementServer extends InventoryManagementImplBase {
 	public void alertOutOfStock(InventoryRequest request, StreamObserver<InventoryReply> responseObserver) {
 		// TODO Auto-generated method stub
 
-		System.out.println("— Receiving alert Out Of Stock Request from Client —");
+		System.out.println("--- Receiving alert Out Of Stock Request from Client ---");
 
 		InventoryReply reply;
 		int checkNumber = 0;

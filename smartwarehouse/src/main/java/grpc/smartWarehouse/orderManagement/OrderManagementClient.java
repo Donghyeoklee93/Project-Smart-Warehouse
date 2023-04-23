@@ -85,6 +85,9 @@ public class OrderManagementClient {
 		String itemID = sc.next();
 		int orderQuantities = sc.nextInt();
 		
+		//Error implementing check
+		try {
+		
 		OrderRequest request = OrderRequest.newBuilder()
 				.setCustomerName(customerName)
 				.setItemID(itemID)
@@ -97,6 +100,12 @@ public class OrderManagementClient {
 		System.out.println(reply.getOrderID());
 		System.out.println(reply.getCurrentStatus());
 		System.out.println(reply.getSuccessFailureMessage());
+		
+		} catch (RuntimeException e) {
+			// TODO: handle exception
+			System.out.println("Got an Exception for order quantity" + "\nOrder Quantity : " + orderQuantities);
+			e.printStackTrace();
+		}
 
 	}
 
